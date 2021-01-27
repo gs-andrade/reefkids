@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(-100)]
 public class PlayerInput 
 {
 
@@ -11,11 +10,14 @@ public class PlayerInput
     [HideInInspector] public bool JumpPressed;
     [HideInInspector] public bool JumpHolding;
 
-    [HideInInspector] public bool FireOnePressed;
+    [HideInInspector] public bool ChangeCharacter;
     [HideInInspector] public bool FireTwoPressed;
+    [HideInInspector] public bool FireThreePressed;
 
     [HideInInspector] public bool FireOneHolding;
     [HideInInspector] public bool FireTwoHolding;
+    [HideInInspector] public bool FireThreeHolding;
+
 
     [HideInInspector] public bool ColorPressed;
     [HideInInspector] public int ColorSwapDirection;
@@ -36,12 +38,16 @@ public class PlayerInput
         JumpPressed = Input.GetButtonDown("Jump");
         JumpHolding = Input.GetButton("Jump");
 
-        FireOnePressed = Input.GetButtonDown("Fire1");
+        ChangeCharacter = Input.GetButtonDown("Fire1");
         FireTwoPressed = Input.GetButtonDown("Fire2");
+        FireThreePressed = Input.GetButtonDown("Fire3");
 
         FireOneHolding = Input.GetButton("Fire1");
         FireTwoHolding = Input.GetButton("Fire2");
-            
+        FireThreeHolding = Input.GetButton("Fire3");
+
+
+
     }
 
     public bool DiagonalMove()
