@@ -21,6 +21,8 @@ public class CharacterInstance : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 lastFacingDirection;
 
+    private float disableTime;
+
     public void Setup()
     {
         cachedTf = transform;
@@ -31,6 +33,7 @@ public class CharacterInstance : MonoBehaviour
     private void LateUpdate()
     {
         CheckIfIsOnGround();
+        disableTime -= Time.deltaTime;
     }
     public bool CheckIfIsOnGround()
     {
@@ -42,10 +45,18 @@ public class CharacterInstance : MonoBehaviour
 
         collider.enabled = true;
 
-        if (leftCheck || rightCheck)
+        if (leftCheck || rightCheck || centerCheck)
             return true;
         else
             return false;
+    }
+
+    public bool IsDisabled()
+    {
+        if (disableTime > 0)
+            return true;
+
+        return false;
     }
 
     public void LockkMovement()
@@ -56,6 +67,15 @@ public class CharacterInstance : MonoBehaviour
     public void UnlockMovement()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    public void TakeDamage(Vector2 origin, Vector2 force)
+    {
+        var direction = ( new Vector2(cachedTf.position.x - origin.x, 1)).normalized;
+
+        disableTime = 1f;
+
+        SetMovement(direction * force);
     }
 
     public void SetMovement(Vector2 movement)

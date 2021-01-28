@@ -29,12 +29,14 @@ public class CharacterController : MonoBehaviour
 
     public void UpdateCharacters()
     {
+        var character = ActiveChar();
+
+        if (character.IsDisabled())
+            return;
+
         input.GetInputs();
 
-        var activeCharacterMovement = Vector2.zero;
-
-        var character = ActiveChar();
-        var horizontalMOvement = 0f;
+        var horizontalMOvement = 0f;  
 
         if (Input.GetKeyDown(KeyCode.S) && character.CheckIfIsOnGround())
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformMOvable : MonoBehaviour
+public class PlataformMove : MonoBehaviour
 {
     public Transform Plataform;
     public float Speed = 5f;
@@ -16,16 +16,19 @@ public class PlataformMOvable : MonoBehaviour
         nextLocation = points[0].transform.position;
     }
 
+    public void SetNextDestination()
+    {
+        moveIndex++;
+        if (moveIndex >= points.Length)
+            moveIndex = 0;
 
+        nextLocation = points[moveIndex].transform.position;
+    }
     private void Update()
     {
         if(Vector2.Distance(Plataform.position, nextLocation) < 0.05f)
         {
-            moveIndex++;
-            if (moveIndex >= points.Length)
-                moveIndex = 0;
-
-            nextLocation = points[moveIndex].transform.position;
+            SetNextDestination();
         }
         else
         {
