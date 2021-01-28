@@ -50,13 +50,11 @@ public class CharacterInstance : MonoBehaviour
 
     public void LockkMovement()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void UnlockMovement()
     {
-        rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -71,6 +69,11 @@ public class CharacterInstance : MonoBehaviour
     public void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+    }
+
+    public void Jump(float force)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, force);
     }
 
     public void SetXVelocity(float xMove)
