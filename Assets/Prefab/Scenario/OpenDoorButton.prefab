@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 851735905574291612}
   - component: {fileID: 851735905574291615}
   - component: {fileID: 851735905574291614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851735905574291584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 3.76, z: 0}
+  m_LocalPosition: {x: -1.94, y: -1.11, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 851735906788961445}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 851735906788961445}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OpenDoorButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 851735907119088779}
   - component: {fileID: 851735907119088776}
   - component: {fileID: 851735907119088777}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851735907119088778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.91, y: 0.19199467, z: 0.5882885}
+  m_LocalPosition: {x: 6.91, y: -0.69, z: 0.5882885}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 851735906788961445}

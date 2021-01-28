@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [Header("Character Attributes")]
-    public float Speed;
     private CharacterInstance[] characerInstances;
 
     private PlayerInput input;
@@ -34,6 +33,14 @@ public class CharacterController : MonoBehaviour
 
         var activeCharacterMovement = Vector2.zero;
 
+        var character = ActiveChar();
+        var horizontalMOvement = 0f;
+
+        if (Input.GetKeyDown(KeyCode.S) && character.CheckIfIsOnGround())
+        {
+            character.Jump();
+        }
+
         if (input.ChangeCharacter)
         {
             SwapCharacter();
@@ -42,18 +49,17 @@ public class CharacterController : MonoBehaviour
         {
             ActiveChar().UseSkill();
         }
-        else if (input.Horizontal != 0 || input.Vertical != 0)
+        else if (input.Horizontal != 0)
         {
-            var moveDirection = new Vector2(input.Horizontal * Speed, input.Vertical * Speed);
-            activeCharacterMovement = Speed * moveDirection.normalized * Time.deltaTime;
+            horizontalMOvement = input.Horizontal * character.Speed;
         }
 
         for (int i = 0; i < characerInstances.Length; i++)
         {
             if (selectedCharacterIndex == i)
-                characerInstances[i].SetMovement(activeCharacterMovement);
+                characerInstances[i].SetXVelocity(horizontalMOvement);
             else
-                characerInstances[i].SetMovement(Vector2.zero);
+                characerInstances[i].SetXVelocity(0);
         }
     }
 

@@ -32,7 +32,7 @@ public class PlayerInput
 
     public void GetInputs()
     {
-        Horizontal = (Input.GetAxis("Horizontal"));
+        Horizontal = GetClampedValue((Input.GetAxis("Horizontal")));
         Vertical = (Input.GetAxis("Vertical"));
 
         JumpPressed = Input.GetButtonDown("Jump");
