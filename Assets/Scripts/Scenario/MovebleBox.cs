@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovebleBox : MonoBehaviour
 {
-    private BoxState boxState;
+    private InteractiveState boxState;
     private Rigidbody2D rb;
     private float unlockedDelay;
     private void LockkMovement()
@@ -13,7 +13,7 @@ public class MovebleBox : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
 
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        boxState = BoxState.Locked;
+        boxState = InteractiveState.Locked;
     }
 
     private void UnlockMovement()
@@ -23,13 +23,13 @@ public class MovebleBox : MonoBehaviour
 
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        boxState = BoxState.Unlocked;
+        boxState = InteractiveState.Unlocked;
         unlockedDelay = 0.05f;
     }
 
     private void Update()
     {
-        if(boxState == BoxState.Unlocked)
+        if(boxState == InteractiveState.Unlocked)
         {
             if (unlockedDelay > 0)
                 unlockedDelay -= Time.deltaTime;
@@ -52,7 +52,7 @@ public class MovebleBox : MonoBehaviour
  
 }
 
-public enum BoxState
+public enum InteractiveState
 {
     Locked,
     Unlocked

@@ -11,7 +11,7 @@ public class PlayerInput
     [HideInInspector] public bool JumpHolding;
 
     [HideInInspector] public bool ChangeCharacter;
-    [HideInInspector] public bool FireTwoPressed;
+    [HideInInspector] public bool UseSkill;
     [HideInInspector] public bool FireThreePressed;
 
     [HideInInspector] public bool FireOneHolding;
@@ -39,7 +39,7 @@ public class PlayerInput
         JumpHolding = Input.GetButton("Jump");
 
         ChangeCharacter = Input.GetButtonDown("Fire1");
-        FireTwoPressed = Input.GetButtonDown("Fire2");
+        UseSkill = Input.GetButtonDown("Fire2");
         FireThreePressed = Input.GetButtonDown("Fire3");
 
         FireOneHolding = Input.GetButton("Fire1");

@@ -11,6 +11,7 @@ public class CharacterInstance : MonoBehaviour
     private Transform cachedTf;
     private BoxCollider2D collider;
     private Rigidbody2D rb;
+    private Vector2 lastFacingDirection;
 
     public void Setup()
     {
@@ -33,6 +34,9 @@ public class CharacterInstance : MonoBehaviour
     public void SetMovement(Vector2 movement)
     {
         rb.velocity = movement;
+
+        if (movement != Vector2.zero)
+            lastFacingDirection = movement.normalized;
     }
 
     public void UseSkill()
@@ -41,6 +45,19 @@ public class CharacterInstance : MonoBehaviour
         {
             case CharacterType.Ranged:
                 {
+                    collider.enabled = false;
+                    var hit = Physics2D.Raycast(cachedTf.position, lastFacingDirection, 3f);
+                    collider.enabled = true;
+
+                    if (hit)
+                        Debug.Log(hit.collider.gameObject.name);
+
+                    break;
+                }
+
+            case CharacterType.Tiny:
+                {
+                    transform.localScale = Vector2.one / 2;
                     break;
                 }
         }

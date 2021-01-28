@@ -38,6 +38,10 @@ public class CharacterController : MonoBehaviour
         {
             SwapCharacter();
         }
+        else if (input.UseSkill)
+        {
+            ActiveChar().UseSkill();
+        }
         else if (input.Horizontal != 0 || input.Vertical != 0)
         {
             var moveDirection = new Vector2(input.Horizontal * Speed, input.Vertical * Speed);
