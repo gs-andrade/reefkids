@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,23 +9,34 @@ public class GameplayController : MonoBehaviour
 
     public Transform LevelHold;
 
-    public Level[] levels;
-    public int currentLevelIndex;
+
+    private GameState state;
+
+    private Level[] levels;
+    private int currentLevelIndex;
 
     private CharacterController characters;
     private Camera mainCamera;
 
     private int lifeCurrent;
 
+    private IUpdatable[] updatables;
+
+    private List<Action> onPause = new List<Action>();
+    private List<Action> onUnpause = new List<Action>();
+
     private void Awake()
     {
+
+        instance = this;
+
         if (levels == null || levels.Length == 0)
             levels = LevelHold.GetComponentsInChildren<Level>(true);
 
         if (characters == null)
             characters = GetComponentInChildren<CharacterController>();
 
-        instance = this;
+        updatables = GetComponentsInChildren<IUpdatable>();
 
         currentLevelIndex = -1;
         mainCamera = Camera.main;
@@ -33,6 +45,18 @@ public class GameplayController : MonoBehaviour
         StartNextLevel();
 
         lifeCurrent = 3;
+
+        state = GameState.Game;
+    }
+
+    public void RegisterPause(Action action)
+    {
+        onPause.Add(action);
+    }
+
+    public void RegisterUnpause(Action action)
+    {
+        onUnpause.Add(action);
     }
 
     public void StartNextLevel()
@@ -82,7 +106,7 @@ public class GameplayController : MonoBehaviour
     {
         lifeCurrent -= ammount;
 
-        if(lifeCurrent <= 0)
+        if (lifeCurrent <= 0)
         {
             RestarLevel();
             return false;
@@ -91,15 +115,59 @@ public class GameplayController : MonoBehaviour
         return true;
     }
 
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        switch (state)
         {
-            RestarLevel();
-            return;
-        }
 
-        characters.UpdateCharacters();
+            case GameState.Game:
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        state = GameState.Paused;
+
+                        for (int i = 0; i < onPause.Count; i++)
+                            onPause[i]();
+
+                        return;
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        RestarLevel();
+                        return;
+                    }
+
+                    for (int i = 0; i < updatables.Length; i++)
+                    {
+                        updatables[i].UpdateObj();
+                    }
+
+                    LevelCurrent().UpdateObjs();
+
+                    characters.UpdateCharacters();
+
+                    break;
+                }
+
+            case GameState.Paused:
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        state = GameState.Game;
+
+                        for (int i = 0; i < onPause.Count; i++)
+                            onUnpause[i]();
+                    }
+                    break;
+                }
+        }
     }
+}
+
+
+public enum GameState
+{
+    Game,
+    Paused,
 }

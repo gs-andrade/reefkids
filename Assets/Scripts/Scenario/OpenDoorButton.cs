@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoorButton : MonoBehaviour, IInterctable
+public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
 {
     public Transform Door;
     private BoxCollider2D collider;
@@ -28,9 +28,9 @@ public class OpenDoorButton : MonoBehaviour, IInterctable
      
     }
 
-    private void FixedUpdate()
+    public void UpdateObj()
     {
-        if(boxState == InteractiveState.Unlocked)
+        if (boxState == InteractiveState.Unlocked)
         {
             collider.enabled = false;
             var hit = Physics2D.BoxCast(transform.position, Vector2.one, 0, Vector2.zero);
@@ -45,7 +45,6 @@ public class OpenDoorButton : MonoBehaviour, IInterctable
         {
             Door.gameObject.SetActive(true);
         }
-
     }
 
 }

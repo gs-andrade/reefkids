@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformMove : MonoBehaviour, IInterctable
+public class PlataformMove : MonoBehaviour, IInterctable, IUpdatable
 {
     public Transform Plataform;
     public float Speed = 5f;
@@ -26,17 +26,6 @@ public class PlataformMove : MonoBehaviour, IInterctable
 
         nextLocation = points[moveIndex].transform.position;
     }
-    private void Update()
-    {
-        if(Vector2.Distance(Plataform.position, nextLocation) < 0.05f)
-        {
-            SetNextDestination();
-        }
-        else
-        {
-            Plataform.position = Vector2.MoveTowards(Plataform.position, nextLocation, Speed * Time.deltaTime);
-        }
-    }
 
     public void SaveStart()
     {
@@ -47,5 +36,17 @@ public class PlataformMove : MonoBehaviour, IInterctable
     {
         Plataform.transform.position = plataformStartPosition;
         moveIndex = 0;
+    }
+
+    public void UpdateObj()
+    {
+        if (Vector2.Distance(Plataform.position, nextLocation) < 0.05f)
+        {
+            SetNextDestination();
+        }
+        else
+        {
+            Plataform.position = Vector2.MoveTowards(Plataform.position, nextLocation, Speed * Time.deltaTime);
+        }
     }
 }

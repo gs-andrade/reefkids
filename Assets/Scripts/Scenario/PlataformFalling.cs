@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformFalling : MonoBehaviour, IInterctable
+public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
 {
     public float TimeBeforeFall;
     public float FallSpeed;
@@ -13,6 +13,10 @@ public class PlataformFalling : MonoBehaviour, IInterctable
     private float startYPos;
     private Vector2 startPosition;
 
+
+    private Vector3 savedVelocity;
+    private float savedAngularVelocity;
+    private RigidbodyConstraints2D savedConstraints;
     public void Reset()
     {
         if (rb != null)
@@ -27,6 +31,25 @@ public class PlataformFalling : MonoBehaviour, IInterctable
     {
         startPosition = transform.position;
         timerBeforeFall = TimeBeforeFall;
+
+        GameplayController.instance.RegisterPause(OnPauseGame);
+        GameplayController.instance.RegisterUnpause(OnResumeGame);
+    }
+
+    public void UpdateObj()
+    {
+        if (state == InteractiveState.Unlocked)
+        {
+            if (timerBeforeFall > 0)
+            {
+                timerBeforeFall -= Time.deltaTime;
+            }
+            else
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                rb.gravityScale = FallSpeed;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,19 +67,19 @@ public class PlataformFalling : MonoBehaviour, IInterctable
         }
     }
 
-    private void Update()
+    private void OnPauseGame()
     {
-        if(state == InteractiveState.Unlocked)
-        {
-            if(timerBeforeFall > 0)
-            {
-                timerBeforeFall -= Time.deltaTime;
-            }
-            else
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-                rb.gravityScale = FallSpeed;
-            }
-        }
+        savedVelocity = rb.velocity;
+        savedAngularVelocity = rb.angularVelocity;
+        savedConstraints = rb.constraints;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
+
+    private void OnResumeGame()
+    {
+        rb.velocity = savedVelocity;
+        rb.angularVelocity = savedAngularVelocity;
+        rb.constraints = savedConstraints;
+    }
+
 }

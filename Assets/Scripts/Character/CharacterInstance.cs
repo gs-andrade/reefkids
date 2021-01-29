@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterInstance : MonoBehaviour
+public class CharacterInstance : MonoBehaviour, IUpdatable
 {
 
     [Header("Ground Collision Checks")]
@@ -23,18 +23,24 @@ public class CharacterInstance : MonoBehaviour
 
     private float disableTime;
 
+
+    private Vector3 savedVelocity;
+    private float savedAngularVelocity;
+    private RigidbodyConstraints2D savedConstraints;
+
+
     public void Setup()
     {
         cachedTf = transform;
         collider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+
+
+        GameplayController.instance.RegisterPause(OnPauseGame);
+        GameplayController.instance.RegisterUnpause(OnResumeGame);
+
     }
 
-    private void LateUpdate()
-    {
-        CheckIfIsOnGround();
-        disableTime -= Time.deltaTime;
-    }
     public bool CheckIfIsOnGround()
     {
         collider.enabled = false;
@@ -71,11 +77,11 @@ public class CharacterInstance : MonoBehaviour
 
     public void TakeDamage(Vector2 origin, Vector2 force, int ammount = 1)
     {
-        var direction = ( new Vector2(cachedTf.position.x - origin.x, 1)).normalized;
+        var direction = (new Vector2(cachedTf.position.x - origin.x, 1)).normalized;
 
         disableTime = 1f;
 
-        if(GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
+        if (GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
             SetMovement(direction * force);
     }
 
@@ -127,6 +133,26 @@ public class CharacterInstance : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    public void UpdateObj()
+    {
+        disableTime -= Time.deltaTime;
+    }
+
+    private void OnPauseGame()
+    {
+        savedVelocity = rb.velocity;
+        savedAngularVelocity = rb.angularVelocity;
+        savedConstraints = rb.constraints;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    private void OnResumeGame()
+    {
+        rb.velocity = savedVelocity;
+        rb.angularVelocity = savedAngularVelocity;
+        rb.constraints = savedConstraints;
     }
 }
 

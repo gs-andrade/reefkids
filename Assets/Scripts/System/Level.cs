@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     public float CamereSize = 13f;
 
     private IInterctable[] interctables;
+    private IUpdatable[] updatables;
     private EndLevelPoint endLevelPoint;
 
     public void Setup(Action endLevel)
@@ -19,11 +20,24 @@ public class Level : MonoBehaviour
 
         endLevelPoint = GetComponentInChildren<EndLevelPoint>(true);
 
+        updatables = GetComponentsInChildren<IUpdatable>(true);
+
         endLevelPoint.Setup(endLevel);
 
         for (int i = 0; i < interctables.Length; i++)
         {
             interctables[i].SaveStart();
+        }
+    }
+
+    public void UpdateObjs()
+    {
+        if (updatables == null)
+            return;
+
+        for(int i = 0; i < updatables.Length; i++)
+        {
+            updatables[i].UpdateObj();
         }
     }
 
