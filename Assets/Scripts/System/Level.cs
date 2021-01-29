@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
 {
     public Vector2 CameraPosition;
     public Transform CharactersStartPosition;
+    public float CamereSize = 13f;
 
     private IInterctable[] interctables;
     private EndLevelPoint endLevelPoint;

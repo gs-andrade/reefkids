@@ -33,7 +33,6 @@ public class GameplayController : MonoBehaviour
     public void StartNextLevel()
     {
         
-
         if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
             LevelCurrent().gameObject.SetActive(false);
 
@@ -45,14 +44,15 @@ public class GameplayController : MonoBehaviour
             return;
         }
 
-        ResetCameraPos();
         LevelCurrent().Setup(EndLevel);
         LevelCurrent().gameObject.SetActive(true);
+        RestarLevel();
     }
 
     private void ResetCameraPos()
     {
         mainCamera.transform.position = new Vector3(LevelCurrent().CameraPosition.x, LevelCurrent().CameraPosition.y, -10);
+        mainCamera.orthographicSize = LevelCurrent().CamereSize;
     }
 
     private Level LevelCurrent()
