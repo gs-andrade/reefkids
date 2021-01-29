@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 1
+  WireMode: 0
   Color: {r: 1, g: 0.10503872, b: 0, a: 1}
 --- !u!1 &8011128263956557346
 GameObject:
@@ -58,7 +59,7 @@ GameObject:
   - component: {fileID: 8011128263956557345}
   - component: {fileID: 8011128263956557358}
   m_Layer: 0
-  m_Name: Plataform
+  m_Name: Crab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +180,7 @@ GameObject:
   - component: {fileID: 8011128264246170731}
   - component: {fileID: 8011128264246170728}
   m_Layer: 9
-  m_Name: Crab
+  m_Name: CrabHold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,4 +261,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 1
+  WireMode: 0
   Color: {r: 1, g: 0.10503872, b: 0, a: 1}

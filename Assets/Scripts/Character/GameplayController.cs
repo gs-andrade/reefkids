@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameplayController : MonoBehaviour
 {
+    public static GameplayController instance { private set; get; }
+
     public Transform LevelHold;
 
     public Level[] levels;
@@ -11,6 +13,8 @@ public class GameplayController : MonoBehaviour
 
     private CharacterController characters;
     private Camera mainCamera;
+
+    private int lifeCurrent;
 
     private void Awake()
     {
@@ -20,19 +24,19 @@ public class GameplayController : MonoBehaviour
         if (characters == null)
             characters = GetComponentInChildren<CharacterController>();
 
+        instance = this;
+
         currentLevelIndex = -1;
         mainCamera = Camera.main;
 
         characters.Setup();
         StartNextLevel();
 
-       
-
+        lifeCurrent = 3;
     }
 
     public void StartNextLevel()
     {
-        
         if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
             LevelCurrent().gameObject.SetActive(false);
 
@@ -68,9 +72,23 @@ public class GameplayController : MonoBehaviour
 
     public void RestarLevel()
     {
+        lifeCurrent = 3;
         LevelCurrent().ResetLevel();
         characters.ResetCharacterToStartPosition(LevelCurrent().CharactersStartPosition.position);
         ResetCameraPos();
+    }
+
+    public bool TakeDamageAndCheckIfIsAlive(int ammount)
+    {
+        lifeCurrent -= ammount;
+
+        if(lifeCurrent <= 0)
+        {
+            RestarLevel();
+            return false;
+        }
+
+        return true;
     }
 
 

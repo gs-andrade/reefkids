@@ -69,13 +69,14 @@ public class CharacterInstance : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    public void TakeDamage(Vector2 origin, Vector2 force)
+    public void TakeDamage(Vector2 origin, Vector2 force, int ammount = 1)
     {
         var direction = ( new Vector2(cachedTf.position.x - origin.x, 1)).normalized;
 
         disableTime = 1f;
 
-        SetMovement(direction * force);
+        if(GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
+            SetMovement(direction * force);
     }
 
     public void SetMovement(Vector2 movement)

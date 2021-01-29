@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 1
+  WireMode: 0
+  Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &6572061238845652494
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 1
+  WireMode: 0
+  Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &6572061239273586240
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +212,7 @@ GameObject:
   - component: {fileID: 6572061239273586243}
   - component: {fileID: 6572061239273586242}
   m_Layer: 9
-  m_Name: MovablePlataform
+  m_Name: PlataformMovable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

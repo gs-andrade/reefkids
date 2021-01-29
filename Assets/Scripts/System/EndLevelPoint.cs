@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class EndLevelPoint : MonoBehaviour
 {
-    public float Radius = 1f;
-    public Color Color = Color.yellow;
-
     private Action endLevel;
     private List<CharacterType> charactersInRange;
 
@@ -64,12 +61,4 @@ public class EndLevelPoint : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color;
-        Gizmos.DrawSphere(transform.position, Radius);
-    }
-
-#endif
 }
