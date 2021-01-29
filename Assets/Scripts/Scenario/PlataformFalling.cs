@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformFalling : MonoBehaviour
+public class PlataformFalling : MonoBehaviour, IInterctable
 {
     public float TimeBeforeFall;
     public float FallSpeed;
 
-
+    private float timerBeforeFall;
     private Rigidbody2D rb;
     private InteractiveState state;
     private float startYPos;
+    private Vector2 startPosition;
+
+    public void Reset()
+    {
+        if (rb != null)
+            rb.gravityScale = 0;
+
+        state = InteractiveState.Locked;
+        transform.position = startPosition;
+        timerBeforeFall = TimeBeforeFall;
+    }
+
+    public void SaveStart()
+    {
+        startPosition = transform.position;
+        timerBeforeFall = TimeBeforeFall;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var character = collision.gameObject.GetComponent<CharacterInstance>();
@@ -30,9 +48,9 @@ public class PlataformFalling : MonoBehaviour
     {
         if(state == InteractiveState.Unlocked)
         {
-            if(TimeBeforeFall > 0)
+            if(timerBeforeFall > 0)
             {
-                TimeBeforeFall -= Time.deltaTime;
+                timerBeforeFall -= Time.deltaTime;
             }
             else
             {

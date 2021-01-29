@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoorButton : MonoBehaviour
+public class OpenDoorButton : MonoBehaviour, IInterctable
 {
     public Transform Door;
     private BoxCollider2D collider;
@@ -15,6 +15,17 @@ public class OpenDoorButton : MonoBehaviour
 
         boxState = InteractiveState.Unlocked;
 
+    }
+
+    public void Reset()
+    {
+        Door.gameObject.SetActive(true);
+        boxState = InteractiveState.Locked;
+    }
+
+    public void SaveStart()
+    {
+     
     }
 
     private void FixedUpdate()

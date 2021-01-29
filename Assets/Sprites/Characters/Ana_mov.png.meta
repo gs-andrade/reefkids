@@ -1,0 +1,586 @@
+fileFormatVersion: 2
+guid: 9076da08dda9e3a498da526657ec61ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2151606066379233622
+    second: Ana_mov_0
+  - first:
+      213: -5083126131897599372
+    second: Ana_mov_1
+  - first:
+      213: 7984372407952273054
+    second: Ana_mov_2
+  - first:
+      213: -6700539479119773769
+    second: Ana_mov_3
+  - first:
+      213: 5848075661372884344
+    second: Ana_mov_4
+  - first:
+      213: -8852721064529707268
+    second: Ana_mov_5
+  - first:
+      213: -4623382122467317555
+    second: Ana_mov_6
+  - first:
+      213: 8820340964849336727
+    second: Ana_mov_7
+  - first:
+      213: -5248961619480002986
+    second: Ana_mov_8
+  - first:
+      213: 5007267474746648975
+    second: Ana_mov_9
+  - first:
+      213: 2903104861144091859
+    second: Ana_mov_10
+  - first:
+      213: 7577398379304433743
+    second: Ana_mov_11
+  - first:
+      213: -2297587125770024377
+    second: Ana_mov_12
+  - first:
+      213: 1143141500959939138
+    second: Ana_mov_13
+  - first:
+      213: 3130365539122665114
+    second: Ana_mov_14
+  - first:
+      213: -2188589906768871694
+    second: Ana_mov_15
+  - first:
+      213: -1220904754810583824
+    second: Ana_mov_16
+  - first:
+      213: 2209292179488004008
+    second: Ana_mov_17
+  - first:
+      213: -6379991362550389284
+    second: Ana_mov_18
+  - first:
+      213: -4244931248244217023
+    second: Ana_mov_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ana_mov_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1730
+        width: 496
+        height: 835
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6591c13515a0cdd10800000000000000
+      internalID: 2151606066379233622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_1
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1725
+        width: 499
+        height: 839
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47afcbfe6bb1579b0800000000000000
+      internalID: -5083126131897599372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_2
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 1723
+        width: 505
+        height: 842
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9eec6ae6603ece60800000000000000
+      internalID: 7984372407952273054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1723
+        width: 500
+        height: 841
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bfb59f38d6e203a0800000000000000
+      internalID: -6700539479119773769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1723
+        width: 499
+        height: 842
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8750dbf54d9882150800000000000000
+      internalID: 5848075661372884344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_5
+      rect:
+        serializedVersion: 2
+        x: 2499
+        y: 1721
+        width: 504
+        height: 844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfeb6157811d42580800000000000000
+      internalID: -8852721064529707268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_6
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 1721
+        width: 520
+        height: 844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8a171947276dfb0800000000000000
+      internalID: -4623382122467317555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 871
+        width: 503
+        height: 845
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791cba71065286a70800000000000000
+      internalID: 8820340964849336727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_8
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 870
+        width: 508
+        height: 846
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e3c3f9731f727b0800000000000000
+      internalID: -5248961619480002986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_9
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 871
+        width: 501
+        height: 847
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8924a71d336d7540800000000000000
+      internalID: 5007267474746648975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_10
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 870
+        width: 502
+        height: 847
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc043a6d76e94820800000000000000
+      internalID: 2903104861144091859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_11
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 870
+        width: 505
+        height: 846
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48bf00eda3582960800000000000000
+      internalID: 7577398379304433743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_12
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 870
+        width: 500
+        height: 848
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a87f7aea45d10e0800000000000000
+      internalID: -2297587125770024377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_13
+      rect:
+        serializedVersion: 2
+        x: 3022
+        y: 724
+        width: 502
+        height: 994
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a59b473214ddf00800000000000000
+      internalID: 1143141500959939138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 510
+        height: 864
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96d7885fda417b20800000000000000
+      internalID: 3130365539122665114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 13
+        width: 511
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe3900531190a1e0800000000000000
+      internalID: -2188589906768871694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_16
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 0
+        width: 514
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f40ee818997e0fe0800000000000000
+      internalID: -1220904754810583824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_17
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 8
+        width: 518
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a75e6b288bf8ae10800000000000000
+      internalID: 2209292179488004008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_18
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 0
+        width: 517
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5af1d88a7b577a0800000000000000
+      internalID: -6379991362550389284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ana_mov_19
+      rect:
+        serializedVersion: 2
+        x: 2572
+        y: 0
+        width: 610
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ba2743589f615c0800000000000000
+      internalID: -4244931248244217023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

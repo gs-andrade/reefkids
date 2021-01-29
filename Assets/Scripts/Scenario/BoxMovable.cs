@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxMovable : MonoBehaviour
+public class BoxMovable : MonoBehaviour, IInterctable
 {
     public InteractiveState boxState;
     private Rigidbody2D rb;
@@ -56,7 +56,17 @@ public class BoxMovable : MonoBehaviour
         }
     }
 
+    private Vector2 startPosition;
+    public void SaveStart()
+    {
+        startPosition = transform.position;
+    }
 
+    public void Reset()
+    {
+        transform.position = startPosition;
+        LockkMovement();
+    }
 }
 
 public enum InteractiveState
