@@ -11,7 +11,6 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     public float RayCastFootLenght;
     public LayerMask GroundLayer;
 
-
     public CharacterType CharacterType;
     public float Speed;
     public float JumpForce;
@@ -21,13 +20,12 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     private Rigidbody2D rb;
     private Vector2 lastFacingDirection;
 
+    private ICharacterPower characterPower;
     private float disableTime;
-
 
     private Vector3 savedVelocity;
     private float savedAngularVelocity;
     private RigidbodyConstraints2D savedConstraints;
-
 
     public void Setup()
     {
@@ -35,6 +33,13 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         collider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
 
+        if (characterPower == null)
+            characterPower = GetComponentInChildren<ICharacterPower>();
+
+        if (characterPower != null)
+        {
+            characterPower.Setup();
+        }
 
         GameplayController.instance.RegisterPause(OnPauseGame);
         GameplayController.instance.RegisterUnpause(OnResumeGame);
@@ -85,6 +90,11 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
             SetMovement(direction * force);
     }
 
+    public void SetGravity(float ammount)
+    {
+        rb.gravityScale = ammount;
+    }
+
     public void SetMovement(Vector2 movement)
     {
         rb.velocity = movement;
@@ -111,33 +121,35 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
             lastFacingDirection = rb.velocity.normalized;
     }
 
-    public void UseSkill()
+    public void PowerUser()
     {
-        switch (CharacterType)
+        if(characterPower != null)
         {
-            case CharacterType.Ranged:
-                {
-                    collider.enabled = false;
-                    var hit = Physics2D.Raycast(cachedTf.position, lastFacingDirection, 3f);
-                    collider.enabled = true;
+            characterPower.Use();
+        }
+    }
 
-                    if (hit)
-                        Debug.Log(hit.collider.gameObject.name);
-
-                    break;
-                }
-
-            case CharacterType.Tiny:
-                {
-                    transform.localScale = Vector2.one / 2;
-                    break;
-                }
+    public void PowerRelease()
+    {
+        if (characterPower != null)
+        {
+            characterPower.Release();
         }
     }
 
     public void UpdateObj()
     {
         disableTime -= Time.deltaTime;
+
+        switch (CharacterType)
+        {
+            case CharacterType.Ranged:
+                {
+
+
+                    break;
+                }
+        }
     }
 
     private void OnPauseGame()
@@ -155,7 +167,6 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         rb.constraints = savedConstraints;
     }
 }
-
 
 public enum CharacterType
 {

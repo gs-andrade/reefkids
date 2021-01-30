@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     public Vector2 CameraPosition;
     public Transform CharactersStartPosition;
     public float CamereSize = 13f;
+    public Transform[] CharacterStartPositionReference;
 
     private IInterctable[] interctables;
     private IUpdatable[] updatables;

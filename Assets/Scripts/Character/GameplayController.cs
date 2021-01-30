@@ -9,7 +9,6 @@ public class GameplayController : MonoBehaviour
 
     public Transform LevelHold;
 
-
     private GameState state;
 
     private Level[] levels;
@@ -27,7 +26,6 @@ public class GameplayController : MonoBehaviour
 
     private void Awake()
     {
-
         instance = this;
 
         if (levels == null || levels.Length == 0)
@@ -98,7 +96,7 @@ public class GameplayController : MonoBehaviour
     {
         lifeCurrent = 3;
         LevelCurrent().ResetLevel();
-        characters.ResetCharacterToStartPosition(LevelCurrent().CharactersStartPosition.position);
+        characters.ResetCharacterToStartPosition(LevelCurrent().CharacterStartPositionReference);
         ResetCameraPos();
     }
 
