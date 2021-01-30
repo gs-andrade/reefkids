@@ -193,7 +193,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   CharacterType: 2
-  Speed: 10
+  Speed: 6
   JumpForce: 10
 --- !u!61 &2154687977724584776
 BoxCollider2D:
