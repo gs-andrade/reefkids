@@ -9,6 +9,9 @@ public class GameplayController : MonoBehaviour
 
     public Transform LevelHold;
 
+    [Header("Interface Reference")]
+    public GameplayInterface GameplayInterface;
+
     private GameState state;
 
     private Level[] levels;
@@ -118,8 +121,15 @@ public class GameplayController : MonoBehaviour
         switch (state)
         {
 
+            case GameState.Menu:
+                {
+                    break;
+                }
+
             case GameState.Game:
                 {
+                    GameplayInterface.UpdateLifeAmmount(lifeCurrent);
+
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         state = GameState.Paused;
@@ -166,6 +176,7 @@ public class GameplayController : MonoBehaviour
 
 public enum GameState
 {
+    Menu,
     Game,
     Paused,
 }
