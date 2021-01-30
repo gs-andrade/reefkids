@@ -54,6 +54,7 @@ MonoBehaviour:
   CharacterType: 2
   Speed: 10
   JumpForce: 10
+  SoundKey: Light
 --- !u!61 &8688082616118228950
 BoxCollider2D:
   m_ObjectHideFlags: 0

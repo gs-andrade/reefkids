@@ -15,6 +15,8 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
 
         boxState = InteractiveState.Unlocked;
 
+        SoundController.instance.PlayAudioEffect("DoorOpen", SoundAction.Play);
+
     }
 
     public void Reset()

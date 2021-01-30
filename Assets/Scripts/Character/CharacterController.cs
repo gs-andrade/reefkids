@@ -10,6 +10,9 @@ public class CharacterController : MonoBehaviour
     private PlayerInput input;
     private int selectedCharacterIndex;
 
+    private CharacterType lastActiveCharacter;
+    private bool wasOnAir = true;
+
     public void Setup()
     {
         if (characerInstances == null || characerInstances.Length == 0)
@@ -24,6 +27,8 @@ public class CharacterController : MonoBehaviour
             input = new PlayerInput();
 
         SwapCharacter();
+
+        lastActiveCharacter = ActiveChar().CharacterType;
     }
 
 
@@ -36,11 +41,22 @@ public class CharacterController : MonoBehaviour
 
         input.GetInputs();
 
-        var horizontalMOvement = 0f;  
+        var horizontalMOvement = 0f;
 
-        if (Input.GetKeyDown(KeyCode.S) && character.CheckIfIsOnGround())
+        var grounded = character.CheckIfIsOnGround();
+
+        if (wasOnAir && lastActiveCharacter == character.CharacterType && grounded)
+        {
+            SoundController.instance.PlayAudioEffect(character.SoundKey + "Fall", SoundAction.Play);
+        }
+
+        lastActiveCharacter = character.CharacterType;
+        wasOnAir = !grounded;
+
+        if (Input.GetKeyDown(KeyCode.S) && grounded)
         {
             character.Jump();
+            SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
         }
 
         if (input.ChangeCharacter)
@@ -54,6 +70,10 @@ public class CharacterController : MonoBehaviour
         else if (input.Horizontal != 0)
         {
             horizontalMOvement = input.Horizontal * character.Speed;
+
+            if (grounded)
+                SoundController.instance.PlayAudioEffect(character.SoundKey + "Step", SoundAction.Play);
+
         }
 
         for (int i = 0; i < characerInstances.Length; i++)

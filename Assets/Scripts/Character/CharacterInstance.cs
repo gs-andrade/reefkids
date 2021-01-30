@@ -15,6 +15,9 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     public float Speed;
     public float JumpForce;
 
+    [Header("SoundEffect")]
+    public string SoundKey;
+
     private Transform cachedTf;
     private BoxCollider2D collider;
     private Rigidbody2D rb;
@@ -85,6 +88,8 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         var direction = (new Vector2(cachedTf.position.x - origin.x, 1)).normalized;
 
         disableTime = 1f;
+
+        SoundController.instance.PlayAudioEffect("Damage");
 
         if (GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
             SetMovement(direction * force);
