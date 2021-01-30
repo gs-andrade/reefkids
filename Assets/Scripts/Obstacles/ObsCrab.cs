@@ -6,6 +6,9 @@ public class ObsCrab : MonoBehaviour
 {
     public Vector2 KnockbackForce;
     private PlataformMove moveScript;
+
+    private Vector2 startPosition;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var character = collision.gameObject.GetComponent<CharacterInstance>();

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxMovable : MonoBehaviour
+public class BoxMovable : MonoBehaviour, IInterctable, IUpdatable
 {
     public InteractiveState boxState;
     private Rigidbody2D rb;
-    public float unlockedDelay;
+    private float unlockedDelay;
     private void LockkMovement()
     {
         if (rb == null)
@@ -24,16 +24,6 @@ public class BoxMovable : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         boxState = InteractiveState.Unlocked;
         unlockedDelay = 0.05f;
-    }
-
-    private void Update()
-    {
-
-        if (unlockedDelay > 0)
-            unlockedDelay -= Time.deltaTime;
-        else
-            LockkMovement();
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,7 +46,26 @@ public class BoxMovable : MonoBehaviour
         }
     }
 
+    private Vector2 startPosition;
+    public void SaveStart()
+    {
+        startPosition = transform.position;
+    }
 
+    public void Reset()
+    {
+        transform.position = startPosition;
+        LockkMovement();
+    }
+
+    public void UpdateObj()
+    {
+
+        if (unlockedDelay > 0)
+            unlockedDelay -= Time.deltaTime;
+        else
+            LockkMovement();
+    }
 }
 
 public enum InteractiveState
