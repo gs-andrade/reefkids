@@ -128,7 +128,7 @@ public class GameplayController : MonoBehaviour
 
             case GameState.Game:
                 {
-                    GameplayInterface.UpdateLifeAmmount(lifeCurrent);
+                   // GameplayInterface.UpdateLifeAmmount(lifeCurrent);
 
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
