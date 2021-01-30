@@ -15,11 +15,10 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
 
         boxState = InteractiveState.Unlocked;
 
-        SoundController.instance.PlayAudioEffect("DoorOpen", SoundAction.Play);
-
+        
     }
 
-    public void Reset()
+    public void ResetObj()
     {
         Door.gameObject.SetActive(true);
         boxState = InteractiveState.Locked;
@@ -42,6 +41,7 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
                 boxState = InteractiveState.Locked;
 
             Door.gameObject.SetActive(false);
+     
         }
         else
         {

@@ -54,7 +54,7 @@ public class BoxMovable : MonoBehaviour, IInterctable, IUpdatable
         startPosition = transform.position;
     }
 
-    public void Reset()
+    public void ResetObj()
     {
         transform.position = startPosition;
         LockkMovement();

@@ -19,7 +19,7 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
     private RigidbodyConstraints2D savedConstraints;
 
     private bool soundPlayed;
-    public void Reset()
+    public void ResetObj()
     {
         if (rb != null)
             rb.gravityScale = 0;

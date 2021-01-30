@@ -1270,6 +1270,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbec87ab705ca64b911133c7c527f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &787593610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 415766067}
+    m_Modifications:
+    - target: {fileID: 851735906788961444, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_Name
+      value: OpenDoorButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.624608
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.9221406
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2431624
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851735906788961445, guid: acc4656a56b87a44e944dc640069639d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: acc4656a56b87a44e944dc640069639d, type: 3}
 --- !u!1 &822279664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3064,10 @@ PrefabInstance:
     - target: {fileID: 1113478108, guid: dac9ab4fffcf8b04e9f505b42ea357c3, type: 3}
       propertyPath: m_Size.x
       value: 6.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065418117645915529, guid: dac9ab4fffcf8b04e9f505b42ea357c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.34
       objectReference: {fileID: 0}
     - target: {fileID: 1783460074290963346, guid: dac9ab4fffcf8b04e9f505b42ea357c3, type: 3}
       propertyPath: WireMode

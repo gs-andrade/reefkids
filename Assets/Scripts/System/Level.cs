@@ -48,7 +48,7 @@ public class Level : MonoBehaviour
 
         for (int i = 0; i < interctables.Length; i++)
         {
-            interctables[i].Reset();
+            interctables[i].ResetObj();
         }
     }
 }

@@ -32,7 +32,7 @@ public class PlataformMove : MonoBehaviour, IInterctable, IUpdatable
         plataformStartPosition = Plataform.transform.position;
     }
 
-    public void Reset()
+    public void ResetObj()
     {
         Plataform.transform.position = plataformStartPosition;
         moveIndex = 0;
