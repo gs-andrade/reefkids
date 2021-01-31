@@ -11,6 +11,7 @@ public class YoyoPower : MonoBehaviour, ICharacterPower
     private DistanceJoint2D rope;
     private Hook yoyoTarget;
     private InteractiveState hookState;
+    private LineRenderer line;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Hook")
@@ -51,6 +52,7 @@ public class YoyoPower : MonoBehaviour, ICharacterPower
     public void Setup()
     {
         character = GetComponentInParent<CharacterInstance>();
+        line = GetComponent<LineRenderer>();
         rope = GetComponentInParent<DistanceJoint2D>();
         rope.enabled = false;
     }
@@ -63,6 +65,7 @@ public class YoyoPower : MonoBehaviour, ICharacterPower
             rope.connectedBody = yoyoTarget.Rb;
             character.SetGravity(10);
             rope.enabled = true;
+           // line.SetPositions
         }
         else if (hookState == InteractiveState.Locked)
         {

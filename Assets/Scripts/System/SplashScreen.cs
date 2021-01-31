@@ -62,9 +62,9 @@ public class SplashScreen : MonoBehaviour
             else
             {
                 if (!isTextShow)
-                    ContinueTxt.color = Color.black;
+                    ContinueTxt.color = Color.white;
                 else
-                    ContinueTxt.color = new Color(0, 0, 0, 0);
+                    ContinueTxt.color = new Color(255, 255, 255, 0);
 
                 timerContnue = 0.75f;
 
@@ -84,7 +84,7 @@ public class SplashScreen : MonoBehaviour
 
             if(anotherFinalTimer <= 0.75f)
             {
-                ContinueTxt.color = new Color(0, 0, 0, 0);
+                ContinueTxt.color = new Color(255, 255, 255, 0);
                 Title.color = new Color(255, 255, 255, 0);
             }
         }

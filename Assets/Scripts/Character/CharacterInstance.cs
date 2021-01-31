@@ -14,6 +14,7 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     public CharacterType CharacterType;
     public float Speed;
     public float JumpForce;
+    public SpriteRenderer SelectCircle;
 
     [Header("SoundEffect")]
     public string SoundKey;
@@ -134,6 +135,11 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     {
         rb.velocity = new Vector2(rb.velocity.x, force);
         animator.SetBool("IsJumping", true);
+    }
+
+    public void ToogleSelect(bool toogle)
+    {
+        SelectCircle.enabled = toogle;
     }
 
     public void SetXVelocity(float xMove)

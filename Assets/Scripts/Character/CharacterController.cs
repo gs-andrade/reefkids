@@ -79,9 +79,15 @@ public class CharacterController : MonoBehaviour
         for (int i = 0; i < characerInstances.Length; i++)
         {
             if (selectedCharacterIndex == i)
+            {
                 characerInstances[i].SetXVelocity(horizontalMOvement);
+                characerInstances[i].ToogleSelect(true);
+            }
             else
+            {
                 characerInstances[i].SetXVelocity(0);
+                characerInstances[i].ToogleSelect(false);
+            }
         }
     }
 

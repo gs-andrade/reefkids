@@ -33,7 +33,7 @@ public class SoundController : MonoBehaviour
     private const string keyVolMaster = "volMaster";
     private const string keyVolMusic = "volMusic";
     private const string keyVolEffect = "volEffect";
-    private const float volDefaultValue = 0.5f;
+    private const float volDefaultValue = 1f;
 
     private void Awake()
     {

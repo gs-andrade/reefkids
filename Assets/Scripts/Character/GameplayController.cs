@@ -247,7 +247,7 @@ public class GameplayController : MonoBehaviour
                 {
                     GameplayInterface.UpdateLifeAmmount(lifeCurrent);
 
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.P))
                     {
                         state = GameState.Paused;
 
@@ -277,7 +277,7 @@ public class GameplayController : MonoBehaviour
 
             case GameState.Paused:
                 {
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.P))
                     {
                         state = GameState.Game;
                         UnpauseGame();
