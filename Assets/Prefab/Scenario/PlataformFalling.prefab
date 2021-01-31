@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8158083703599792268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.86, y: -3.57, z: 0}
-  m_LocalScale: {x: 5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -9.69, y: -3.57, z: 0}
+  m_LocalScale: {x: 9.75, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8158083703565081943}
   m_RootOrder: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67275c3dc976d8544822bdb8fa3a6b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBeforeFall: 3
+  TimeBeforeFall: 0.5
   FallSpeed: 10
 --- !u!50 &8158083703599792259
 Rigidbody2D:

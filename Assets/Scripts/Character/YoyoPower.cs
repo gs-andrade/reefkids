@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class YoyoPower : MonoBehaviour, ICharacterPower
 {
-    public float Angle;
-    public float distance;
+    public float VerticalMovementSpeed = 1f;
     private CharacterInstance character;
     private bool canUse;
 

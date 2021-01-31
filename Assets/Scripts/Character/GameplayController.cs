@@ -120,6 +120,12 @@ public class GameplayController : MonoBehaviour
         return true;
     }
 
+    public void HealPlayer()
+    {
+        if (lifeCurrent < 3)
+            lifeCurrent++;
+    }
+
     private void Update()
     {
         switch (state)
@@ -154,7 +160,7 @@ public class GameplayController : MonoBehaviour
                     }
 
                     break;
-                } 
+                }
 
             case GameState.LossAnimationPrepare:
                 {
@@ -178,13 +184,13 @@ public class GameplayController : MonoBehaviour
                         RestarLevel();
                         state = GameState.Game;
                     }
-                   
+
                     break;
                 }
 
             case GameState.Game:
                 {
-                    // GameplayInterface.UpdateLifeAmmount(lifeCurrent);
+                    GameplayInterface.UpdateLifeAmmount(lifeCurrent);
 
                     if (Input.GetKeyDown(KeyCode.Space))
                     {

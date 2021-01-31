@@ -52,7 +52,10 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
                 rb.gravityScale = FallSpeed;
 
                 if (!soundPlayed)
+                {
                     SoundController.instance.PlayAudioEffect("PlataformFall", SoundAction.Play);
+                    soundPlayed = true;
+                }
             }
         }
     }
@@ -61,7 +64,7 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
     {
         var character = collision.gameObject.GetComponent<CharacterInstance>();
 
-        if (character != null)
+        if (character != null &&  (character.transform.position.y - transform.position.y > 0))
         {
             if (rb == null)
                 rb = GetComponent<Rigidbody2D>();
@@ -74,6 +77,9 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
 
     private void OnPauseGame()
     {
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
         savedVelocity = rb.velocity;
         savedAngularVelocity = rb.angularVelocity;
         savedConstraints = rb.constraints;
@@ -82,6 +88,9 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
 
     private void OnResumeGame()
     {
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
         rb.velocity = savedVelocity;
         rb.angularVelocity = savedAngularVelocity;
         rb.constraints = savedConstraints;

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hook
+  - Yoyo
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,9 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
         if (collider == null)
             collider = GetComponent<BoxCollider2D>();
 
+        if (collider.gameObject.tag == "Yoyo")
+            return;
+
         boxState = InteractiveState.Unlocked;
 
         
