@@ -1,0 +1,856 @@
+fileFormatVersion: 2
+guid: a6543634bc7e71f448ec80a573ca44a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1447156790925174286
+    second: Toni Empurrando_0
+  - first:
+      213: -4292214683366583972
+    second: Toni Empurrando_1
+  - first:
+      213: 2911026857152798340
+    second: Toni Empurrando_2
+  - first:
+      213: -6698883983438844720
+    second: Toni Empurrando_3
+  - first:
+      213: 109340967563258988
+    second: Toni Empurrando_4
+  - first:
+      213: 5238129183525183038
+    second: Toni Empurrando_5
+  - first:
+      213: 5859503015281859010
+    second: Toni Empurrando_6
+  - first:
+      213: -1693431698266886800
+    second: Toni Empurrando_7
+  - first:
+      213: 7947198728205931680
+    second: Toni Empurrando_8
+  - first:
+      213: 6490278543283003285
+    second: Toni Empurrando_9
+  - first:
+      213: -5749503889800164239
+    second: Toni Empurrando_10
+  - first:
+      213: 4472784155750429178
+    second: Toni Empurrando_11
+  - first:
+      213: -8120655323780061335
+    second: Toni Empurrando_12
+  - first:
+      213: -5765004421146784885
+    second: Toni Empurrando_13
+  - first:
+      213: -693958587162236642
+    second: Toni Empurrando_14
+  - first:
+      213: 7995655015303528286
+    second: Toni Empurrando_15
+  - first:
+      213: -3826148982144495406
+    second: Toni Empurrando_16
+  - first:
+      213: -6136239911930615341
+    second: Toni Empurrando_17
+  - first:
+      213: -6202431699500700371
+    second: Toni Empurrando_18
+  - first:
+      213: -7998132961709522685
+    second: Toni Empurrando_19
+  - first:
+      213: 3740872486363975269
+    second: Toni Empurrando_20
+  - first:
+      213: 681183174082349509
+    second: Toni Empurrando_21
+  - first:
+      213: 6264448714133990517
+    second: Toni Empurrando_22
+  - first:
+      213: 2257200361807701268
+    second: Toni Empurrando_23
+  - first:
+      213: 7681653487833811317
+    second: Toni Empurrando_24
+  - first:
+      213: -5283702289458479683
+    second: Toni Empurrando_25
+  - first:
+      213: 5689190985747088144
+    second: Toni Empurrando_26
+  - first:
+      213: 8003858780754722509
+    second: Toni Empurrando_27
+  - first:
+      213: -2041918955348632139
+    second: Toni Empurrando_28
+  - first:
+      213: 3887098833805197172
+    second: Toni Empurrando_29
+  - first:
+      213: 6603666293565305747
+    second: Toni Empurrando_30
+  - first:
+      213: 5670731157002840586
+    second: Toni Empurrando_31
+  - first:
+      213: 8561026121426373488
+    second: Toni Empurrando_32
+  - first:
+      213: 5943085360913530153
+    second: Toni Empurrando_33
+  - first:
+      213: -8686072496330057101
+    second: Toni Empurrando_34
+  - first:
+      213: 7655645329546343991
+    second: Toni Empurrando_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 220
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Toni Empurrando_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 369
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06a3691f65551410800000000000000
+      internalID: 1447156790925174286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_1
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 342
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5118329c7dfe64c0800000000000000
+      internalID: -4292214683366583972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_2
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 0
+        width: 336
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ed638d08b066820800000000000000
+      internalID: 2911026857152798340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_3
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 350
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dce29f5288c803a0800000000000000
+      internalID: -6698883983438844720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_4
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 0
+        width: 372
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c610bd705748100800000000000000
+      internalID: 109340967563258988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_5
+      rect:
+        serializedVersion: 2
+        x: 2298
+        y: 0
+        width: 401
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e10a75db291b840800000000000000
+      internalID: 5238129183525183038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_6
+      rect:
+        serializedVersion: 2
+        x: 2752
+        y: 0
+        width: 395
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9943a82f2215150800000000000000
+      internalID: 5859503015281859010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_7
+      rect:
+        serializedVersion: 2
+        x: 3207
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d6a65b7d8bf78e0800000000000000
+      internalID: -1693431698266886800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_8
+      rect:
+        serializedVersion: 2
+        x: 3655
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a49622232f1a4e60800000000000000
+      internalID: 7947198728205931680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_9
+      rect:
+        serializedVersion: 2
+        x: 4104
+        y: 0
+        width: 394
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f19b9b2f9121a50800000000000000
+      internalID: 6490278543283003285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_10
+      rect:
+        serializedVersion: 2
+        x: 4558
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c0cb5aca8a530b0800000000000000
+      internalID: -5749503889800164239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_11
+      rect:
+        serializedVersion: 2
+        x: 5007
+        y: 0
+        width: 388
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1ff78ed75821e30800000000000000
+      internalID: 4472784155750429178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_12
+      rect:
+        serializedVersion: 2
+        x: 5455
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96764b21203ad4f80800000000000000
+      internalID: -8120655323780061335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_13
+      rect:
+        serializedVersion: 2
+        x: 5903
+        y: 0
+        width: 395
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b4df4f5079effa0800000000000000
+      internalID: -5765004421146784885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_14
+      rect:
+        serializedVersion: 2
+        x: 6351
+        y: 0
+        width: 396
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19ec5b77509e56f0800000000000000
+      internalID: -693958587162236642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_15
+      rect:
+        serializedVersion: 2
+        x: 6800
+        y: 0
+        width: 395
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fbcb5afd546fe60800000000000000
+      internalID: 7995655015303528286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_16
+      rect:
+        serializedVersion: 2
+        x: 7254
+        y: 3
+        width: 395
+        height: 605
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d01e85c5c9c6eac0800000000000000
+      internalID: -3826148982144495406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_17
+      rect:
+        serializedVersion: 2
+        x: 7703
+        y: 0
+        width: 395
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d92dc0bf42b7daa0800000000000000
+      internalID: -6136239911930615341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_18
+      rect:
+        serializedVersion: 2
+        x: 8157
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d63af2b398ce9a0800000000000000
+      internalID: -6202431699500700371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_19
+      rect:
+        serializedVersion: 2
+        x: 8606
+        y: 0
+        width: 388
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30106fe727ce00190800000000000000
+      internalID: -7998132961709522685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_20
+      rect:
+        serializedVersion: 2
+        x: 9060
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ec1c3d4bf3ae330800000000000000
+      internalID: 3740872486363975269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_21
+      rect:
+        serializedVersion: 2
+        x: 9509
+        y: 0
+        width: 388
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c9c62edc7c047900800000000000000
+      internalID: 681183174082349509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_22
+      rect:
+        serializedVersion: 2
+        x: 9957
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ceb9f3aeacfe650800000000000000
+      internalID: 6264448714133990517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_23
+      rect:
+        serializedVersion: 2
+        x: 10405
+        y: 0
+        width: 389
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4156e6815cf235f10800000000000000
+      internalID: 2257200361807701268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_24
+      rect:
+        serializedVersion: 2
+        x: 10853
+        y: 0
+        width: 396
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57989f5e527ba9a60800000000000000
+      internalID: 7681653487833811317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_25
+      rect:
+        serializedVersion: 2
+        x: 11302
+        y: 0
+        width: 395
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdb8e113c48ca6b0800000000000000
+      internalID: -5283702289458479683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_26
+      rect:
+        serializedVersion: 2
+        x: 11751
+        y: 0
+        width: 375
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0134fc41f0114fe40800000000000000
+      internalID: 5689190985747088144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_27
+      rect:
+        serializedVersion: 2
+        x: 12205
+        y: 0
+        width: 349
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dceb643a72b631f60800000000000000
+      internalID: 8003858780754722509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_28
+      rect:
+        serializedVersion: 2
+        x: 12653
+        y: 0
+        width: 330
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdde465785a9a3e0800000000000000
+      internalID: -2041918955348632139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toni Empurrando_29
+      rect:
+        serializedVersion: 2
+        x: 13095
+        y: 0
+        width: 336
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f3bcb6bcfb1f530800000000000000
+      internalID: 3887098833805197172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
