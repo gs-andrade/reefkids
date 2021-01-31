@@ -17,7 +17,9 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
     private Vector3 savedVelocity;
     private float savedAngularVelocity;
     private RigidbodyConstraints2D savedConstraints;
-    public void Reset()
+
+    private bool soundPlayed;
+    public void ResetObj()
     {
         if (rb != null)
             rb.gravityScale = 0;
@@ -48,6 +50,9 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 rb.gravityScale = FallSpeed;
+
+                if (!soundPlayed)
+                    SoundController.instance.PlayAudioEffect("PlataformFall", SoundAction.Play);
             }
         }
     }

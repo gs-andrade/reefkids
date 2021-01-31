@@ -8,6 +8,8 @@ public class SoundController : MonoBehaviour
 
     public static SoundController instance { private set; get; }
 
+    public GameObject SoundPrefab;
+
     [Header("Music Holder")]
     public Transform MusicHolder;
 
@@ -43,11 +45,20 @@ public class SoundController : MonoBehaviour
 
     public void Setup()
     {
+       
+        var effectClips = Resources.LoadAll<AudioClip>("Sounds/Effects");
+        soundsEffect = new AudioSource[effectClips.Length];
+
+        for (int i =0; i < effectClips.Length; i++)
+        {
+            var audioSource = Instantiate(SoundPrefab, EffectHolder).GetComponent<AudioSource>();
+            audioSource.clip = effectClips[i];
+            audioSource.gameObject.name = effectClips[i].name;
+            soundsEffect[i] = audioSource;
+        }
+
         if (soundsMusic == null || soundsMusic.Length == 0)
             soundsMusic = MusicHolder.GetComponentsInChildren<AudioSource>();
-
-        if (soundsEffect == null || soundsEffect.Length == 0)
-            soundsEffect = EffectHolder.GetComponentsInChildren<AudioSource>();
 
         LoadVolConfig(ref volMaster, ref ScrollVolMaster, keyVolMaster);
         LoadVolConfig(ref volMusic, ref ScrollVolMusic, keyVolMusic);
@@ -69,7 +80,7 @@ public class SoundController : MonoBehaviour
             bar.value = vol;
             bar.onValueChanged.RemoveAllListeners();
             bar.onValueChanged.AddListener((float val) => UpdateAllSoundConfig());
-            
+
         }
 
 
@@ -104,15 +115,18 @@ public class SoundController : MonoBehaviour
     }
 
 
-    public void PlayAudioEffect(string name, SoundAction action)
+    public void PlayAudioEffect(string name, SoundAction action = SoundAction.Play)
     {
-        for(int i = 0; i < soundsEffect.Length; i++)
+        for (int i = 0; i < soundsEffect.Length; i++)
         {
             var effect = soundsEffect[i];
             if (effect.name == name)
             {
                 if (action == SoundAction.Play)
-                    effect.Play();
+                {
+                    if (!effect.isPlaying)
+                        effect.Play();
+                }
                 else if (action == SoundAction.Stop)
                     effect.Stop();
 

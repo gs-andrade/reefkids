@@ -37,6 +37,8 @@ public class PlataformSeal : MonoBehaviour
                         }
                 }
 
+                SoundController.instance.PlayAudioEffect("PlataformSeal");
+
                 character.Jump(jumpForce);
             }
             

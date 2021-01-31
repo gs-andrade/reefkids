@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IInterctable 
 {
     void SaveStart();
-    void Reset();
+    void ResetObj();
 }

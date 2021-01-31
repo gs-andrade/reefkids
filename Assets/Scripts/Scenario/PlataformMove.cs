@@ -14,7 +14,7 @@ public class PlataformMove : MonoBehaviour, IInterctable, IUpdatable
     private Vector2 plataformStartPosition;
     private void Awake()
     {
-        points = GetComponentsInChildren<DrawPoint>();
+        points = GetComponentsInChildren<DrawPoint>(true);
         nextLocation = points[0].transform.position;
     }
 
@@ -32,7 +32,7 @@ public class PlataformMove : MonoBehaviour, IInterctable, IUpdatable
         plataformStartPosition = Plataform.transform.position;
     }
 
-    public void Reset()
+    public void ResetObj()
     {
         Plataform.transform.position = plataformStartPosition;
         moveIndex = 0;

@@ -24,6 +24,8 @@ public class BoxMovable : MonoBehaviour, IInterctable, IUpdatable
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         boxState = InteractiveState.Unlocked;
         unlockedDelay = 0.05f;
+
+        SoundController.instance.PlayAudioEffect("DragBox");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,7 +54,7 @@ public class BoxMovable : MonoBehaviour, IInterctable, IUpdatable
         startPosition = transform.position;
     }
 
-    public void Reset()
+    public void ResetObj()
     {
         transform.position = startPosition;
         LockkMovement();

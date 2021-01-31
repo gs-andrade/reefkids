@@ -11,6 +11,8 @@ public class GameplayController : MonoBehaviour
 
     [Header("Interface Reference")]
     public GameplayInterface GameplayInterface;
+    public BlackScreen BlackScreen;
+
 
     private GameState state;
 
@@ -26,6 +28,8 @@ public class GameplayController : MonoBehaviour
 
     private List<Action> onPause = new List<Action>();
     private List<Action> onUnpause = new List<Action>();
+
+    private float animationTimer;
 
     private void Awake()
     {
@@ -92,7 +96,7 @@ public class GameplayController : MonoBehaviour
 
     private void EndLevel()
     {
-        StartNextLevel();
+        state = GameState.WinAnimationPrepare;
     }
 
     public void RestarLevel()
@@ -109,7 +113,7 @@ public class GameplayController : MonoBehaviour
 
         if (lifeCurrent <= 0)
         {
-            RestarLevel();
+            state = GameState.LossAnimationPrepare;
             return false;
         }
 
@@ -126,16 +130,67 @@ public class GameplayController : MonoBehaviour
                     break;
                 }
 
+            case GameState.WinAnimationPrepare:
+                {
+                    animationTimer = 2.25f;
+                    SoundController.instance.PlayAudioEffect("WinSound");
+                    PauseGame();
+                    BlackScreen.ShowBlackScreen(2f, 1f);
+                    state = GameState.WinAnimationExecute;
+                    break;
+                }
+
+            case GameState.WinAnimationExecute:
+                {
+                    if (animationTimer > 0)
+                    {
+                        animationTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        UnpauseGame();
+                        StartNextLevel();
+                        state = GameState.Game;
+                    }
+
+                    break;
+                } 
+
+            case GameState.LossAnimationPrepare:
+                {
+                    animationTimer = 2.25f;
+                    SoundController.instance.PlayAudioEffect("LossSound");
+                    PauseGame();
+                    BlackScreen.ShowBlackScreen(2f, 1f);
+                    state = GameState.LossAnimationExecute;
+                    break;
+                }
+
+            case GameState.LossAnimationExecute:
+                {
+                    if (animationTimer > 0)
+                    {
+                        animationTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        UnpauseGame();
+                        RestarLevel();
+                        state = GameState.Game;
+                    }
+                   
+                    break;
+                }
+
             case GameState.Game:
                 {
-                   // GameplayInterface.UpdateLifeAmmount(lifeCurrent);
+                    // GameplayInterface.UpdateLifeAmmount(lifeCurrent);
 
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         state = GameState.Paused;
 
-                        for (int i = 0; i < onPause.Count; i++)
-                            onPause[i]();
+                        PauseGame();
 
                         return;
                     }
@@ -163,13 +218,24 @@ public class GameplayController : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         state = GameState.Game;
+                        UnpauseGame();
 
-                        for (int i = 0; i < onPause.Count; i++)
-                            onUnpause[i]();
                     }
                     break;
                 }
         }
+    }
+
+    private void PauseGame()
+    {
+        for (int i = 0; i < onPause.Count; i++)
+            onPause[i]();
+    }
+
+    private void UnpauseGame()
+    {
+        for (int i = 0; i < onUnpause.Count; i++)
+            onUnpause[i]();
     }
 }
 
@@ -179,4 +245,8 @@ public enum GameState
     Menu,
     Game,
     Paused,
+    LossAnimationPrepare,
+    LossAnimationExecute,
+    WinAnimationPrepare,
+    WinAnimationExecute,
 }

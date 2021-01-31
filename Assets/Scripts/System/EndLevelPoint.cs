@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EndLevelPoint : MonoBehaviour
 {
+    public SpriteRenderer[] NextLevelFlags;
+
     private Action endLevel;
     private List<CharacterType> charactersInRange;
 

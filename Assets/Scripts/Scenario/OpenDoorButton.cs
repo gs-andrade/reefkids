@@ -15,9 +15,10 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
 
         boxState = InteractiveState.Unlocked;
 
+        
     }
 
-    public void Reset()
+    public void ResetObj()
     {
         Door.gameObject.SetActive(true);
         boxState = InteractiveState.Locked;
@@ -40,6 +41,7 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
                 boxState = InteractiveState.Locked;
 
             Door.gameObject.SetActive(false);
+     
         }
         else
         {
