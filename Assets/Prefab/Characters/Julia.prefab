@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RaycastFootOffset: {x: 0.5, y: 0}
-  RayCastFootLenght: 1
+  RayCastFootLenght: 1.07
   GroundLayer:
     serializedVersion: 2
     m_Bits: 768

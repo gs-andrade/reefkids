@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca9a187249e0a248ba2e4e33a64f963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RaycastFootOffset: {x: 0.5, y: 0}
-  RayCastFootLenght: 1
+  RaycastFootOffset: {x: 0.2, y: 0}
+  RayCastFootLenght: 0.93
   GroundLayer:
     serializedVersion: 2
     m_Bits: 768

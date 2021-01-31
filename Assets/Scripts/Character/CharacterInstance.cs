@@ -21,7 +21,7 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     private Transform cachedTf;
     private BoxCollider2D collider;
     private Rigidbody2D rb;
-    private Vector2 lastFacingDirection;
+    private Animator animator;
 
     private ICharacterPower characterPower;
     private float disableTime;
@@ -36,8 +36,11 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         collider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
 
+        animator = GetComponent<Animator>();
+
         if (characterPower == null)
             characterPower = GetComponentInChildren<ICharacterPower>();
+
 
         if (characterPower != null)
         {
@@ -60,9 +63,15 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         collider.enabled = true;
 
         if (leftCheck || rightCheck || centerCheck)
+        {
+            animator.SetBool("IsJumping", true);
             return true;
+        }
         else
+        {
+            animator.SetBool("IsJumping", false);
             return false;
+        }
     }
 
     public bool IsDisabled()
@@ -105,25 +114,46 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         rb.velocity = movement;
 
         if (movement != Vector2.zero)
-            lastFacingDirection = movement.normalized;
+        {
+            if (movement.x > 0)
+                transform.localScale = new Vector3(1, 1, 1);
+            else if (movement.x < 0)
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            animator.SetBool("IsWalking", false);
+        }
     }
 
     public void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+        animator.SetBool("IsJumping", true);
     }
 
     public void Jump(float force)
     {
         rb.velocity = new Vector2(rb.velocity.x, force);
+        animator.SetBool("IsJumping", true);
     }
 
     public void SetXVelocity(float xMove)
     {
         rb.velocity = new Vector2(xMove, rb.velocity.y);
 
+
         if (xMove != 0)
-            lastFacingDirection = rb.velocity.normalized;
+        {
+            if (xMove > 0)
+                transform.localScale = new Vector3(1, 1, 1);
+            else
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
     }
 
     public void PowerUser()

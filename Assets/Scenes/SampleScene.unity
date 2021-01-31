@@ -615,7 +615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8248265952906478796, guid: bff4463781e9d6741aae0dcad6c37585, type: 3}
       propertyPath: m_Name
-      value: Strong
+      value: Tony
       objectReference: {fileID: 0}
     - target: {fileID: 8248265952906478797, guid: bff4463781e9d6741aae0dcad6c37585, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6206,7 +6206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6788030828889090159, guid: 9c25795c286ab614a8117c19d2df2d03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.05
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c25795c286ab614a8117c19d2df2d03, type: 3}
