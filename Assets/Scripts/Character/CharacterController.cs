@@ -53,7 +53,7 @@ public class CharacterController : MonoBehaviour
         lastActiveCharacter = character.CharacterType;
         wasOnAir = !grounded;
 
-        if (Input.GetKeyDown(KeyCode.S) && grounded)
+        if (  (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded)
         {
             character.Jump();
             SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
