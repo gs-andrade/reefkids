@@ -16,6 +16,8 @@ public class BlackScreen : MonoBehaviour
         if (screen == null)
             screen = GetComponentInChildren<Image>();
 
+        gameObject.SetActive(true);
+
         timer = 0;
         this.timeToFillComplete = timeToComplete;
         this.timeToFade = timeToFade;
@@ -70,6 +72,7 @@ public class BlackScreen : MonoBehaviour
                         state = BlackScreenState.Fade;
                         timer = 0;
                         state = BlackScreenState.None;
+                        gameObject.SetActive(false);
                     }
 
                     break;

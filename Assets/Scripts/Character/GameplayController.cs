@@ -14,6 +14,14 @@ public class GameplayController : MonoBehaviour
     public BlackScreen BlackScreen;
 
 
+    [Header("Menu Reference")]
+    public GameObject SplashScreen;
+    public GameObject Menu;
+    public GameObject PauseMenu;
+    public GameObject EndGameMenu;
+
+    public bool ForceGameplay;
+
     private GameState state;
 
     private Level[] levels;
@@ -35,6 +43,8 @@ public class GameplayController : MonoBehaviour
     {
         instance = this;
 
+        state = GameState.Menu;
+
         if (levels == null || levels.Length == 0)
             levels = LevelHold.GetComponentsInChildren<Level>(true);
 
@@ -47,11 +57,23 @@ public class GameplayController : MonoBehaviour
         mainCamera = Camera.main;
 
         characters.Setup();
-        StartNextLevel();
+
+        if (ForceGameplay)
+        {
+            StartNewGame();
+        }
+        else
+            SplashScreen.SetActive(true);
 
         lifeCurrent = 3;
 
-        state = GameState.Game;
+    }
+
+    public void StartNewGame()
+    {
+        BlackScreen.gameObject.SetActive(true);
+        Menu.SetActive(false);
+        state = GameState.StartGamePrepare;
     }
 
     public void RegisterPause(Action action)
@@ -66,6 +88,8 @@ public class GameplayController : MonoBehaviour
 
     public void StartNextLevel()
     {
+        GameplayInterface.gameObject.SetActive(true);
+
         if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
             LevelCurrent().gameObject.SetActive(false);
 
@@ -73,7 +97,8 @@ public class GameplayController : MonoBehaviour
 
         if (currentLevelIndex >= levels.Length)
         {
-            Debug.Log("FinishedAllLevels. Level index: " + currentLevelIndex);
+            EndGameMenu.SetActive(true);
+            state = GameState.FinishedGame;
             return;
         }
 
@@ -90,7 +115,10 @@ public class GameplayController : MonoBehaviour
 
     private Level LevelCurrent()
     {
-        return levels[currentLevelIndex];
+        if (currentLevelIndex < levels.Length)
+            return levels[currentLevelIndex];
+        else
+            return null;
     }
 
 
@@ -133,6 +161,33 @@ public class GameplayController : MonoBehaviour
 
             case GameState.Menu:
                 {
+                    break;
+                }
+
+            case GameState.StartGamePrepare:
+                {
+                    animationTimer = 2.25f;
+                    SoundController.instance.PlayAudioEffect("WinSound");
+                    BlackScreen.ShowBlackScreen(2f, 1f);
+                    state = GameState.StatGameExecute;
+
+                    break;
+                }
+
+            case GameState.StatGameExecute:
+                {
+                    if (animationTimer > 0)
+                    {
+                        animationTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        Menu.SetActive(false);
+                        SplashScreen.SetActive(false);
+                        state = GameState.Game;
+                        StartNextLevel();
+                    }
+
                     break;
                 }
 
@@ -196,7 +251,7 @@ public class GameplayController : MonoBehaviour
                     {
                         state = GameState.Paused;
 
-                        PauseGame();
+                        PauseGameAndShowMenu();
 
                         return;
                     }
@@ -212,7 +267,8 @@ public class GameplayController : MonoBehaviour
                         updatables[i].UpdateObj();
                     }
 
-                    LevelCurrent().UpdateObjs();
+                    if (LevelCurrent() != null)
+                        LevelCurrent().UpdateObjs();
 
                     characters.UpdateCharacters();
 
@@ -232,16 +288,24 @@ public class GameplayController : MonoBehaviour
         }
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         for (int i = 0; i < onPause.Count; i++)
             onPause[i]();
     }
 
-    private void UnpauseGame()
+    public void PauseGameAndShowMenu()
+    {
+        PauseGame();
+        PauseMenu.SetActive(true);
+    }
+
+    public void UnpauseGame()
     {
         for (int i = 0; i < onUnpause.Count; i++)
             onUnpause[i]();
+
+        PauseMenu.SetActive(false);
     }
 }
 
@@ -251,8 +315,11 @@ public enum GameState
     Menu,
     Game,
     Paused,
+    StartGamePrepare,
+    StatGameExecute,
     LossAnimationPrepare,
     LossAnimationExecute,
     WinAnimationPrepare,
     WinAnimationExecute,
+    FinishedGame,
 }
