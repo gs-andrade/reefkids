@@ -21,6 +21,10 @@ public class PlataformMove : MonoBehaviour, IInterctable, IUpdatable
     public void SetNextDestination()
     {
         moveIndex++;
+
+        if(points == null)
+            points = GetComponentsInChildren<DrawPoint>(true);
+
         if (moveIndex >= points.Length)
             moveIndex = 0;
 
