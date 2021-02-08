@@ -11,10 +11,8 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     public float RayCastFootLenght;
     public LayerMask GroundLayer;
 
-    public CharacterType CharacterType;
     public float Speed;
     public float JumpForce;
-    public SpriteRenderer SelectCircle;
 
     [Header("SoundEffect")]
     public string SoundKey;
@@ -48,9 +46,6 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
             characterPower.Setup();
         }
 
-        GameplayController.instance.RegisterPause(OnPauseGame);
-        GameplayController.instance.RegisterUnpause(OnResumeGame);
-
     }
 
     public bool CheckIfIsOnGround()
@@ -81,16 +76,6 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
             return true;
 
         return false;
-    }
-
-    public void LockkMovement()
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-    }
-
-    public void UnlockMovement()
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void TakeDamage(Vector2 origin, Vector2 force, int ammount = 1)
@@ -137,15 +122,10 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         animator.SetBool("IsJumping", true);
     }
 
-    public void ToogleSelect(bool toogle)
-    {
-        SelectCircle.enabled = toogle;
-    }
 
     public void SetXVelocity(float xMove)
     {
         rb.velocity = new Vector2(xMove, rb.velocity.y);
-
 
         if (xMove != 0)
         {
@@ -164,7 +144,7 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
 
     public void PowerUser()
     {
-        if(characterPower != null)
+        if (characterPower != null)
         {
             characterPower.Use();
         }
@@ -180,38 +160,7 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
 
     public void UpdateObj()
     {
-        disableTime -= Time.deltaTime;
-
-        switch (CharacterType)
-        {
-            case CharacterType.Ranged:
-                {
-
-
-                    break;
-                }
-        }
+        if (disableTime > 0)
+            disableTime -= Time.deltaTime;
     }
-
-    private void OnPauseGame()
-    {
-        savedVelocity = rb.velocity;
-        savedAngularVelocity = rb.angularVelocity;
-        savedConstraints = rb.constraints;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-    }
-
-    private void OnResumeGame()
-    {
-        rb.velocity = savedVelocity;
-        rb.angularVelocity = savedAngularVelocity;
-        rb.constraints = savedConstraints;
-    }
-}
-
-public enum CharacterType
-{
-    Strong,
-    Ranged,
-    Tiny
 }

@@ -40,7 +40,7 @@ public class BoxMovable : MonoBehaviour, IInterctable, IUpdatable
     {
         var character = collision.gameObject.GetComponent<CharacterInstance>();
 
-        if (character != null && character.CharacterType == CharacterType.Strong)
+        if (character != null)
         {
             UnlockMovement();
         }

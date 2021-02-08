@@ -33,9 +33,6 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
     {
         startPosition = transform.position;
         timerBeforeFall = TimeBeforeFall;
-
-        GameplayController.instance.RegisterPause(OnPauseGame);
-        GameplayController.instance.RegisterUnpause(OnResumeGame);
     }
 
     public void UpdateObj()
@@ -73,27 +70,6 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
 
             state = InteractiveState.Unlocked;
         }
-    }
-
-    private void OnPauseGame()
-    {
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
-
-        savedVelocity = rb.velocity;
-        savedAngularVelocity = rb.angularVelocity;
-        savedConstraints = rb.constraints;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-    }
-
-    private void OnResumeGame()
-    {
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
-
-        rb.velocity = savedVelocity;
-        rb.angularVelocity = savedAngularVelocity;
-        rb.constraints = savedConstraints;
     }
 
 }

@@ -23,7 +23,7 @@ public class MenuInterface : MonoBehaviour
 
     public void StartGame()
     {
-        GameplayController.instance.StartNewGame();
+ 
     }
 
     public void Quit()

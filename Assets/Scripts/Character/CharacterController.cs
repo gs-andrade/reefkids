@@ -5,37 +5,28 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [Header("Character Attributes")]
-    private CharacterInstance[] characerInstances;
+    private CharacterInstance character;
 
     private PlayerInput input;
-    private int selectedCharacterIndex;
 
-    private CharacterType lastActiveCharacter;
     private bool wasOnAir = true;
 
     public void Setup()
     {
-        if (characerInstances == null || characerInstances.Length == 0)
+        if (character == null)
         {
-            characerInstances = GetComponentsInChildren<CharacterInstance>(true);
+            character = GetComponentInChildren<CharacterInstance>(true);
+            character.Setup();
         }
-
-        for (int i = 0; i < characerInstances.Length; i++)
-            characerInstances[i].Setup();
 
         if (input == null)
             input = new PlayerInput();
 
-        SwapCharacter();
-
-        lastActiveCharacter = ActiveChar().CharacterType;
     }
 
 
     public void UpdateCharacters()
     {
-        var character = ActiveChar();
-
         if (character.IsDisabled())
             return;
 
@@ -45,12 +36,11 @@ public class CharacterController : MonoBehaviour
 
         var grounded = character.CheckIfIsOnGround();
 
-        if (wasOnAir && lastActiveCharacter == character.CharacterType && grounded)
+        if (wasOnAir && grounded)
         {
             SoundController.instance.PlayAudioEffect(character.SoundKey + "Fall", SoundAction.Play);
         }
 
-        lastActiveCharacter = character.CharacterType;
         wasOnAir = !grounded;
 
         if (  (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded)
@@ -59,13 +49,9 @@ public class CharacterController : MonoBehaviour
             SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
         }
 
-        if (input.ChangeCharacter)
+        if (input.UseSkill)
         {
-            SwapCharacter();
-        }
-        else if (input.UseSkill)
-        {
-            ActiveChar().PowerUser();
+            character.PowerUser();
         }
         else if (input.Horizontal != 0)
         {
@@ -76,49 +62,15 @@ public class CharacterController : MonoBehaviour
 
         }
 
-        for (int i = 0; i < characerInstances.Length; i++)
-        {
-            if (selectedCharacterIndex == i)
-            {
-                characerInstances[i].SetXVelocity(horizontalMOvement);
-                characerInstances[i].ToogleSelect(true);
-            }
-            else
-            {
-                characerInstances[i].SetXVelocity(0);
-                characerInstances[i].ToogleSelect(false);
-            }
-        }
+        character.SetXVelocity(horizontalMOvement);
     }
 
-    private void SwapCharacter()
-    {
-        selectedCharacterIndex++;
-        if (selectedCharacterIndex >= characerInstances.Length)
-            selectedCharacterIndex = 0;
 
-        for (int i = 0; i < characerInstances.Length; i++)
-        {
-            if (selectedCharacterIndex == i)
-                characerInstances[i].UnlockMovement();
-            else
-                characerInstances[i].LockkMovement();
-        }
-    }
-
-    public void ResetCharacterToStartPosition(Transform[] positionRef)
+    public void ResetCharacterToStartPosition(Transform positionRef)
     {
-        for(int i = 0; i < characerInstances.Length; i++)
-        {
-            var character = characerInstances[i];
             character.PowerRelease();
             character.SetMovement(Vector2.zero);
-            character.transform.position = positionRef[i].position;
-        }
+            character.transform.position = positionRef.position;
     }
 
-    private CharacterInstance ActiveChar()
-    {
-        return characerInstances[selectedCharacterIndex];
-    }
 }
