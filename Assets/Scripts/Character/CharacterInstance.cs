@@ -11,9 +11,6 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
     public float RayCastFootLenght;
     public LayerMask GroundLayer;
 
-    public float Speed;
-    public float JumpForce;
-
     [Header("SoundEffect")]
     public string SoundKey;
 
@@ -24,10 +21,6 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
 
     private ICharacterPower characterPower;
     private float disableTime;
-
-    private Vector3 savedVelocity;
-    private float savedAngularVelocity;
-    private RigidbodyConstraints2D savedConstraints;
 
     public void Setup()
     {
@@ -42,9 +35,7 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
 
 
         if (characterPower != null)
-        {
             characterPower.Setup();
-        }
 
     }
 
@@ -102,18 +93,17 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         if (movement != Vector2.zero)
         {
             if (movement.x > 0)
-                transform.localScale = new Vector3(1, 1, 1);
+                cachedTf.localScale = new Vector3(1, 1, 1);
             else if (movement.x < 0)
-                transform.localScale = new Vector3(-1, 1, 1);
+                cachedTf.localScale = new Vector3(-1, 1, 1);
 
             animator.SetBool("IsWalking", false);
         }
     }
 
-    public void Jump()
+    public float GetDirection()
     {
-        rb.velocity = new Vector2(rb.velocity.x, JumpForce);
-        animator.SetBool("IsJumping", true);
+        return cachedTf.localScale.x;
     }
 
     public void Jump(float force)

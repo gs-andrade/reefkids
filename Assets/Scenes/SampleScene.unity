@@ -7497,6 +7497,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508107875448523971, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: RaycastFootOffset.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 508107875448523971, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: RayCastFootLenght
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: JumpForce
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: DashForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: DashDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: DashCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5077520579788315641, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.081749

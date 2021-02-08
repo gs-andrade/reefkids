@@ -75,11 +75,9 @@ public class YoyoPower : MonoBehaviour, ICharacterPower
 
     public void Release()
     {
-
         character.SetGravity(1);
         rope.connectedBody = null;
         rope.enabled = false;
         hookState = InteractiveState.Unlocked;
-        character.Jump();
     }
 }
