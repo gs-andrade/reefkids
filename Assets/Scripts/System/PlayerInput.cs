@@ -7,16 +7,12 @@ public class PlayerInput
 
     [HideInInspector] public float Horizontal;
     [HideInInspector] public float Vertical;
+
     [HideInInspector] public bool JumpPressed;
     [HideInInspector] public bool JumpHolding;
 
-    [HideInInspector] public bool ChangeCharacter;
-    [HideInInspector] public bool UseSkill;
-    [HideInInspector] public bool FireThreePressed;
-
-    [HideInInspector] public bool FireOneHolding;
-    [HideInInspector] public bool FireTwoHolding;
-    [HideInInspector] public bool FireThreeHolding;
+    [HideInInspector] public bool Dash;
+    [HideInInspector] public bool Action;
 
 
     [HideInInspector] public bool ColorPressed;
@@ -38,13 +34,10 @@ public class PlayerInput
         JumpPressed = Input.GetButtonDown("Jump");
         JumpHolding = Input.GetButton("Jump");
 
-        ChangeCharacter = Input.GetButtonDown("Fire1");
-        UseSkill = Input.GetButtonDown("Fire2");
-        FireThreePressed = Input.GetButtonDown("Fire3");
+        Dash = Input.GetButtonDown("Dash");
+        Action = Input.GetButtonDown("Action");
 
-        FireOneHolding = Input.GetButton("Fire1");
-        FireTwoHolding = Input.GetButton("Fire2");
-        FireThreeHolding = Input.GetButton("Fire3");
+
 
 
 

@@ -68,7 +68,7 @@ public class CharacterController : MonoBehaviour
                     wasOnAir = !grounded;
 
                     // JUMP
-                    if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.UpArrow)) && (grounded || !usedSecondJump) && inputDelay <= 0)
+                    if ((input.JumpPressed || Input.GetKeyDown(KeyCode.UpArrow)) && (grounded || !usedSecondJump) && inputDelay <= 0)
                     {
                         if (!grounded)
                             usedSecondJump = true;
@@ -78,17 +78,16 @@ public class CharacterController : MonoBehaviour
 
                         SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
                     }// Dash
-                    else if (Input.GetKeyDown(KeyCode.Z) && dashCd <= 0)
+                    else if (input.Dash && dashCd <= 0)
                     {
                         inputDelay = DashDuration;
                         dashCd = DashCooldown;
                         state = CharacterState.Dashing;
                         return;
-                    }
-
-                    if (input.UseSkill)
+                    }// SHOOT
+                    else if (input.Action)
                     {
-                        character.PowerUser();
+                        //character.PowerUser();
                     }
                     else if (input.Horizontal != 0)
                     {
