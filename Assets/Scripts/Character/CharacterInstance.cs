@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterInstance : MonoBehaviour,  IDamagable
+public class CharacterInstance : MonoBehaviour, IDamagable
 {
 
     [Header("Ground Collision Checks")]
@@ -77,7 +77,7 @@ public class CharacterInstance : MonoBehaviour,  IDamagable
         SoundController.instance.PlayAudioEffect("Damage");
 
         if (GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
-            SetMovement(direction * new Vector2(5,10) );
+            SetMovement(direction * new Vector2(5, 10));
     }
 
     public void SetGravity(float ammount)
@@ -85,16 +85,19 @@ public class CharacterInstance : MonoBehaviour,  IDamagable
         rb.gravityScale = ammount;
     }
 
-    public void SetMovement(Vector2 movement)
+    public void SetMovement(Vector2 movement, bool changeDirection = true)
     {
         rb.velocity = movement;
 
         if (movement != Vector2.zero)
         {
-            if (movement.x > 0)
-                cachedTf.localScale = new Vector3(1, 1, 1);
-            else if (movement.x < 0)
-                cachedTf.localScale = new Vector3(-1, 1, 1);
+            if (changeDirection)
+            {
+                if (movement.x > 0)
+                    cachedTf.localScale = new Vector3(1, 1, 1);
+                else if (movement.x < 0)
+                    cachedTf.localScale = new Vector3(-1, 1, 1);
+            }
 
             animator.SetBool("IsWalking", false);
         }
@@ -112,16 +115,19 @@ public class CharacterInstance : MonoBehaviour,  IDamagable
     }
 
 
-    public void SetXVelocity(float xMove)
+    public void SetXVelocity(float xMove, bool changeDirection = true)
     {
         rb.velocity = new Vector2(xMove, rb.velocity.y);
 
         if (xMove != 0)
         {
-            if (xMove > 0)
-                transform.localScale = new Vector3(1, 1, 1);
-            else
-                transform.localScale = new Vector3(-1, 1, 1);
+            if (changeDirection)
+            {
+                if (xMove > 0)
+                    transform.localScale = new Vector3(1, 1, 1);
+                else
+                    transform.localScale = new Vector3(-1, 1, 1);
+            }
 
             animator.SetBool("IsWalking", true);
         }
@@ -129,6 +135,11 @@ public class CharacterInstance : MonoBehaviour,  IDamagable
         {
             animator.SetBool("IsWalking", false);
         }
+    }
+
+    public void SetYVelocity(float yMOve)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, yMOve);
     }
 
     public void PowerUser()

@@ -11,8 +11,7 @@ public class PlayerInput
     [HideInInspector] public bool JumpPressed;
     [HideInInspector] public bool JumpHolding;
 
-    [HideInInspector] public bool Dash;
-    [HideInInspector] public bool Action;
+    [HideInInspector] public bool Shoot;
 
 
     [HideInInspector] public bool ColorPressed;
@@ -29,13 +28,11 @@ public class PlayerInput
     public void GetInputs()
     {
         Horizontal = GetClampedValue((Input.GetAxis("Horizontal")));
-        Vertical = (Input.GetAxis("Vertical"));
+        Vertical = GetClampedValue(Input.GetAxis("Vertical"));
 
         JumpPressed = Input.GetButtonDown("Jump");
         JumpHolding = Input.GetButton("Jump");
-
-        Dash = Input.GetButtonDown("Dash");
-        Action = Input.GetButtonDown("Action");
+        Shoot = Input.GetButtonDown("Shoot");
 
     }
 

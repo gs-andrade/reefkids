@@ -8,17 +8,29 @@ public class CharacterController : MonoBehaviour
     public float Speed;
     public float JumpForce;
 
-    [Header("Header")]
+    [Header("Shoot Knockbak Effect")]
+    public float ShootKnockbackGroundForce;
+    public float ShootKnockbackAirForce;
+
+    public float HorizontalKnockbackGroundDuration;
+    public float HorizontalKnockbackAirDuration;
+
+    [Header("Shoot")]
     public GameObject ProjectilePrefab;
     public float ProjectileSpeed;
+    public float ProjectileShootCD;
+    public bool EnableProjectile;
 
     private CharacterInstance character;
 
     private PlayerInput input;
 
     private bool wasOnAir = true;
+    private float projectileCd;
 
     private CharacterState state;
+
+    private Vector2 shootKnockbackDirection;
     private float inputDelay;
 
     public void Setup()
@@ -35,7 +47,10 @@ public class CharacterController : MonoBehaviour
         state = CharacterState.Normal;
     }
 
-
+    public void EnableProjectileToBeUsed()
+    {
+        EnableProjectile = true;
+    }
     public CharacterInstance GetPlayer()
     {
         return character;
@@ -46,6 +61,8 @@ public class CharacterController : MonoBehaviour
         if (inputDelay > 0)
             inputDelay -= Time.deltaTime;
 
+        if (projectileCd > 0)
+            projectileCd -= Time.deltaTime;
 
         if (character.IsDisabled())
             return;
@@ -68,23 +85,48 @@ public class CharacterController : MonoBehaviour
 
                     wasOnAir = !grounded;
                     // JUMP
-                    if ((input.JumpPressed || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded  && inputDelay <= 0)
+                    if ((input.JumpPressed) && grounded && inputDelay <= 0)
                     {
                         character.Jump(JumpForce);
                         inputDelay = 0.2f;
 
                         SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
                     }
-                    else if (Input.GetMouseButtonDown(0))
+                    else if (input.Shoot && EnableProjectile && projectileCd <= 0)
                     {
-                        var inputPositon = Input.mousePosition;
-                        inputPositon = Camera.main.ScreenToWorldPoint(inputPositon);
+                        /*var inputPositon = Input.mousePosition;
+                        inputPositon = Camera.main.ScreenToWorldPoint(inputPositon);*/
 
-                        var direction = (inputPositon - character.transform.position).normalized;
+                        projectileCd = ProjectileShootCD;
+
+                        var direction = new Vector2(character.transform.localScale.x, 0);
+
+                        if (input.Vertical != 0)
+                            direction = new Vector2(0, input.Vertical);
+
 
                         var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<ProjectileForward>();
 
                         projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject);
+
+                        if (grounded)
+                        {
+                            shootKnockbackDirection = ShootKnockbackGroundForce * -direction;
+                            if (direction.x != 0)
+                                inputDelay = HorizontalKnockbackGroundDuration;
+                            else
+                                inputDelay = 0;
+                        }
+                        else
+                        {
+                            shootKnockbackDirection = ShootKnockbackAirForce * -direction;
+                            if (direction.x != 0)
+                                inputDelay = HorizontalKnockbackAirDuration;
+                            else
+                                inputDelay = 0;
+                        }
+
+                        state = CharacterState.Dashing;
 
                     }
                     else if (input.Horizontal != 0)
@@ -100,18 +142,18 @@ public class CharacterController : MonoBehaviour
                     break;
                 }
 
-          /*  case CharacterState.Dashing:
+            case CharacterState.Dashing:
                 {
-                    character.SetMovement( new Vector2(DashForce * (int)character.GetDirection(), 0) );
+                    character.SetMovement(shootKnockbackDirection, false);
                     if (inputDelay <= 0)
                     {
                         state = CharacterState.Normal;
                     }
                     break;
-                }*/
+                }
         }
 
-       
+
     }
 
 
