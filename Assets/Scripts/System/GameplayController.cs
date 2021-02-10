@@ -58,7 +58,8 @@ public class GameplayController : MonoBehaviour
 
     public void StartNextLevel()
     {
-        GameplayInterface.gameObject.SetActive(true);
+        if (GameplayInterface != null)
+            GameplayInterface.gameObject.SetActive(true);
 
         if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
             LevelCurrent().gameObject.SetActive(false);
@@ -134,7 +135,8 @@ public class GameplayController : MonoBehaviour
 
             case GameState.Game:
                 {
-                    GameplayInterface.UpdateLifeAmmount(lifeCurrent);
+                    if (GameplayInterface != null)
+                        GameplayInterface.UpdateLifeAmmount(lifeCurrent);
 
                     if (Input.GetKeyDown(KeyCode.P))
                     {
