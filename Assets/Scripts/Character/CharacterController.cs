@@ -11,6 +11,10 @@ public class CharacterController : MonoBehaviour
     public float DashDuration;
     public float DashCooldown;
 
+    [Header("Header")]
+    public GameObject ProjectilePrefab;
+    public float ProjectileSpeed;
+
     private CharacterInstance character;
 
     private PlayerInput input;
@@ -85,9 +89,17 @@ public class CharacterController : MonoBehaviour
                         state = CharacterState.Dashing;
                         return;
                     }// SHOOT
-                    else if (input.Action)
+                    else if (Input.GetMouseButtonDown(0))
                     {
-                        //character.PowerUser();
+                        var inputPositon = Input.mousePosition;
+                        inputPositon = Camera.main.ScreenToWorldPoint(inputPositon);
+
+                        var direction = (inputPositon - character.transform.position).normalized;
+
+                        var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<ProjectileForward>();
+
+                        projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject);
+
                     }
                     else if (input.Horizontal != 0)
                     {

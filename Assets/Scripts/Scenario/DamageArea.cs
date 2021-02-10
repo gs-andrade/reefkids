@@ -13,7 +13,7 @@ public class DamageArea : MonoBehaviour
 
         if (character != null)
         {
-            character.TakeDamage(transform.position, KnockbackForce, damageAmmount);
+            character.TakeDamage(transform.position, DamageSpecialEffect.None, damageAmmount);
         }
     }
 }

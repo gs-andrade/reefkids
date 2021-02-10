@@ -47,7 +47,7 @@ public class BoxMovable : MonoBehaviour, IInterctable, IUpdatable
     }
 
     private Vector2 startPosition;
-    public void SaveStart()
+    public void SetupOnStartLevel()
     {
         startPosition = transform.position;
     }

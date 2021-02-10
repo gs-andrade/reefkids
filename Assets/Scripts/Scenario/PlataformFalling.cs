@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
+public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable, IDamagable
 {
     public float TimeBeforeFall;
     public float FallSpeed;
+    public bool Damageble;
 
     private float timerBeforeFall;
     private Rigidbody2D rb;
@@ -29,10 +30,18 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
         timerBeforeFall = TimeBeforeFall;
     }
 
-    public void SaveStart()
+    public void SetupOnStartLevel()
     {
         startPosition = transform.position;
         timerBeforeFall = TimeBeforeFall;
+    }
+
+    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    {
+        if (Damageble)
+        {
+            Fall();
+        }
     }
 
     public void UpdateObj()
@@ -59,17 +68,25 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (Damageble)
+            return;
+
         var character = collision.gameObject.GetComponent<CharacterInstance>();
 
         if (character != null &&  (character.transform.position.y - transform.position.y > 0))
         {
-            if (rb == null)
-                rb = GetComponent<Rigidbody2D>();
-
-            startYPos = transform.position.y;
-
-            state = InteractiveState.Unlocked;
+            Fall();
         }
+    }
+
+    private void Fall()
+    {
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
+        startYPos = transform.position.y;
+
+        state = InteractiveState.Unlocked;
     }
 
 }

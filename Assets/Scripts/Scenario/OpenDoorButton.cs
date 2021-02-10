@@ -27,7 +27,7 @@ public class OpenDoorButton : MonoBehaviour, IInterctable, IUpdatable
         boxState = InteractiveState.Locked;
     }
 
-    public void SaveStart()
+    public void SetupOnStartLevel()
     {
      
     }

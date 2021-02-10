@@ -24,7 +24,6 @@ public class GameplayController : MonoBehaviour
 
     private int lifeCurrent;
 
-    private IUpdatable[] updatables;
     private void Awake()
     {
         instance = this;
@@ -37,14 +36,13 @@ public class GameplayController : MonoBehaviour
         if (characters == null)
             characters = GetComponentInChildren<CharacterController>();
 
-        updatables = GetComponentsInChildren<IUpdatable>();
 
         currentLevelIndex = -1;
         mainCamera = Camera.main;
 
         characters.Setup();
 
-        if (ForceGameplay)
+        //if (ForceGameplay)
         {
             StartNextLevel();
         }
@@ -148,10 +146,6 @@ public class GameplayController : MonoBehaviour
                         return;
                     }
 
-                    for (int i = 0; i < updatables.Length; i++)
-                    {
-                        updatables[i].UpdateObj();
-                    }
 
                     if (LevelCurrent() != null)
                         LevelCurrent().UpdateObjs();

@@ -37,10 +37,6 @@ public class PlayerInput
         Dash = Input.GetButtonDown("Dash");
         Action = Input.GetButtonDown("Action");
 
-
-
-
-
     }
 
     public bool DiagonalMove()

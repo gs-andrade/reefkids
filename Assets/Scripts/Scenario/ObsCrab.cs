@@ -15,7 +15,7 @@ public class ObsCrab : MonoBehaviour
 
         if (character != null)
         {
-            character.TakeDamage(transform.position, KnockbackForce);
+            character.TakeDamage(transform.position);
 
             if (moveScript == null)
                 moveScript = GetComponentInParent<PlataformMove>();

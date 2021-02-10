@@ -31,7 +31,7 @@ public class PlataformMove : MonoBehaviour, IInterctable, IUpdatable
         nextLocation = points[moveIndex].transform.position;
     }
 
-    public void SaveStart()
+    public void SetupOnStartLevel()
     {
         plataformStartPosition = Plataform.transform.position;
     }

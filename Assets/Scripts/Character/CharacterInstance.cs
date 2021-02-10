@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterInstance : MonoBehaviour, IUpdatable
+public class CharacterInstance : MonoBehaviour,  IDamagable
 {
 
     [Header("Ground Collision Checks")]
@@ -69,16 +69,16 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         return false;
     }
 
-    public void TakeDamage(Vector2 origin, Vector2 force, int ammount = 1)
+    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
     {
-        var direction = (new Vector2(cachedTf.position.x - origin.x, 1)).normalized;
+        var direction = (new Vector2(cachedTf.position.x - damageOrigin.x, 1)).normalized;
 
         disableTime = 1f;
 
         SoundController.instance.PlayAudioEffect("Damage");
 
         if (GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
-            SetMovement(direction * force);
+            SetMovement(direction * new Vector2(5,10) );
     }
 
     public void SetGravity(float ammount)
@@ -148,9 +148,11 @@ public class CharacterInstance : MonoBehaviour, IUpdatable
         }
     }
 
-    public void UpdateObj()
+    private void FixedUpdate()
     {
         if (disableTime > 0)
             disableTime -= Time.deltaTime;
     }
+
+
 }

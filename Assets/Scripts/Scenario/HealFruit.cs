@@ -23,7 +23,7 @@ public class HealFruit : MonoBehaviour, IInterctable
         gameObject.SetActive(true);
     }
 
-    public void SaveStart()
+    public void SetupOnStartLevel()
     {
         startPosition = transform.position;
     }
