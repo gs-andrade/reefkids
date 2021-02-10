@@ -16,4 +16,14 @@ public class DamageArea : MonoBehaviour
             character.TakeDamage(transform.position, DamageSpecialEffect.None, damageAmmount);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var character = collision.gameObject.GetComponent<CharacterInstance>();
+
+        if (character != null)
+        {
+            character.TakeDamage(transform.position, DamageSpecialEffect.None, damageAmmount);
+        }
+    }
 }

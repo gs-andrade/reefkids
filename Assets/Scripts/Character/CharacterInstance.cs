@@ -33,7 +33,6 @@ public class CharacterInstance : MonoBehaviour,  IDamagable
         if (characterPower == null)
             characterPower = GetComponentInChildren<ICharacterPower>();
 
-
         if (characterPower != null)
             characterPower.Setup();
 

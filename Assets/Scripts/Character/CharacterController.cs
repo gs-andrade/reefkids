@@ -20,11 +20,9 @@ public class CharacterController : MonoBehaviour
     private PlayerInput input;
 
     private bool wasOnAir = true;
-    private bool usedSecondJump = false;
 
     private CharacterState state;
     private float inputDelay;
-    private float dashCd;
 
     public void Setup()
     {
@@ -41,13 +39,16 @@ public class CharacterController : MonoBehaviour
     }
 
 
+    public CharacterInstance GetPlayer()
+    {
+        return character;
+    }
+
     public void UpdateCharacters()
     {
         if (inputDelay > 0)
             inputDelay -= Time.deltaTime;
 
-        if (dashCd > 0)
-            dashCd -= Time.deltaTime;
 
         if (character.IsDisabled())
             return;
@@ -64,31 +65,19 @@ public class CharacterController : MonoBehaviour
 
                     if (grounded)
                     {
-                        usedSecondJump = false;
                         if (wasOnAir)
                             SoundController.instance.PlayAudioEffect(character.SoundKey + "Fall", SoundAction.Play);
                     }
 
                     wasOnAir = !grounded;
-
                     // JUMP
-                    if ((input.JumpPressed || Input.GetKeyDown(KeyCode.UpArrow)) && (grounded || !usedSecondJump) && inputDelay <= 0)
+                    if ((input.JumpPressed || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded  && inputDelay <= 0)
                     {
-                        if (!grounded)
-                            usedSecondJump = true;
-
                         character.Jump(JumpForce);
                         inputDelay = 0.2f;
 
                         SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
-                    }// Dash
-                    else if (input.Dash && dashCd <= 0)
-                    {
-                        inputDelay = DashDuration;
-                        dashCd = DashCooldown;
-                        state = CharacterState.Dashing;
-                        return;
-                    }// SHOOT
+                    }
                     else if (Input.GetMouseButtonDown(0))
                     {
                         var inputPositon = Input.mousePosition;

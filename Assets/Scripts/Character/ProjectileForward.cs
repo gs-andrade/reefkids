@@ -28,7 +28,6 @@ public class ProjectileForward : MonoBehaviour//, IUpdatable
 
         cachedTf.Translate(direction * speed * Time.deltaTime);
 
-
         aliveTime += Time.deltaTime;
 
         if (aliveTime > MaxAliveTime)
@@ -44,6 +43,7 @@ public class ProjectileForward : MonoBehaviour//, IUpdatable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collider> " + collision.gameObject.name);
         if (collision.gameObject != owner)
         {
             var target = collision.gameObject.GetComponent<IDamagable>();

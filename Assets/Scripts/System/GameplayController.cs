@@ -51,6 +51,11 @@ public class GameplayController : MonoBehaviour
 
     }
 
+    public CharacterInstance GetPlayer()
+    {
+        return characters.GetPlayer();
+    }
+
     public void StartNextLevel()
     {
         GameplayInterface.gameObject.SetActive(true);
