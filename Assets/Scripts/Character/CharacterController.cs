@@ -7,9 +7,6 @@ public class CharacterController : MonoBehaviour
     [Header("Character Attributes")]
     public float Speed;
     public float JumpForce;
-    public float DashForce;
-    public float DashDuration;
-    public float DashCooldown;
 
     [Header("Header")]
     public GameObject ProjectilePrefab;
@@ -103,7 +100,7 @@ public class CharacterController : MonoBehaviour
                     break;
                 }
 
-            case CharacterState.Dashing:
+          /*  case CharacterState.Dashing:
                 {
                     character.SetMovement( new Vector2(DashForce * (int)character.GetDirection(), 0) );
                     if (inputDelay <= 0)
@@ -111,7 +108,7 @@ public class CharacterController : MonoBehaviour
                         state = CharacterState.Normal;
                     }
                     break;
-                }
+                }*/
         }
 
        
