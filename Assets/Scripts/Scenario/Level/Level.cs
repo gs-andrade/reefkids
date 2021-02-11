@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public Vector2 CameraPosition;
-    public float CamereSize = 13f;
     public Transform CharacterStartPositionReference;
 
     private IInterctable[] interctables;
