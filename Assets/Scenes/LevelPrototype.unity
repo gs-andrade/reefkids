@@ -1031,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: EnableProjectile
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: ProjectileShootCD
@@ -3926,7 +3926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 232746267}
-  offset: {x: 0, y: 0}
+  offset: {x: 1, y: 1}
+  smoothSpeed: 0.125
 --- !u!1 &1926500610
 GameObject:
   m_ObjectHideFlags: 0
