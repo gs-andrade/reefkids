@@ -105,12 +105,12 @@ public class GameplayController : MonoBehaviour
 
     public bool TakeDamageAndCheckIfIsAlive(int ammount)
     {
-        lifeCurrent -= ammount;
+       /* lifeCurrent -= ammount;
 
         if (lifeCurrent <= 0)
         {
             return false;
-        }
+        }*/
 
         return true;
     }
