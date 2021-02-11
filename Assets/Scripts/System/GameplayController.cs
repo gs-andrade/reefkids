@@ -79,8 +79,7 @@ public class GameplayController : MonoBehaviour
 
     private void ResetCameraPos()
     {
-        mainCamera.transform.position = new Vector3(LevelCurrent().CameraPosition.x, LevelCurrent().CameraPosition.y, -10);
-        mainCamera.orthographicSize = LevelCurrent().CamereSize;
+  
     }
 
     private Level LevelCurrent()
