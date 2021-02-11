@@ -43,7 +43,14 @@ public class PlayerInput
 
     private float GetClampedValue(float value)
     {
-        return Mathf.Clamp(value, -1, 1);
+        var num = Mathf.Clamp(value, -1, 1);
+
+        if (num > 0)
+            num = 1;
+        else if (num < 0)
+            num = -1;
+
+        return num;
     }
 
 
