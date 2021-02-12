@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    private EnemyGeneric genericMonster;
+    private EnemyChase genericMonster;
     public void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.GetComponent<CharacterInstance>();
@@ -12,7 +12,7 @@ public class EnemyDetection : MonoBehaviour
         if (player != null)
         {
             if (genericMonster == null)
-                genericMonster = GetComponentInParent<EnemyGeneric>();
+                genericMonster = GetComponentInParent<EnemyChase>();
 
             genericMonster.FoundPlayer();
         }

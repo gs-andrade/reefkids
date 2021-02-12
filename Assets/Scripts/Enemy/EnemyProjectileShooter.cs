@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectileShooter : MonoBehaviour, IInterctable, IUpdatable
+public class EnemyProjectileShooter : EnemyGeneric
 {
     public GameObject ProjectilePrefab;
     public float ProjectileSpeed = 25f;
@@ -13,12 +13,14 @@ public class EnemyProjectileShooter : MonoBehaviour, IInterctable, IUpdatable
     private Transform projSight;
     private Transform cachedTf;
 
-    public void ResetObj()
+
+
+    public override void ResetObj()
     {
-       
+
     }
 
-    public void SetupOnStartLevel()
+    public override void SetupOnStartLevel()
     {
         if (projSight == null)
             projSight = GetComponentInChildren<DrawPoint>().transform;
@@ -28,10 +30,17 @@ public class EnemyProjectileShooter : MonoBehaviour, IInterctable, IUpdatable
     }
 
 
-    public void UpdateObj()
+    public override void UpdateObj()
     {
         if (projSight == null)
             return;
+
+        if (disableTime > 0)
+        {
+            disableTime -= Time.deltaTime;
+            return;
+        }
+
 
         if (delayTimer > 0)
             delayTimer -= Time.deltaTime;

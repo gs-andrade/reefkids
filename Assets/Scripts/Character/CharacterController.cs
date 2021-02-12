@@ -87,6 +87,8 @@ public class CharacterController : MonoBehaviour
                     // JUMP
                     if (input.JumpPressed && inputDelay <= 0)
                     {
+                       // isHoldingJumpButton = true;
+
                         if (grounded)
                         {
                             character.Jump(JumpForce);

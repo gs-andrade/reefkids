@@ -3690,6 +3690,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -10.17
       objectReference: {fileID: 0}
+    - target: {fileID: 8011128263956557345, guid: 333a0402de5009c42ae13ee82486738f, type: 3}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8011128264246170730, guid: 333a0402de5009c42ae13ee82486738f, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol

@@ -11,6 +11,8 @@ public class CharacterInstance : MonoBehaviour, IDamagable
     public float RayCastFootLenght;
     public LayerMask GroundLayer;
 
+    public float DisableTime = 1f;
+
     [Header("SoundEffect")]
     public string SoundKey;
 
@@ -18,6 +20,7 @@ public class CharacterInstance : MonoBehaviour, IDamagable
     private BoxCollider2D collider;
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteRenderer renderer;
 
     private ICharacterPower characterPower;
     private float disableTime;
@@ -29,6 +32,8 @@ public class CharacterInstance : MonoBehaviour, IDamagable
         rb = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+
+        renderer = GetComponent<SpriteRenderer>();
 
         if (characterPower == null)
             characterPower = GetComponentInChildren<ICharacterPower>();
@@ -63,21 +68,22 @@ public class CharacterInstance : MonoBehaviour, IDamagable
     public bool IsDisabled()
     {
         if (disableTime > 0)
+        { 
             return true;
+        }
 
         return false;
     }
 
-    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    public void TakeDamage(Vector2 damageOrigin)
     {
         var direction = (new Vector2(cachedTf.position.x - damageOrigin.x, 1)).normalized;
 
-        disableTime = 1f;
+        disableTime = DisableTime;
 
         SoundController.instance.PlayAudioEffect("Damage");
 
-        if (GameplayController.instance.TakeDamageAndCheckIfIsAlive(ammount))
-            SetMovement(direction * new Vector2(5, 10));
+        SetMovement(direction * new Vector2(5,0), false);
     }
 
     public void SetGravity(float ammount)
@@ -161,8 +167,18 @@ public class CharacterInstance : MonoBehaviour, IDamagable
     private void FixedUpdate()
     {
         if (disableTime > 0)
+        {
             disableTime -= Time.deltaTime;
+            renderer.enabled = !renderer.enabled;
+        }
+        else
+        {
+            renderer.enabled = true;
+        }
     }
 
-
+    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    {
+        return;
+    }
 }
