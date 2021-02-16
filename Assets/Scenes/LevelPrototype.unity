@@ -1579,7 +1579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: HorizontalKnockbackAirDuration
-      value: 0.2
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: EnableProjectile
