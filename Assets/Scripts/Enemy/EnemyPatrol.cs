@@ -21,8 +21,9 @@ public class EnemyPatrol : EnemyGeneric
 
         if (character != null)
         {
-            SetNextDestination();
-            DealDamage(character);
+            if(DealDamage(character))
+               SetNextDestination();
+            
         }
     }
 
@@ -56,6 +57,7 @@ public class EnemyPatrol : EnemyGeneric
     {
        // cachedTf.transform.position = plataformStartPosition;
         moveIndex = 0;
+        gameObject.SetActive(true);
     }
 
     public override void UpdateObj()
@@ -76,15 +78,15 @@ public class EnemyPatrol : EnemyGeneric
         }
     }
 
-    public override void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    public override void TakeDamage(Vector2 damageOrigin, DamagerType damagerType,  int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
-        base.TakeDamage(damageOrigin, damageSpecialEffect, ammount);
-        Debug.Log("Damage Take");
+        base.TakeDamage(damageOrigin, damagerType,  ammount, damageSpecialEffect);
+        gameObject.SetActive(false);
     }
 
-    public override void DealDamage(CharacterInstance character)
+    public override bool DealDamage(CharacterInstance character)
     {
-        base.DealDamage(character);
+        return base.DealDamage(character);
     }
 
 }

@@ -14,15 +14,18 @@ public class GameplayController : MonoBehaviour
 
     public bool ForceGameplay;
 
+    public PointToStartGame PointToStartGame;
+
     private GameState state;
 
     private Level[] levels;
     private int currentLevelIndex;
 
     private CharacterController characters;
-    private Camera mainCamera;
 
     private int lifeCurrent;
+
+    private Vector2 checkPointPosition;
 
     private void Awake()
     {
@@ -37,8 +40,7 @@ public class GameplayController : MonoBehaviour
             characters = GetComponentInChildren<CharacterController>();
 
 
-        currentLevelIndex = -1;
-        mainCamera = Camera.main;
+        currentLevelIndex = (int)PointToStartGame;
 
         characters.Setup();
 
@@ -61,8 +63,8 @@ public class GameplayController : MonoBehaviour
         if (GameplayInterface != null)
             GameplayInterface.gameObject.SetActive(true);
 
-        if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
-            LevelCurrent().gameObject.SetActive(false);
+        /*if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
+            LevelCurrent().gameObject.SetActive(false);*/
 
         currentLevelIndex++;
 
@@ -72,15 +74,12 @@ public class GameplayController : MonoBehaviour
             return;
         }
 
-        LevelCurrent().Setup(EndLevel);
+        LevelCurrent().Setup();
         LevelCurrent().gameObject.SetActive(true);
+        checkPointPosition = LevelCurrent().CharacterStartPositionReference.position;
         RestarLevel();
     }
 
-    private void ResetCameraPos()
-    {
-  
-    }
 
     private Level LevelCurrent()
     {
@@ -91,16 +90,11 @@ public class GameplayController : MonoBehaviour
     }
 
 
-    private void EndLevel()
-    {
-    }
-
     public void RestarLevel()
     {
         lifeCurrent = 3;
         LevelCurrent().ResetLevel();
-        characters.ResetCharacterToStartPosition(LevelCurrent().CharacterStartPositionReference);
-        ResetCameraPos();
+        characters.ResetCharacterToStartPosition(checkPointPosition);
     }
 
     public bool TakeDamageAndCheckIfIsAlive(int ammount)
@@ -174,7 +168,11 @@ public class GameplayController : MonoBehaviour
     }
 }
 
-
+public enum PointToStartGame
+{
+    InitialArea = -1,
+    Level1 = 0,
+}
 public enum GameState
 {
     Menu,

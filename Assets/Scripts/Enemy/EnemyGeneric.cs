@@ -13,7 +13,7 @@ public abstract class EnemyGeneric : MonoBehaviour, IUpdatable, IInterctable, ID
 
     public abstract void SetupOnStartLevel();
 
-    public virtual void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    public virtual void TakeDamage(Vector2 damageOrigin, DamagerType damagerType , int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
         if (StunOnDamageTake)
             disableTime = StunDisableTime;
@@ -21,12 +21,14 @@ public abstract class EnemyGeneric : MonoBehaviour, IUpdatable, IInterctable, ID
 
     public abstract void UpdateObj();
 
-    public virtual void DealDamage(CharacterInstance character)
+    public virtual bool DealDamage(CharacterInstance character)
     {
         if(disableTime <= 0)
         {
-            character.TakeDamage(transform.position);
+            return character.TakeDamage(transform.position);
         }
+
+        return false;
     }
 
 }

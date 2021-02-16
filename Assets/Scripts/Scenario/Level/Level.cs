@@ -9,18 +9,13 @@ public class Level : MonoBehaviour
 
     private IInterctable[] interctables;
     private IUpdatable[] updatables;
-    private EndLevelPoint endLevelPoint;
 
-    public void Setup(Action endLevel)
+    public void Setup()
     {
         if (interctables == null)
             interctables = GetComponentsInChildren<IInterctable>(true);
 
-        endLevelPoint = GetComponentInChildren<EndLevelPoint>(true);
-
         updatables = GetComponentsInChildren<IUpdatable>(true);
-
-        endLevelPoint.Setup(endLevel);
 
         for (int i = 0; i < interctables.Length; i++)
         {
@@ -41,7 +36,6 @@ public class Level : MonoBehaviour
 
     public void ResetLevel()
     {
-        endLevelPoint.ResetLevel();
 
         for (int i = 0; i < interctables.Length; i++)
         {

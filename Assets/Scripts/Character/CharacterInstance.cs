@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterInstance : MonoBehaviour, IDamagable
+public class CharacterInstance : MonoBehaviour
 {
 
     [Header("Ground Collision Checks")]
@@ -12,6 +12,7 @@ public class CharacterInstance : MonoBehaviour, IDamagable
     public LayerMask GroundLayer;
 
     public float DisableTime = 1f;
+    public Vector2 KnocbakcForce;
 
     [Header("SoundEffect")]
     public string SoundKey;
@@ -75,15 +76,22 @@ public class CharacterInstance : MonoBehaviour, IDamagable
         return false;
     }
 
-    public void TakeDamage(Vector2 damageOrigin)
+    public bool TakeDamage(Vector2 damageOrigin)
     {
-        var direction = (new Vector2(cachedTf.position.x - damageOrigin.x, 1)).normalized;
+
+        if (disableTime > 0)
+            return false;
+
+        var dirX = cachedTf.position.x - damageOrigin.x >= 0 ? 1 : -1;
+        var direction = (new Vector2(dirX, 1)).normalized;
 
         disableTime = DisableTime;
 
         SoundController.instance.PlayAudioEffect("Damage");
 
-        SetMovement(direction * new Vector2(5,0), false);
+        SetMovement(direction * new Vector2(KnocbakcForce.x * dirX , KnocbakcForce.y), false);
+
+        return true;
     }
 
     public void SetGravity(float ammount)
@@ -175,10 +183,5 @@ public class CharacterInstance : MonoBehaviour, IDamagable
         {
             renderer.enabled = true;
         }
-    }
-
-    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
-    {
-        return;
     }
 }

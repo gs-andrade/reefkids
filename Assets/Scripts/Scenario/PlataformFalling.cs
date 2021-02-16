@@ -36,9 +36,9 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable, IDamaga
         timerBeforeFall = TimeBeforeFall;
     }
 
-    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    public void TakeDamage(Vector2 damageOrigin, DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
-        if (Damageble)
+        if (Damageble && damagerType == DamagerType.Player)
         {
             Fall();
         }

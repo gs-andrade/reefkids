@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDamagable 
 {
-    void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1);   
+    void TakeDamage(Vector2 damagerPosition, DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None);   
 }
 
 public enum DamageSpecialEffect

@@ -9,7 +9,7 @@ public class DoorToBeShoot : MonoBehaviour, IInterctable, IUpdatable, IDamagable
     private Vector2 drawPoint;
     public void ResetObj()
     {
-       
+
     }
 
     public void SetupOnStartLevel()
@@ -18,18 +18,19 @@ public class DoorToBeShoot : MonoBehaviour, IInterctable, IUpdatable, IDamagable
         drawPoint = GetComponentInChildren<DrawPoint>().transform.position;
     }
 
-    public void TakeDamage(Vector2 damageOrigin, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None, int ammount = 1)
+    public void TakeDamage(Vector2 damageOrigin,  DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
-        state = InteractiveState.Unlocked;
+        if (damagerType == DamagerType.Player)
+            state = InteractiveState.Unlocked;
     }
 
     public void UpdateObj()
     {
-        if(state == InteractiveState.Unlocked)
+        if (state == InteractiveState.Unlocked)
         {
             transform.position = Vector2.MoveTowards(transform.position, drawPoint, OpeningSpeed * Time.deltaTime);
 
-            if(Vector2.Distance(transform.position, drawPoint) <= 0.05f)
+            if (Vector2.Distance(transform.position, drawPoint) <= 0.05f)
             {
                 state = InteractiveState.Locked;
             }

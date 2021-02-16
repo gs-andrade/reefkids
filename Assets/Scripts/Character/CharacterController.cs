@@ -20,6 +20,7 @@ public class CharacterController : MonoBehaviour
     public float ProjectileSpeed;
     public float ProjectileShootCD;
     public bool EnableProjectile;
+    public DamageSpecialEffect DamageSpecialEffect;
 
     private CharacterInstance character;
 
@@ -103,7 +104,7 @@ public class CharacterController : MonoBehaviour
 
                             var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<ProjectileForward>();
 
-                            projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject);
+                            projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject, DamagerType.Player, DamageSpecialEffect);
 
                             shootKnockbackDirection = ShootKnockbackAirForce * -direction;
 
@@ -121,7 +122,7 @@ public class CharacterController : MonoBehaviour
 
                         var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<ProjectileForward>();
 
-                        projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject);
+                        projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject, DamagerType.Player, DamageSpecialEffect);
 
                         if (grounded)
                         {
@@ -174,11 +175,11 @@ public class CharacterController : MonoBehaviour
     }
 
 
-    public void ResetCharacterToStartPosition(Transform positionRef)
+    public void ResetCharacterToStartPosition(Vector2 positionRef)
     {
         character.PowerRelease();
         character.SetMovement(Vector2.zero);
-        character.transform.position = positionRef.position;
+        character.transform.position = positionRef;
     }
 
     private enum CharacterState

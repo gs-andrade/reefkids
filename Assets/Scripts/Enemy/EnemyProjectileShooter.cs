@@ -51,7 +51,8 @@ public class EnemyProjectileShooter : EnemyGeneric
 
             var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<ProjectileForward>();
 
-            projectile.Setup((Vector2)cachedTf.position + (Vector2.one * direction), direction, ProjectileSpeed, gameObject);
+            projectile.Setup((Vector2)cachedTf.position + (Vector2.one * direction), direction, ProjectileSpeed, gameObject, DamagerType.Enemy);
         }
     }
 }
+
