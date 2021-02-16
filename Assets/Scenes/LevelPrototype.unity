@@ -6202,9 +6202,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 704763069}
     m_Modifications:
+    - target: {fileID: 832913673, guid: 8aaff27eac55f574380439c3c555d837, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -107.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3676823672130987088, guid: 8aaff27eac55f574380439c3c555d837, type: 3}
       propertyPath: ProjectileSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174001655197148756, guid: 8aaff27eac55f574380439c3c555d837, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723069600688220340, guid: 8aaff27eac55f574380439c3c555d837, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5990124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723069600688220340, guid: 8aaff27eac55f574380439c3c555d837, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70.7
       objectReference: {fileID: 0}
     - target: {fileID: 5249611138139813185, guid: 8aaff27eac55f574380439c3c555d837, type: 3}
       propertyPath: m_LocalPosition.x
