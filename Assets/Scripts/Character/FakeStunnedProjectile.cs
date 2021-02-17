@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FakeStunnedProjectile : MonoBehaviour, IDamagable
+public class FakeStunnedProjectile : MonoBehaviour
 {
-    public void TakeDamage(Vector2 damagerPosition, DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
+    public float AliveTime = 5f;
+
+    private void FixedUpdate()
     {
-        Destroy(gameObject);
+        if (AliveTime >= 0)
+            AliveTime -= Time.deltaTime;
+        else
+            Destroy(gameObject);
     }
 
 }

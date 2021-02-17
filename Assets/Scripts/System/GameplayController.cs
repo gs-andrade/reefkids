@@ -172,6 +172,7 @@ public enum PointToStartGame
 {
     InitialArea = -1,
     Level1 = 0,
+    Level2 = 1,
 }
 public enum GameState
 {

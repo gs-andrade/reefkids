@@ -56,12 +56,10 @@ public class CharacterInstance : MonoBehaviour
 
         if (leftCheck || rightCheck || centerCheck)
         {
-            animator.SetBool("IsJumping", true);
             return true;
         }
         else
         {
-            animator.SetBool("IsJumping", false);
             return false;
         }
     }
@@ -112,8 +110,6 @@ public class CharacterInstance : MonoBehaviour
                 else if (movement.x < 0)
                     cachedTf.localScale = new Vector3(-1, 1, 1);
             }
-
-            animator.SetBool("IsWalking", false);
         }
     }
 
@@ -125,7 +121,6 @@ public class CharacterInstance : MonoBehaviour
     public void Jump(float force)
     {
         rb.velocity = new Vector2(rb.velocity.x, force);
-        animator.SetBool("IsJumping", true);
     }
 
 
@@ -142,18 +137,23 @@ public class CharacterInstance : MonoBehaviour
                 else
                     transform.localScale = new Vector3(-1, 1, 1);
             }
+        }
 
-            animator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            animator.SetBool("IsWalking", false);
-        }
     }
 
     public void SetYVelocity(float yMOve)
     {
         rb.velocity = new Vector2(rb.velocity.x, yMOve);
+    }
+
+    public void SetAnimationTrigger(string name)
+    {
+        animator.SetTrigger(name);
+    }
+
+    public void SetAnimationBool(string name, bool state)
+    {
+        animator.SetBool(name, state);
     }
 
     public void PowerUser()
@@ -174,6 +174,7 @@ public class CharacterInstance : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         if (disableTime > 0)
         {
             disableTime -= Time.deltaTime;

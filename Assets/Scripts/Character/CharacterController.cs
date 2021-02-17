@@ -70,6 +70,8 @@ public class CharacterController : MonoBehaviour
 
         input.GetInputs();
 
+        bool isWalking = false;
+
         switch (state)
         {
             case CharacterState.Normal:
@@ -82,6 +84,9 @@ public class CharacterController : MonoBehaviour
                     {
                         if (wasOnAir)
                             SoundController.instance.PlayAudioEffect(character.SoundKey + "Fall", SoundAction.Play);
+
+                        character.SetAnimationBool("DoubleJ", false);
+                        character.SetAnimationBool("IsJumping", false);
                     }
 
                     wasOnAir = !grounded;
@@ -93,6 +98,7 @@ public class CharacterController : MonoBehaviour
                         if (grounded)
                         {
                             character.Jump(JumpForce);
+                            character.SetAnimationBool("IsJumping", true);
                             inputDelay = 0.2f;
 
                             SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
@@ -109,6 +115,8 @@ public class CharacterController : MonoBehaviour
                             shootKnockbackDirection = ShootKnockbackAirForce * -direction;
 
                             state = CharacterState.Dashing;
+
+                            character.SetAnimationBool("DoubleJ", true);
                         }
                     }
                     else if (input.Shoot && EnableProjectile && projectileCd <= 0)
@@ -128,11 +136,14 @@ public class CharacterController : MonoBehaviour
                         {
                             shootKnockbackDirection = ShootKnockbackGroundForce * -direction;
                             inputDelay = HorizontalKnockbackGroundDuration;
+                            character.SetAnimationBool("ShotG", true);
+
                         }
                         else
                         {
                             shootKnockbackDirection = ShootKnockbackAirForce * -direction;
                             inputDelay = HorizontalKnockbackAirDuration;
+                            character.SetAnimationBool("ShotAir", true);
                         }
 
                         state = CharacterState.Dashing;
@@ -140,6 +151,10 @@ public class CharacterController : MonoBehaviour
                     }
                     else if (input.Horizontal != 0)
                     {
+                        if (grounded)
+                            isWalking = true;
+
+
                         horizontalMOvement = input.Horizontal * Speed;
 
                         if (grounded)
@@ -147,6 +162,8 @@ public class CharacterController : MonoBehaviour
                     }
 
                     character.SetXVelocity(horizontalMOvement);
+
+                    character.SetAnimationBool("IsWalking", isWalking);
 
                     break;
                 }
@@ -156,7 +173,10 @@ public class CharacterController : MonoBehaviour
                     //  character.SetMovement(shootKnockbackDirection, false);
 
                     if (shootKnockbackDirection.y != 0)
+                    {
                         character.SetYVelocity(shootKnockbackDirection.y);
+                  
+                    }
                     else
                     {
                         character.SetXVelocity(shootKnockbackDirection.x, false);
@@ -165,6 +185,9 @@ public class CharacterController : MonoBehaviour
 
                     if (inputDelay <= 0)
                     {
+                        character.SetAnimationBool("ShotG", false);
+                        character.SetAnimationBool("ShotAir", false);
+
                         state = CharacterState.Normal;
                     }
                     break;
