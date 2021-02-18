@@ -14,6 +14,8 @@ public class CharacterInstance : MonoBehaviour
     public float DisableTime = 1f;
     public Vector2 KnocbakcForce;
 
+  
+
     [Header("SoundEffect")]
     public string SoundKey;
 

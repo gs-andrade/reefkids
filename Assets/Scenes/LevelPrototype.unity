@@ -2561,6 +2561,10 @@ PrefabInstance:
       propertyPath: DamageSpecialEffect
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
+      propertyPath: DElayTime
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5077520579788315641, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.081749
@@ -8544,7 +8548,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8359386864786291985, guid: de7a9f25f519780498d62e38a5366110, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.07
+      value: -57.6
       objectReference: {fileID: 0}
     - target: {fileID: 8359386864786291985, guid: de7a9f25f519780498d62e38a5366110, type: 3}
       propertyPath: m_LocalPosition.y

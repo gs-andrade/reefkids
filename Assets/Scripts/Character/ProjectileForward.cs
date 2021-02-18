@@ -13,10 +13,16 @@ public class ProjectileForward : MonoBehaviour, IDamagable  //, IUpdatable
     private float aliveTime;
     private DamagerType damagerType;
     private DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None;
+    private SpriteRenderer renderer;
+
+    private float delayToAppear;
     public void Setup(Vector2 startPosition, Vector2 direction, float speed, GameObject owner, DamagerType projectileOwnerType, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
         if (cachedTf == null)
             cachedTf = transform;
+
+        if (renderer == null)
+            renderer = GetComponent<SpriteRenderer>();
 
         cachedTf.transform.position = startPosition;
         this.direction = direction;
@@ -24,6 +30,15 @@ public class ProjectileForward : MonoBehaviour, IDamagable  //, IUpdatable
         this.owner = owner;
         damagerType = projectileOwnerType;
         this.damageSpecialEffect = damageSpecialEffect;
+
+        if (delayToAppear > 0)
+            renderer.enabled = false;
+
+    }
+
+    public void SetDelayToAppe(float delay)
+    {
+        delayToAppear = delay;
     }
 
     public DamagerType GetProjectileOwnerType()
@@ -33,6 +48,16 @@ public class ProjectileForward : MonoBehaviour, IDamagable  //, IUpdatable
 
     private void Update()
     {
+        if(delayToAppear > 0)
+        {
+            delayToAppear -= Time.deltaTime;
+            return;
+        }
+        else
+        {
+            renderer.enabled = true;
+        }
+
         if (cachedTf == null)
             cachedTf = transform;
 

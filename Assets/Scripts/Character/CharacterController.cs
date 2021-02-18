@@ -21,6 +21,7 @@ public class CharacterController : MonoBehaviour
     public float ProjectileShootCD;
     public bool EnableProjectile;
     public DamageSpecialEffect DamageSpecialEffect;
+    public float DElayTime;
 
     private CharacterInstance character;
 
@@ -35,6 +36,8 @@ public class CharacterController : MonoBehaviour
     private float inputDelay;
 
     private float coyoteJump;
+
+    private float delayToShootOnGround;
 
     public void Setup()
     {
@@ -139,6 +142,9 @@ public class CharacterController : MonoBehaviour
 
                         var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<ProjectileForward>();
 
+                        if (grounded)
+                            projectile.SetDelayToAppe(DElayTime);
+
                         projectile.Setup((Vector2)character.transform.position + (Vector2.one * direction), direction, ProjectileSpeed, character.gameObject, DamagerType.Player, DamageSpecialEffect);
 
                         if (grounded)
@@ -203,6 +209,11 @@ public class CharacterController : MonoBehaviour
                 }
         }
 
+
+    }
+
+    public void ActiveShoot()
+    {
 
     }
 
