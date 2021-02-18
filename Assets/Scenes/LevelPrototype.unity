@@ -2563,7 +2563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077520579215976522, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: DElayTime
-      value: 0.05
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5077520579788315641, guid: c2cd1cf8240aed848affebdb9e5fa296, type: 3}
       propertyPath: m_LocalPosition.x
