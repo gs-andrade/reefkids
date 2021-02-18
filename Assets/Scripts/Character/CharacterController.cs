@@ -34,6 +34,8 @@ public class CharacterController : MonoBehaviour
     private Vector2 shootKnockbackDirection;
     private float inputDelay;
 
+    private float coyoteJump;
+
     public void Setup()
     {
         if (character == null)
@@ -65,6 +67,9 @@ public class CharacterController : MonoBehaviour
         if (projectileCd > 0)
             projectileCd -= Time.deltaTime;
 
+        if (coyoteJump > 0)
+            coyoteJump -= Time.deltaTime;
+
         if (character.IsDisabled())
             return;
 
@@ -82,6 +87,8 @@ public class CharacterController : MonoBehaviour
 
                     if (grounded)
                     {
+                        coyoteJump = 0.25f;
+
                         if (wasOnAir)
                             SoundController.instance.PlayAudioEffect(character.SoundKey + "Fall", SoundAction.Play);
 
@@ -89,17 +96,19 @@ public class CharacterController : MonoBehaviour
                         character.SetAnimationBool("IsJumping", false);
                     }
 
+
                     wasOnAir = !grounded;
                     // JUMP
                     if (input.JumpPressed && inputDelay <= 0)
                     {
-                       // isHoldingJumpButton = true;
+                        // isHoldingJumpButton = true;
 
-                        if (grounded)
+                        if (grounded || coyoteJump > 0)
                         {
                             character.Jump(JumpForce);
                             character.SetAnimationBool("IsJumping", true);
                             inputDelay = 0.2f;
+                            coyoteJump = 0;
 
                             SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
                         }
@@ -175,13 +184,13 @@ public class CharacterController : MonoBehaviour
                     if (shootKnockbackDirection.y != 0)
                     {
                         character.SetYVelocity(shootKnockbackDirection.y);
-                  
+
                     }
                     else
                     {
                         character.SetXVelocity(shootKnockbackDirection.x, false);
                     }
-                       
+
 
                     if (inputDelay <= 0)
                     {

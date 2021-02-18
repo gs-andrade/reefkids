@@ -58,7 +58,7 @@ public class GameplayController : MonoBehaviour
         return characters.GetPlayer();
     }
 
-    public void StartNextLevel()
+    public void StartNextLevel(bool resetCharacterPosition = true)
     {
         if (GameplayInterface != null)
             GameplayInterface.gameObject.SetActive(true);
@@ -77,7 +77,12 @@ public class GameplayController : MonoBehaviour
         LevelCurrent().Setup();
         LevelCurrent().gameObject.SetActive(true);
         checkPointPosition = LevelCurrent().CharacterStartPositionReference.position;
-        RestarLevel();
+        RestarLevel(resetCharacterPosition);
+    }
+
+    public void SaveCheckPoint(Vector2 position)
+    {
+        checkPointPosition = position;
     }
 
 
@@ -90,21 +95,23 @@ public class GameplayController : MonoBehaviour
     }
 
 
-    public void RestarLevel()
+    public void RestarLevel(bool resetCharacterPosition = true)
     {
         lifeCurrent = 3;
         LevelCurrent().ResetLevel();
-        characters.ResetCharacterToStartPosition(checkPointPosition);
+
+        if (resetCharacterPosition)
+            characters.ResetCharacterToStartPosition(checkPointPosition);
     }
 
     public bool TakeDamageAndCheckIfIsAlive(int ammount)
     {
-       /* lifeCurrent -= ammount;
+        /* lifeCurrent -= ammount;
 
-        if (lifeCurrent <= 0)
-        {
-            return false;
-        }*/
+         if (lifeCurrent <= 0)
+         {
+             return false;
+         }*/
 
         return true;
     }
