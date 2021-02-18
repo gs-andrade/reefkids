@@ -13,5 +13,4 @@ public class FakeStunnedProjectile : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
 }
