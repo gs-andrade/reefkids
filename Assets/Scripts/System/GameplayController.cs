@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +17,14 @@ public class GameplayController : MonoBehaviour
 
     public PointToStartGame PointToStartGame;
 
+    public List<ConfigBByLevel> ConfigByLevel;
     private GameState state;
 
     private Level[] levels;
     private int currentLevelIndex;
 
     private CharacterController characters;
+    private CinemachineVirtualCamera currentVirtualCamera;
 
     private int lifeCurrent;
 
@@ -32,6 +35,12 @@ public class GameplayController : MonoBehaviour
         instance = this;
 
         state = GameState.Game;
+
+
+        for (int i = 0; i < ConfigByLevel.Count; i++)
+        {
+            ConfigByLevel[i].CameraToUse.enabled = false;
+        }
 
         if (levels == null || levels.Length == 0)
             levels = LevelHold.GetComponentsInChildren<Level>(true);
@@ -51,6 +60,7 @@ public class GameplayController : MonoBehaviour
 
         lifeCurrent = 3;
 
+
     }
 
     public CharacterInstance GetPlayer()
@@ -65,6 +75,22 @@ public class GameplayController : MonoBehaviour
 
         /*if (currentLevelIndex > -1 && currentLevelIndex < levels.Length - 1)
             LevelCurrent().gameObject.SetActive(false);*/
+
+        if (currentVirtualCamera != null)
+            currentVirtualCamera.enabled = false;
+
+        for (int i = 0; i < ConfigByLevel.Count; i++)
+        {
+            var config = ConfigByLevel[i];
+            if (config.Level == (PointToStartGame)currentLevelIndex)
+            {
+                currentVirtualCamera = config.CameraToUse;
+                currentVirtualCamera.enabled = true;
+                break;
+            }
+        }
+
+
 
         currentLevelIndex++;
 
@@ -174,6 +200,15 @@ public class GameplayController : MonoBehaviour
         }
     }
 }
+
+//Teemporario
+[Serializable]
+public class ConfigBByLevel
+{
+    public PointToStartGame Level;
+    public CinemachineVirtualCamera CameraToUse;
+}
+
 
 public enum PointToStartGame
 {

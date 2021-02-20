@@ -10,9 +10,7 @@ public class EnemyPatrol : EnemyGeneric
     private DrawPoint[] points;
     private int moveIndex;
     private Vector2 nextLocation;
-    private Vector2 plataformStartPosition;
     private Transform cachedTf;
-    private PlataformMove moveScript;
 
     private Vector2 startPosition;
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,7 +21,6 @@ public class EnemyPatrol : EnemyGeneric
         {
             if(DealDamage(character))
                SetNextDestination();
-            
         }
     }
 
@@ -50,12 +47,11 @@ public class EnemyPatrol : EnemyGeneric
 
     public override void SetupOnStartLevel()
     {
-        plataformStartPosition = transform.position;
+     
     }
 
     public override void ResetObj()
     {
-       // cachedTf.transform.position = plataformStartPosition;
         moveIndex = 0;
         gameObject.SetActive(true);
     }

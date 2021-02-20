@@ -7,6 +7,7 @@ public abstract class EnemyGeneric : MonoBehaviour, IUpdatable, IInterctable, ID
     [Header("Generic Enemy Attributes")]
     public bool StunOnDamageTake;
     public float StunDisableTime = 3f;
+    public DamageSpecialEffect DamageSpecialEffect = DamageSpecialEffect.None;
 
     protected float disableTime;
     public abstract void ResetObj();
@@ -23,9 +24,10 @@ public abstract class EnemyGeneric : MonoBehaviour, IUpdatable, IInterctable, ID
 
     public virtual bool DealDamage(CharacterInstance character)
     {
-        if(disableTime <= 0)
+        if(disableTime <= 0 && !character.IsVunerable())
         {
-            return character.TakeDamage(transform.position);
+            character.TakeDamage(transform.position, DamagerType.Enemy, 1, DamageSpecialEffect);
+            return true;
         }
 
         return false;

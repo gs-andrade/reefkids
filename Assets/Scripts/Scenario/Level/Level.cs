@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public Transform CharacterStartPositionReference;
+    public CinemachineVirtualCamera CameraToUse;
 
     private IInterctable[] interctables;
     private IUpdatable[] updatables;
@@ -21,6 +23,7 @@ public class Level : MonoBehaviour
         {
             interctables[i].SetupOnStartLevel();
         }
+
     }
 
     public void UpdateObjs()

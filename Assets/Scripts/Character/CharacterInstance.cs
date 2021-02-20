@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterInstance : MonoBehaviour
+public class CharacterInstance : MonoBehaviour, IDamagable
 {
 
     [Header("Ground Collision Checks")]
@@ -11,10 +11,12 @@ public class CharacterInstance : MonoBehaviour
     public float RayCastFootLenght;
     public LayerMask GroundLayer;
 
+    [Header("Damage Take Effects")]
     public float DisableTime = 1f;
+    public float InvunerabilityTime = 1f;
     public Vector2 KnocbakcForce;
 
-  
+
 
     [Header("SoundEffect")]
     public string SoundKey;
@@ -26,7 +28,8 @@ public class CharacterInstance : MonoBehaviour
     private SpriteRenderer renderer;
 
     private ICharacterPower characterPower;
-    private float disableTime;
+    private float disableTimer;
+    private float invunerabilityTimer;
 
     public void Setup()
     {
@@ -66,32 +69,36 @@ public class CharacterInstance : MonoBehaviour
         }
     }
 
+    public bool IsVunerable()
+    {
+        return invunerabilityTimer > 0;
+    }
+
     public bool IsDisabled()
     {
-        if (disableTime > 0)
-        { 
+        if (disableTimer > 0)
+        {
             return true;
         }
 
         return false;
     }
 
-    public bool TakeDamage(Vector2 damageOrigin)
+    public void TakeDamage(Vector2 damagerPosition, DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
+        if (invunerabilityTimer > 0)
+            return;
 
-        if (disableTime > 0)
-            return false;
+        var dirX = cachedTf.position.x - damagerPosition.x >= 0 ? 1 : -1;
 
-        var dirX = cachedTf.position.x - damageOrigin.x >= 0 ? 1 : -1;
-        var direction = (new Vector2(dirX, 1)).normalized;
 
-        disableTime = DisableTime;
+        disableTimer = DisableTime;
+        invunerabilityTimer = InvunerabilityTime;
 
         SoundController.instance.PlayAudioEffect("Damage");
 
-        SetMovement(direction * new Vector2(KnocbakcForce.x * dirX , KnocbakcForce.y), false);
-
-        return true;
+        if (damageSpecialEffect == DamageSpecialEffect.Knockback)
+            SetMovement(new Vector2(KnocbakcForce.x * dirX, KnocbakcForce.y), false);
     }
 
     public void SetGravity(float ammount)
@@ -124,6 +131,7 @@ public class CharacterInstance : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, force);
     }
+
 
 
     public void SetXVelocity(float xMove, bool changeDirection = true)
@@ -176,10 +184,12 @@ public class CharacterInstance : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
-        if (disableTime > 0)
+        if (disableTimer > 0)
+            disableTimer -= Time.deltaTime;
+
+        if (invunerabilityTimer > 0)
         {
-            disableTime -= Time.deltaTime;
+            invunerabilityTimer -= Time.deltaTime;
             renderer.enabled = !renderer.enabled;
         }
         else
@@ -187,4 +197,5 @@ public class CharacterInstance : MonoBehaviour
             renderer.enabled = true;
         }
     }
+
 }

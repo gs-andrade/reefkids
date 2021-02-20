@@ -13,7 +13,7 @@ public class DamageArea : MonoBehaviour
 
         if (character != null)
         {
-            character.TakeDamage(transform.position);
+         //   character.TakeDamage(transform.position);
         }
     }
 
@@ -23,7 +23,7 @@ public class DamageArea : MonoBehaviour
 
         if (character != null)
         {
-            character.TakeDamage(transform.position);
+          //  character.TakeDamage(transform.position);
         }
     }
 }

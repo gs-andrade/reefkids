@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StunOnDamageTake: 1
   StunDisableTime: 3
+  DamageSpecialEffect: 2
   Speed: 5
 --- !u!61 &8011128263956557358
 BoxCollider2D:

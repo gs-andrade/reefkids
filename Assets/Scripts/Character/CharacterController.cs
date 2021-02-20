@@ -98,7 +98,8 @@ public class CharacterController : MonoBehaviour
                         character.SetAnimationBool("DoubleJ", false);
                         character.SetAnimationBool("IsJumping", false);
                     }
-
+                    else
+                        character.SetAnimationBool("IsJumping", true);
 
                     wasOnAir = !grounded;
                     // JUMP
@@ -108,8 +109,7 @@ public class CharacterController : MonoBehaviour
 
                         if (grounded || coyoteJump > 0)
                         {
-                            character.Jump(JumpForce);
-                            character.SetAnimationBool("IsJumping", true);
+                            character.Jump(JumpForce);                         
                             inputDelay = 0.2f;
                             coyoteJump = 0;
 
@@ -209,11 +209,6 @@ public class CharacterController : MonoBehaviour
                 }
         }
 
-
-    }
-
-    public void ActiveShoot()
-    {
 
     }
 

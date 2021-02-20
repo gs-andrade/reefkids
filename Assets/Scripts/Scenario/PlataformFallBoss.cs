@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable, IDamagable
+public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamagable
 {
     public float TimeBeforeFall;
     public float FallSpeed;
-    public bool Damageble;
+    public float TimeToRespawn;
 
+    private float timerToRespawn;
     private float timerBeforeFall;
     private Rigidbody2D rb;
+    private BoxCollider2D collider;
+    private SpriteRenderer renderer;
     private InteractiveState state;
     private Vector2 startPosition;
 
@@ -17,23 +20,36 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable, IDamaga
     private bool soundPlayed;
     public void ResetObj()
     {
-        if (rb != null)
-            rb.gravityScale = 0;
+
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
 
         state = InteractiveState.Locked;
         transform.position = startPosition;
         timerBeforeFall = TimeBeforeFall;
+
+        collider.enabled = true;
+        renderer.enabled = true;
     }
 
     public void SetupOnStartLevel()
     {
         startPosition = transform.position;
         timerBeforeFall = TimeBeforeFall;
+
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
+        if (collider == null)
+            collider = GetComponent<BoxCollider2D>();
+
+        if (renderer == null)
+            renderer = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(Vector2 damageOrigin, DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
-        if (Damageble && damagerType == DamagerType.Player)
+        if (damagerType == DamagerType.Player)
         {
             Fall();
         }
@@ -57,29 +73,41 @@ public class PlataformFalling : MonoBehaviour, IInterctable, IUpdatable, IDamaga
                     SoundController.instance.PlayAudioEffect("PlataformFall", SoundAction.Play);
                     soundPlayed = true;
                 }
+
+                if (timerToRespawn > 0)
+                {
+                    timerToRespawn -= Time.deltaTime;
+                }
+                else
+                    ResetObj();
             }
         }
+        else
+            timerToRespawn = TimeToRespawn;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Damageble)
-            return;
-
-        var character = collision.gameObject.GetComponent<CharacterInstance>();
-
-        if (character != null &&  (character.transform.position.y - transform.position.y > 0))
+        if(state == InteractiveState.Unlocked)
         {
-            Fall();
+            var damageble = collision.gameObject.GetComponent<IDamagable>();
+
+            if (damageble != null)
+                damageble.TakeDamage(transform.position, DamagerType.Player);
+
+            DisableObject();
         }
+    }
+
+    private void DisableObject()
+    {
+        collider.enabled = false;
+        renderer.enabled = false;
     }
 
     private void Fall()
     {
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
-
         state = InteractiveState.Unlocked;
     }
-
 }
