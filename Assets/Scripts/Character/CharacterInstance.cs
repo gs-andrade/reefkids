@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterInstance : MonoBehaviour, IDamagable
 {
-
     [Header("Ground Collision Checks")]
     public Vector2 RaycastFootOffset;
     public float RayCastFootLenght;

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+
+    public ParticleSystem dust;
+
+    public ParticleSystem landingdust;
+    public Transform groundCheck;
+    private bool spawnDust;
+
     [Header("Character Attributes")]
     public float Speed;
     public float JumpForce;
@@ -90,6 +97,12 @@ public class CharacterController : MonoBehaviour
 
                     if (grounded)
                     {
+                        if (spawnDust == true)
+                        {
+                            CreateLandingdust();
+                            spawnDust = false;
+                        }
+
                         coyoteJump = 0.25f;
 
                         if (wasOnAir)
@@ -99,7 +112,12 @@ public class CharacterController : MonoBehaviour
                         character.SetAnimationBool("IsJumping", false);
                     }
                     else
+                    {
+                        spawnDust = true;
                         character.SetAnimationBool("IsJumping", true);
+                    }
+
+                       
 
                     wasOnAir = !grounded;
                     // JUMP
@@ -109,7 +127,8 @@ public class CharacterController : MonoBehaviour
 
                         if (grounded || coyoteJump > 0)
                         {
-                            character.Jump(JumpForce);                         
+                            CreateDust();
+                            character.Jump(JumpForce);
                             inputDelay = 0.2f;
                             coyoteJump = 0;
 
@@ -226,4 +245,13 @@ public class CharacterController : MonoBehaviour
         Dashing,
     }
 
+    void CreateDust()
+    {
+        dust.Play();
+    }
+
+    void CreateLandingdust()
+    {
+        landingdust.Play();
+    }
 }
