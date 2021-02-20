@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterInstance : MonoBehaviour
 {
-
     [Header("Ground Collision Checks")]
     public Vector2 RaycastFootOffset;
     public float RayCastFootLenght;
@@ -187,4 +186,5 @@ public class CharacterInstance : MonoBehaviour
             renderer.enabled = true;
         }
     }
+
 }
