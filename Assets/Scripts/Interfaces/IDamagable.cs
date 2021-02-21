@@ -12,4 +12,5 @@ public enum DamageSpecialEffect
     None,
     Stun,
     Knockback,
+    BreakArmor,
 }

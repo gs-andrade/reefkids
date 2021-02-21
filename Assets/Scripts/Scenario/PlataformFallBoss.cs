@@ -94,7 +94,7 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
             var damageble = collision.gameObject.GetComponent<IDamagable>();
 
             if (damageble != null)
-                damageble.TakeDamage(transform.position, DamagerType.Player);
+                damageble.TakeDamage(transform.position, DamagerType.Player, 1, DamageSpecialEffect.BreakArmor);
 
             DisableObject();
         }

@@ -90,14 +90,15 @@ public class CharacterInstance : MonoBehaviour, IDamagable
 
         var dirX = cachedTf.position.x - damagerPosition.x >= 0 ? 1 : -1;
 
-
-        disableTimer = DisableTime;
         invunerabilityTimer = InvunerabilityTime;
 
         SoundController.instance.PlayAudioEffect("Damage");
 
         if (damageSpecialEffect == DamageSpecialEffect.Knockback)
+        {
             SetMovement(new Vector2(KnocbakcForce.x * dirX, KnocbakcForce.y), false);
+            disableTimer = DisableTime;
+        }
     }
 
     public void SetGravity(float ammount)
