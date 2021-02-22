@@ -11,7 +11,7 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
 
     public BoxCollider2D[] Plataforms;
 
-
+    private float currentSpeed;
 
     private float bossStunTimer;
     private int lifeCurrent;
@@ -68,10 +68,14 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
         if (bossStunTimer > 0)
         {
             bossStunTimer -= Time.deltaTime;
+            currentSpeed = 0;
         }
         else
         {
-            if(state == BossState.Recovery)
+            if (lifeCurrent > 0)
+                currentSpeed = Speed;
+
+            if (state == BossState.Recovery)
             {
                 TooglePlataforms(true);
             }
@@ -86,7 +90,7 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
         }
         else
         {
-            cachedTf.position = Vector2.MoveTowards(cachedTf.position, nextLocation, Speed * Time.deltaTime);
+            cachedTf.position = Vector2.MoveTowards(cachedTf.position, nextLocation, currentSpeed * Time.deltaTime);
         }
     }
 
@@ -98,6 +102,7 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
             {
                 bossStunTimer = BossStunDuration;
                 state = BossState.Stunned;
+                currentSpeed = 0;
                 Debug.Log("Stunned");
             }
         }

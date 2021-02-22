@@ -87,7 +87,7 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+  /*  private void OnCollisionEnter2D(Collision2D collision)
     {
         if(state == InteractiveState.Unlocked)
         {
@@ -95,6 +95,23 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
 
             if (damageble != null)
                 damageble.TakeDamage(transform.position, DamagerType.Player, 1, DamageSpecialEffect.BreakArmor);
+
+            DisableObject();
+        }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (state == InteractiveState.Unlocked)
+        {
+            if (collision.tag != "Boss")
+                return;
+
+            var damageble = collision.gameObject.GetComponent<IDamagable>();
+
+            if (damageble != null)
+                damageble.TakeDamage(transform.position, DamagerType.Player, 1, DamageSpecialEffect.BreakArmor);
+
 
             DisableObject();
         }
