@@ -10,11 +10,14 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
     public float RecoveryTime = 3f;
 
     public BoxCollider2D[] Plataforms;
+    public GameObject AreaDamageGO;
 
     private float currentSpeed;
 
     private float bossStunTimer;
     private int lifeCurrent;
+
+    private BoxCollider2D[] areaDamageColliders;
 
     private DrawPoint[] points;
     private int moveIndex;
@@ -44,6 +47,11 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
         nextLocation = points[0].transform.position;
         lifeCurrent = LifeMax;
         state = BossState.Normal;
+
+        if(areaDamageColliders == null || areaDamageColliders.Length == 0)
+        {
+            areaDamageColliders = AreaDamageGO.GetComponents<BoxCollider2D>();
+        }
     }
 
     public void ResetObj()
@@ -129,6 +137,11 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
         for(int i =0; i < Plataforms.Length; i++)
         {
             Plataforms[i].enabled = toogle;
+        }
+
+        for(int i = 0; i < areaDamageColliders.Length; i++)
+        {
+            areaDamageColliders[i].enabled = toogle;
         }
     }
 
