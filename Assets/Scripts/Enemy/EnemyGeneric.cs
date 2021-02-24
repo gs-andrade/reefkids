@@ -26,7 +26,7 @@ public abstract class EnemyGeneric : MonoBehaviour, IUpdatable, IInterctable, ID
     {
         if(disableTime <= 0 && !character.IsVunerable())
         {
-            character.TakeDamage(transform.position, DamagerType.Enemy, 1, DamageSpecialEffect);
+            character.TakeDamage(transform.position, DamagerType.Enemy, 1,  DamageSpecialEffect.None);
             return true;
         }
 

@@ -16,10 +16,6 @@ public class CharacterInstance : MonoBehaviour, IDamagable
     public Vector2 KnocbakcForce;
 
 
-
-    [Header("SoundEffect")]
-    public string SoundKey;
-
     private Transform cachedTf;
     private BoxCollider2D collider;
     private Rigidbody2D rb;
@@ -92,13 +88,14 @@ public class CharacterInstance : MonoBehaviour, IDamagable
 
         invunerabilityTimer = InvunerabilityTime;
 
-        SoundController.instance.PlayAudioEffect("Damage");
-
         if (damageSpecialEffect == DamageSpecialEffect.Knockback)
         {
             SetMovement(new Vector2(KnocbakcForce.x * dirX, KnocbakcForce.y), false);
             disableTimer = DisableTime;
         }
+
+        SoundController.instance.PlayAudioEffect("damaged1");
+        GameplayController.instance.TakeDamageAndCheckIfIsAlive(1);
     }
 
     public void SetGravity(float ammount)

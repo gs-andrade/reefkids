@@ -77,11 +77,13 @@ public class EnemyPatrol : EnemyGeneric
     public override void TakeDamage(Vector2 damageOrigin, DamagerType damagerType,  int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
     {
         base.TakeDamage(damageOrigin, damagerType,  ammount, damageSpecialEffect);
+        SoundController.instance.PlayAudioEffect("CrabDie");
         gameObject.SetActive(false);
     }
 
     public override bool DealDamage(CharacterInstance character)
     {
+        SoundController.instance.PlayAudioEffect("CrabAttack");
         return base.DealDamage(character);
     }
 
