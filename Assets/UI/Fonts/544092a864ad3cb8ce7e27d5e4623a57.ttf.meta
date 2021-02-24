@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ff794506c7c81fc478493a051ec45e37
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gardafiller
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 55a58823607320248b0b6ccfdef6b894, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
