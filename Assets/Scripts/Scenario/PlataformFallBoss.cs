@@ -8,6 +8,10 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
     public float FallSpeed;
     public float TimeToRespawn;
 
+    public GameObject[] Shields;
+
+    private bool leftOrRight;
+
     private float timerToRespawn;
     private float timerBeforeFall;
     private Rigidbody2D rb;
@@ -30,6 +34,8 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
 
         collider.enabled = true;
         renderer.enabled = true;
+
+        ToogleShields();
     }
 
     public void SetupOnStartLevel()
@@ -45,6 +51,14 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
 
         if (renderer == null)
             renderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void ToogleShields()
+    {
+        Shields[0].SetActive(leftOrRight);
+        Shields[1].SetActive(!leftOrRight);
+
+        leftOrRight = !leftOrRight;
     }
 
     public void TakeDamage(Vector2 damageOrigin, DamagerType damagerType, int ammount = 1, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
@@ -70,7 +84,7 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
 
                 if (!soundPlayed)
                 {
-                    SoundController.instance.PlayAudioEffect("PlataformFall", SoundAction.Play);
+                    SoundController.instance.PlayAudioEffect("PlatOnHit");
                     soundPlayed = true;
                 }
 
@@ -119,8 +133,12 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
 
     private void DisableObject()
     {
+        SoundController.instance.PlayAudioEffect("PlatOnFall");
         collider.enabled = false;
         renderer.enabled = false;
+
+        Shields[0].SetActive(false);
+        Shields[1].SetActive(false);
     }
 
     private void Fall()

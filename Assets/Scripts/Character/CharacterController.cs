@@ -6,9 +6,9 @@ public class CharacterController : MonoBehaviour
 {
 
     public ParticleSystem dust;
-
     public ParticleSystem landingdust;
-    public Transform groundCheck;
+    public Vector2 LandingDustOffset;
+    
     private bool spawnDust;
 
     [Header("Character Attributes")]
@@ -44,7 +44,13 @@ public class CharacterController : MonoBehaviour
 
     private float coyoteJump;
 
-    private float delayToShootOnGround;
+
+    private int soundCount = 0;
+
+
+    private float soundCharacterDelayToUseagain;
+    private float soundCharacterDelayToReseTimer;
+
 
     public void Setup()
     {
@@ -69,6 +75,43 @@ public class CharacterController : MonoBehaviour
         return character;
     }
 
+    private void PlayCharacterSound(string name)
+    {
+        if (soundCharacterDelayToReseTimer > 0)
+            return;
+
+        if (soundCount >= 5)
+            soundCharacterDelayToReseTimer = 3.5f;
+
+        soundCharacterDelayToUseagain = 5f;
+        soundCount++;
+        SoundController.instance.PlayAudioEffect(name);
+    }
+    private void PlayGenericSound(string name)
+    {
+        SoundController.instance.PlayAudioEffect(name);
+    }
+    private void UpdateSoundCount()
+    {
+        if (soundCharacterDelayToUseagain > 0)
+        {
+            soundCharacterDelayToUseagain -= Time.deltaTime;
+
+            if(soundCharacterDelayToUseagain <= 0)
+            {
+                soundCount = 0;
+            }
+        }
+
+        if (soundCharacterDelayToReseTimer > 0)
+        {
+            soundCharacterDelayToReseTimer -= Time.deltaTime;
+            if (soundCharacterDelayToReseTimer <= 0)
+            {
+                soundCount = 0;
+            }
+        }
+    }
     public void UpdateCharacters()
     {
         if (inputDelay > 0)
@@ -82,6 +125,8 @@ public class CharacterController : MonoBehaviour
 
         if (character.IsDisabled())
             return;
+
+        UpdateSoundCount();
 
         input.GetInputs();
 
@@ -106,7 +151,7 @@ public class CharacterController : MonoBehaviour
                         coyoteJump = 0.25f;
 
                         if (wasOnAir)
-                            SoundController.instance.PlayAudioEffect(character.SoundKey + "Fall", SoundAction.Play);
+                            PlayGenericSound("Fall");
 
                         character.SetAnimationBool("DoubleJ", false);
                         character.SetAnimationBool("IsJumping", false);
@@ -132,7 +177,12 @@ public class CharacterController : MonoBehaviour
                             inputDelay = 0.2f;
                             coyoteJump = 0;
 
-                            SoundController.instance.PlayAudioEffect(character.SoundKey + "Jump", SoundAction.Play);
+                         
+
+                            PlayGenericSound("Jump");
+                            PlayCharacterSound("jump1");
+
+                            soundCount++;
                         }
                         else if (EnableProjectile && projectileCd <= 0)
                         {
@@ -148,6 +198,10 @@ public class CharacterController : MonoBehaviour
                             state = CharacterState.Dashing;
 
                             character.SetAnimationBool("DoubleJ", true);
+
+                            PlayCharacterSound("jump2");
+
+                            soundCount++;
                         }
                     }
                     else if (input.Shoot && EnableProjectile && projectileCd <= 0)
@@ -171,6 +225,7 @@ public class CharacterController : MonoBehaviour
                             shootKnockbackDirection = ShootKnockbackGroundForce * -direction;
                             inputDelay = HorizontalKnockbackGroundDuration;
                             character.SetAnimationBool("ShotG", true);
+                            PlayCharacterSound("attack1");
 
                         }
                         else
@@ -178,6 +233,7 @@ public class CharacterController : MonoBehaviour
                             shootKnockbackDirection = ShootKnockbackAirForce * -direction;
                             inputDelay = HorizontalKnockbackAirDuration;
                             character.SetAnimationBool("ShotAir", true);
+                            PlayCharacterSound("ice");
                         }
 
                         state = CharacterState.Dashing;
@@ -192,7 +248,7 @@ public class CharacterController : MonoBehaviour
                         horizontalMOvement = input.Horizontal * Speed;
 
                         if (grounded)
-                            SoundController.instance.PlayAudioEffect(character.SoundKey + "Step", SoundAction.Play);
+                            PlayGenericSound("Step");
                     }
 
                     character.SetXVelocity(horizontalMOvement);
@@ -252,6 +308,7 @@ public class CharacterController : MonoBehaviour
 
     void CreateLandingdust()
     {
+        landingdust.transform.position = (Vector2)character.transform.position + LandingDustOffset;
         landingdust.Play();
     }
 }

@@ -99,12 +99,12 @@ public class SoundController : MonoBehaviour
 
         for (int i = 0; i < soundsMusic.Length; i++)
         {
-            soundsMusic[i].volume = volMaster * volMusic;
+            soundsMusic[i].volume = 1;
         }
 
         for (int i = 0; i < soundsEffect.Length; i++)
         {
-            soundsEffect[i].volume = volMaster * volEffect;
+            soundsEffect[i].volume = 1;
         }
 
         void SaveConfig(float vol, string key)
@@ -125,7 +125,9 @@ public class SoundController : MonoBehaviour
                 if (action == SoundAction.Play)
                 {
                     if (!effect.isPlaying)
+                    {
                         effect.Play();
+                    }
                 }
                 else if (action == SoundAction.Stop)
                     effect.Stop();

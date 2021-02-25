@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     public CheckpointType CheckType = CheckpointType.Normal;
 
+    private bool trigger = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var character = collision.gameObject.GetComponent<CharacterInstance>();
@@ -19,7 +20,14 @@ public class Checkpoint : MonoBehaviour
                 GameplayController.instance.StartNextLevel(false);
                 CheckType = CheckpointType.NextLevelDone;
             }
+
+            if (!trigger)
+            {
+                SoundController.instance.PlayAudioEffect("healed2");
+                trigger = true;
+            }
         }
+
     }
 
 

@@ -12,6 +12,8 @@ public class GameplayController : MonoBehaviour
 
     [Header("Interface Reference")]
     public GameplayInterface GameplayInterface;
+    public BlackScreen BlackScreen;
+    public float BlackScreenDuration;
 
     public bool ForceGameplay;
 
@@ -29,13 +31,13 @@ public class GameplayController : MonoBehaviour
     private int lifeCurrent;
 
     private Vector2 checkPointPosition;
-
+    private float blackScrenTimer;
+    private BlackScreenState blackScreenState;
     private void Awake()
     {
         instance = this;
 
         state = GameState.Game;
-
 
         for (int i = 0; i < ConfigByLevel.Count; i++)
         {
@@ -53,12 +55,12 @@ public class GameplayController : MonoBehaviour
 
         characters.Setup();
 
-        //if (ForceGameplay)
+      //  if (ForceGameplay)
         {
             StartNextLevel();
         }
 
-        lifeCurrent = 3;
+        lifeCurrent = 5;
 
 
     }
@@ -104,11 +106,13 @@ public class GameplayController : MonoBehaviour
         LevelCurrent().gameObject.SetActive(true);
         checkPointPosition = LevelCurrent().CharacterStartPositionReference.position;
         RestarLevel(resetCharacterPosition);
+        HealPlayer();
     }
 
     public void SaveCheckPoint(Vector2 position)
     {
         checkPointPosition = position;
+        HealPlayer();
     }
 
 
@@ -123,29 +127,35 @@ public class GameplayController : MonoBehaviour
 
     public void RestarLevel(bool resetCharacterPosition = true)
     {
-        lifeCurrent = 3;
         LevelCurrent().ResetLevel();
+
+        HealPlayer();
 
         if (resetCharacterPosition)
             characters.ResetCharacterToStartPosition(checkPointPosition);
     }
 
-    public bool TakeDamageAndCheckIfIsAlive(int ammount)
+    public void TakeDamageAndCheckIfIsAlive(int ammount)
     {
-        /* lifeCurrent -= ammount;
+        if (state != GameState.Game)
+            return;
+
+         lifeCurrent -= ammount;
 
          if (lifeCurrent <= 0)
          {
-             return false;
-         }*/
-
-        return true;
+            state = GameState.ResetLevel;
+            blackScrenTimer = BlackScreenDuration;
+            BlackScreen.ShowBlackScreen(0.5f, blackScrenTimer);
+            blackScreenState = BlackScreen.GetState();
+            GameplayInterface.UpdateLifeAmmount(lifeCurrent);
+            // SoundController.instance.PlayAudioEffect("LossSound");
+        }
     }
 
     public void HealPlayer()
     {
-        if (lifeCurrent < 3)
-            lifeCurrent++;
+        lifeCurrent = 5;
     }
 
     private void Update()
@@ -197,6 +207,30 @@ public class GameplayController : MonoBehaviour
                     }
                     break;
                 }
+
+            case GameState.ResetLevel:
+                {
+                    if (blackScreenState != BlackScreen.GetState())
+                    {
+                        if (BlackScreen.GetState() == BlackScreenState.TransitionDelay)
+                        {
+                            RestarLevel();
+                        }
+
+                        if (BlackScreen.GetState() == BlackScreenState.Complete)
+                            state = GameState.Game;
+
+                        blackScreenState = BlackScreen.GetState();
+                    }
+                    
+                    break;
+                }
+
+            case GameState.FinishedGame:
+                {
+
+                    break;
+                }
         }
     }
 }
@@ -221,5 +255,6 @@ public enum GameState
     Menu,
     Game,
     Paused,
+    ResetLevel,
     FinishedGame,
 }

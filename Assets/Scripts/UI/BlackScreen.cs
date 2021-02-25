@@ -9,7 +9,7 @@ public class BlackScreen : MonoBehaviour
     private float timer;
     private float timeToFillComplete;
     private float timeToFade;
-    private BlackScreenState state = BlackScreenState.None;
+    private BlackScreenState state = BlackScreenState.Complete;
 
     public void ShowBlackScreen(float timeToComplete, float timeToFade)
     {
@@ -25,6 +25,10 @@ public class BlackScreen : MonoBehaviour
         state = BlackScreenState.Fill;
     }
 
+    public BlackScreenState GetState()
+    {
+        return state;
+    }
     private void FixedUpdate()
     {
         switch (state)
@@ -35,11 +39,11 @@ public class BlackScreen : MonoBehaviour
                     timer += Time.deltaTime;
                     if (timer < timeToFillComplete)
                     {
-                        screen.fillAmount = timer / timeToFillComplete;
+                        SetScreenColor( timer / timeToFillComplete);
                     }
                     else
                     {
-                        screen.fillAmount = 1;
+                        SetScreenColor(1);
                         state = BlackScreenState.TransitionDelay;
                         timer = 0.25f;
                     }
@@ -64,14 +68,14 @@ public class BlackScreen : MonoBehaviour
                     timer -= Time.deltaTime;
                     if (timer > 0)
                     {
-                        screen.fillAmount = timer / timeToFade;
+                        SetScreenColor(timer / timeToFade);
                     }
                     else
                     {
-                        screen.fillAmount = 0;
+                        SetScreenColor(0);
                         state = BlackScreenState.Fade;
                         timer = 0;
-                        state = BlackScreenState.None;
+                        state = BlackScreenState.Complete;
                         gameObject.SetActive(false);
                     }
 
@@ -80,12 +84,17 @@ public class BlackScreen : MonoBehaviour
 
         }
     }
+
+    private void SetScreenColor(float alpha)
+    {
+        screen.color = new Color(0, 0, 0, alpha);
+    }
 }
 
 
 public enum BlackScreenState
 {
-    None,
+    Complete,
     Fill,
     Fade,
     TransitionDelay,

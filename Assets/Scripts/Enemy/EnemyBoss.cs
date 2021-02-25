@@ -111,7 +111,7 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
                 bossStunTimer = BossStunDuration;
                 state = BossState.Stunned;
                 currentSpeed = 0;
-                Debug.Log("Stunned");
+                SoundController.instance.PlayAudioEffect("BossStun");
             }
         }
         else if (state == BossState.Stunned)
@@ -123,6 +123,8 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
 
                 bossStunTimer = RecoveryTime;
                 TooglePlataforms(false);
+
+                SoundController.instance.PlayAudioEffect("BossTakeDamage");
 
                 if (lifeCurrent <= 0)
                 {
