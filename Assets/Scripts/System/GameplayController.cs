@@ -15,8 +15,7 @@ public class GameplayController : MonoBehaviour
     public BlackScreen BlackScreen;
     public float BlackScreenDuration;
     public EndGameScreen EndGameScreen;
-
-    public bool ForceGameplay;
+    public DialogueBox DialogueBox; 
 
     public PointToStartGame PointToStartGame;
 
@@ -56,14 +55,11 @@ public class GameplayController : MonoBehaviour
 
         characters.Setup();
 
-      //  if (ForceGameplay)
-        {
-            StartNextLevel();
-        }
+        StartNextLevel();
 
         lifeCurrent = 5;
 
-
+        ActiveDialogue();
     }
 
     public CharacterInstance GetPlayer()
@@ -141,10 +137,10 @@ public class GameplayController : MonoBehaviour
         if (state != GameState.Game)
             return;
 
-         lifeCurrent -= ammount;
+        lifeCurrent -= ammount;
 
-         if (lifeCurrent <= 0)
-         {
+        if (lifeCurrent <= 0)
+        {
             state = GameState.ResetLevel;
             blackScrenTimer = BlackScreenDuration;
             BlackScreen.ShowBlackScreen(0.5f, blackScrenTimer);
@@ -157,6 +153,17 @@ public class GameplayController : MonoBehaviour
     public void HealPlayer()
     {
         lifeCurrent = 5;
+    }
+
+    public void ActiveDialogue()
+    {
+        DialogueBox.ActiveDialoge();
+        state = GameState.Dialogue;
+    }
+
+    public void DisableDialogue()
+    {
+        DialogueBox.EndDialog();
     }
 
     public void FinishGame()
@@ -230,13 +237,28 @@ public class GameplayController : MonoBehaviour
 
                         blackScreenState = BlackScreen.GetState();
                     }
-                    
+
+                    break;
+                }
+
+            case GameState.Dialogue:
+                {
+                    if (DialogueBox.FreezePlayer())
+                    {
+                        if (Input.GetKeyDown(KeyCode.X))
+                        {
+                            DialogueBox.NextDialogue();
+                        }
+                    }
+                    else
+                        state = GameState.Game;
+
                     break;
                 }
 
             case GameState.FinishedGame:
                 {
-                   
+
                     break;
                 }
         }
@@ -264,5 +286,6 @@ public enum GameState
     Game,
     Paused,
     ResetLevel,
+    Dialogue,
     FinishedGame,
 }

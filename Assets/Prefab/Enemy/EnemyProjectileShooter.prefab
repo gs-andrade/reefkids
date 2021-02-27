@@ -196,6 +196,6 @@ MonoBehaviour:
   StunOnDamageTake: 0
   StunDisableTime: 3
   DamageSpecialEffect: 0
-  ProjectilePrefab: {fileID: 3567430200845470953, guid: 886d3690ca7b27d4b85ccf32538d399b, type: 3}
+  ProjectilePrefab: {fileID: 3567430200845470953, guid: 377e1b5f7796dc841ac574354b3d7808, type: 3}
   ProjectileSpeed: 25
   DelayToShoot: 1

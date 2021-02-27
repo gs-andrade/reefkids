@@ -7,7 +7,6 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public Transform CharacterStartPositionReference;
-    public CinemachineVirtualCamera CameraToUse;
 
     private IInterctable[] interctables;
     private IUpdatable[] updatables;
