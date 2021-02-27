@@ -14,6 +14,7 @@ public class GameplayController : MonoBehaviour
     public GameplayInterface GameplayInterface;
     public BlackScreen BlackScreen;
     public float BlackScreenDuration;
+    public EndGameScreen EndGameScreen;
 
     public bool ForceGameplay;
 
@@ -158,6 +159,13 @@ public class GameplayController : MonoBehaviour
         lifeCurrent = 5;
     }
 
+    public void FinishGame()
+    {
+        state = GameState.FinishedGame;
+        EndGameScreen.gameObject.SetActive(true);
+
+    }
+
     private void Update()
     {
         switch (state)
@@ -228,7 +236,7 @@ public class GameplayController : MonoBehaviour
 
             case GameState.FinishedGame:
                 {
-
+                   
                     break;
                 }
         }

@@ -13,7 +13,7 @@ public class EnemyPatrol : EnemyGeneric
     private Transform cachedTf;
 
     private Vector2 startPosition;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         var character = collision.gameObject.GetComponent<CharacterInstance>();
 
@@ -23,6 +23,8 @@ public class EnemyPatrol : EnemyGeneric
                SetNextDestination();
         }
     }
+
+
 
    
     private void Awake()

@@ -58,6 +58,9 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
         Shields[0].SetActive(leftOrRight);
         Shields[1].SetActive(!leftOrRight);
 
+        Shields[0].GetComponent<BoxCollider2D>().enabled = true;
+        Shields[1].GetComponent<BoxCollider2D>().enabled = true;
+
         leftOrRight = !leftOrRight;
     }
 
@@ -65,6 +68,9 @@ public class PlataformFallBoss : MonoBehaviour, IInterctable, IUpdatable, IDamag
     {
         if (damagerType == DamagerType.Player)
         {
+
+            Shields[0].GetComponent<BoxCollider2D>().enabled = false;
+            Shields[1].GetComponent<BoxCollider2D>().enabled = false;
             Fall();
         }
     }

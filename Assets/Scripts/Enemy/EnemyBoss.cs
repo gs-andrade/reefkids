@@ -128,7 +128,7 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
 
                 if (lifeCurrent <= 0)
                 {
-                    Debug.Log("Dead");
+                    GameplayController.instance.FinishGame();
                 }
             }
         }
