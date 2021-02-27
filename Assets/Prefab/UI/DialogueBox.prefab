@@ -52,7 +52,7 @@ MonoBehaviour:
   Dialogues:
   - FreezePlayer: 1
     Speach:
-    - Aperte X para continuar
+    - Aperte "X" para continuar
     - Dialogo 1
     - Dialogo 2
   - FreezePlayer: 1
@@ -64,10 +64,10 @@ MonoBehaviour:
       dessa juntos"
   - FreezePlayer: 0
     Speach:
-    - "Aperte X ou Barra de espa\xE7o no ar, para pular mais alto"
+    - "Aperte \"X\" ou \"Barra de espa\xE7o\" no ar, para pular mais alto"
   - FreezePlayer: 0
     Speach:
-    - Aperte C usar a magia
+    - Aperte "C" usar a magia
   Text: {fileID: 1660940387276826972}
   Holder: {fileID: 5742414114161574122}
 --- !u!1 &1660940386296291852
@@ -364,10 +364,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 55a58823607320248b0b6ccfdef6b894, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 4
     m_MaxSize: 208
     m_Alignment: 4
     m_AlignByGeometry: 0
