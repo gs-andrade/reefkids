@@ -77,14 +77,14 @@ public class CharacterController : MonoBehaviour
 
     private void PlayCharacterSound(string name)
     {
-        if (soundCharacterDelayToReseTimer > 0)
+        /*if (soundCharacterDelayToReseTimer > 0)
             return;
 
         if (soundCount >= 5)
             soundCharacterDelayToReseTimer = 3.5f;
 
         soundCharacterDelayToUseagain = 5f;
-        soundCount++;
+        soundCount++;*/
         SoundController.instance.PlayAudioEffect(name);
     }
     private void PlayGenericSound(string name)
