@@ -15,7 +15,8 @@ public class GameplayController : MonoBehaviour
     public BlackScreen BlackScreen;
     public float BlackScreenDuration;
     public EndGameScreen EndGameScreen;
-    public DialogueBox DialogueBox; 
+    public DialogueBox DialogueBox;
+    public GameObject PauseMenu;
 
     public PointToStartGame PointToStartGame;
 
@@ -60,6 +61,8 @@ public class GameplayController : MonoBehaviour
         lifeCurrent = 5;
 
         ActiveDialogue();
+
+        Time.timeScale = 1;
     }
 
     public CharacterInstance GetPlayer()
@@ -173,6 +176,13 @@ public class GameplayController : MonoBehaviour
 
     }
 
+    public void Unpause()
+    {
+        state = GameState.Game;
+        Time.timeScale = 1;
+        PauseMenu.SetActive(false);
+    }
+
     private void Update()
     {
         switch (state)
@@ -189,21 +199,23 @@ public class GameplayController : MonoBehaviour
                     if (GameplayInterface != null)
                         GameplayInterface.UpdateLifeAmmount(lifeCurrent);
 
-                    if (Input.GetKeyDown(KeyCode.P))
+                    if (Input.GetKeyDown(KeyCode.Escape))
                     {
                         state = GameState.Paused;
 
                         Time.timeScale = 0;
 
+                        PauseMenu.SetActive(true);
+
                         return;
                     }
 
-                    if (Input.GetKeyDown(KeyCode.R))
+                   /* if (Input.GetKeyDown(KeyCode.R))
                     {
                         RestarLevel();
                         return;
                     }
-
+                    */
 
                     if (LevelCurrent() != null)
                         LevelCurrent().UpdateObjs();

@@ -37,10 +37,11 @@ public class SoundController : MonoBehaviour
 
     private void Awake()
     {
-        Setup();
-
         if (instance == null)
             instance = this;
+
+        Setup();
+
     }
 
     public void Setup()
@@ -60,9 +61,9 @@ public class SoundController : MonoBehaviour
         if (soundsMusic == null || soundsMusic.Length == 0)
             soundsMusic = MusicHolder.GetComponentsInChildren<AudioSource>();
 
-        LoadVolConfig(ref volMaster, ref ScrollVolMaster, keyVolMaster);
-        LoadVolConfig(ref volMusic, ref ScrollVolMusic, keyVolMusic);
-        LoadVolConfig(ref volEffect, ref ScrollVolEffect, keyVolEffect);
+       // LoadVolConfig(ref volMaster, ref ScrollVolMaster, keyVolMaster);
+      //  LoadVolConfig(ref volMusic, ref ScrollVolMusic, keyVolMusic);
+      //  LoadVolConfig(ref volEffect, ref ScrollVolEffect, keyVolEffect);
 
 
 
@@ -89,22 +90,22 @@ public class SoundController : MonoBehaviour
 
     public void UpdateAllSoundConfig()
     {
-        volMaster = ScrollVolMaster.value;
-        volMusic = ScrollVolMusic.value;
-        volEffect = ScrollVolEffect.value;
+      //  volMaster = ScrollVolMaster.value;
+   //     volMusic = ScrollVolMusic.value;
+   //     volEffect = ScrollVolEffect.value;
 
-        SaveConfig(volMaster, keyVolMaster);
-        SaveConfig(volMusic, keyVolMusic);
-        SaveConfig(volEffect, keyVolEffect);
+ //       SaveConfig(volMaster, keyVolMaster);
+ //       SaveConfig(volMusic, keyVolMusic);
+ //       SaveConfig(volEffect, keyVolEffect);
 
-        for (int i = 0; i < soundsMusic.Length; i++)
+       /* for (int i = 0; i < soundsMusic.Length; i++)
         {
-            soundsMusic[i].volume = 1;
-        }
+            soundsMusic[i].volume = 0.5f;
+        }*/
 
         for (int i = 0; i < soundsEffect.Length; i++)
         {
-            soundsEffect[i].volume = 1;
+            soundsEffect[i].volume = 0.5f;
         }
 
         void SaveConfig(float vol, string key)
