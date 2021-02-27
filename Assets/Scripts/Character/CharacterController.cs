@@ -77,7 +77,7 @@ public class CharacterController : MonoBehaviour
 
     private void PlayCharacterSound(string name)
     {
-     /*   if (soundCharacterDelayToReseTimer > 0)
+        /*if (soundCharacterDelayToReseTimer > 0)
             return;
 
         if (soundCount >= 5)
