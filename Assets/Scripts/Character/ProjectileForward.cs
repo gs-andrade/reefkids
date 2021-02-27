@@ -14,6 +14,7 @@ public class ProjectileForward : MonoBehaviour, IDamagable  //, IUpdatable
     private DamagerType damagerType;
     private DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None;
     private SpriteRenderer renderer;
+    private Transform projectileVisual;
 
     private float delayToAppear;
     public void Setup(Vector2 startPosition, Vector2 direction, float speed, GameObject owner, DamagerType projectileOwnerType, DamageSpecialEffect damageSpecialEffect = DamageSpecialEffect.None)
@@ -22,7 +23,9 @@ public class ProjectileForward : MonoBehaviour, IDamagable  //, IUpdatable
             cachedTf = transform;
 
         if (renderer == null)
-            renderer = GetComponent<SpriteRenderer>();
+            renderer = GetComponentInChildren<SpriteRenderer>();
+
+        projectileVisual = transform.GetChild(0);
 
         cachedTf.transform.position = startPosition;
         this.direction = direction;
@@ -33,6 +36,13 @@ public class ProjectileForward : MonoBehaviour, IDamagable  //, IUpdatable
 
         if (delayToAppear > 0)
             renderer.enabled = false;
+
+        if (direction.x < 0)
+            projectileVisual.localScale = new Vector3(-1f, 1f, 1);
+        else if (direction.y > 0)
+            projectileVisual.localEulerAngles = new Vector3(0, 0, 90);
+        else if (direction.y < 0)
+            projectileVisual.localEulerAngles = new Vector3(0, 0, 270);
 
     }
 
