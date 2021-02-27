@@ -1,0 +1,778 @@
+fileFormatVersion: 2
+guid: 4dca38aa4ba5abf43938ccee98028498
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1154209753836851259
+    second: sprite reef kid_item_0
+  - first:
+      213: 8220301465441571844
+    second: sprite reef kid_item_1
+  - first:
+      213: 5700155553966728955
+    second: sprite reef kid_item_2
+  - first:
+      213: -4902632182891916903
+    second: sprite reef kid_item_3
+  - first:
+      213: -7988287630155991376
+    second: sprite reef kid_item_4
+  - first:
+      213: -6170930437208627009
+    second: sprite reef kid_item_5
+  - first:
+      213: 2141911902182458977
+    second: sprite reef kid_item_6
+  - first:
+      213: -1648655016389733230
+    second: sprite reef kid_item_7
+  - first:
+      213: -6575636199008021051
+    second: sprite reef kid_item_8
+  - first:
+      213: -4041915666115687315
+    second: sprite reef kid_item_9
+  - first:
+      213: 8347316961793092896
+    second: sprite reef kid_item_10
+  - first:
+      213: -585555799162560884
+    second: sprite reef kid_item_11
+  - first:
+      213: -6350822482830982524
+    second: sprite reef kid_item_12
+  - first:
+      213: -8238752276131859913
+    second: sprite reef kid_item_13
+  - first:
+      213: 4326067054021800036
+    second: sprite reef kid_item_14
+  - first:
+      213: 4201163381989341474
+    second: sprite reef kid_item_15
+  - first:
+      213: -8430115606011830101
+    second: sprite reef kid_item_16
+  - first:
+      213: -7004528634332920468
+    second: sprite reef kid_item_17
+  - first:
+      213: 7468548432860222591
+    second: sprite reef kid_item_18
+  - first:
+      213: 6133516401173956605
+    second: sprite reef kid_item_19
+  - first:
+      213: -2827052739017710295
+    second: sprite reef kid_item_20
+  - first:
+      213: 282985824625897838
+    second: sprite reef kid_item_21
+  - first:
+      213: 2851121745389556293
+    second: sprite reef kid_item_22
+  - first:
+      213: -5841002648835000467
+    second: sprite reef kid_item_23
+  - first:
+      213: -2948164190536939614
+    second: sprite reef kid_item_24
+  - first:
+      213: -3601905522572598304
+    second: sprite reef kid_item_25
+  - first:
+      213: 5002837475349493815
+    second: sprite reef kid_item_26
+  - first:
+      213: 6939675025088797235
+    second: sprite reef kid_item_27
+  - first:
+      213: -8625331381318245590
+    second: sprite reef kid_item_28
+  - first:
+      213: -3567757998189795289
+    second: sprite reef kid_item_29
+  - first:
+      213: 7907833632763203182
+    second: sprite reef kid_item_30
+  - first:
+      213: 5752397741822159151
+    second: sprite reef kid_item_31
+  - first:
+      213: -1577081694887518741
+    second: sprite reef kid_item_32
+  - first:
+      213: -7656176280389837258
+    second: sprite reef kid_item_33
+  - first:
+      213: 4075277421182285086
+    second: sprite reef kid_item_34
+  - first:
+      213: -6100470731655105068
+    second: sprite reef kid_item_35
+  - first:
+      213: -1415104227070698668
+    second: sprite reef kid_item_36
+  - first:
+      213: 3650686167246617266
+    second: sprite reef kid_item_37
+  - first:
+      213: 2349331211355203875
+    second: sprite reef kid_item_38
+  - first:
+      213: -5667426868411323696
+    second: sprite reef kid_item_39
+  - first:
+      213: 6911582168586263572
+    second: sprite reef kid_item_40
+  - first:
+      213: -8882125169518856922
+    second: sprite reef kid_item_41
+  - first:
+      213: -8075071298879355529
+    second: sprite reef kid_item_42
+  - first:
+      213: 2320342170927751841
+    second: sprite reef kid_item_43
+  - first:
+      213: 2432650813576295056
+    second: sprite reef kid_item_44
+  - first:
+      213: -7310929507447429056
+    second: sprite reef kid_item_45
+  - first:
+      213: -6622590729536827298
+    second: sprite reef kid_item_46
+  - first:
+      213: -9178434955358530979
+    second: sprite reef kid_item_47
+  - first:
+      213: 1660001802033794824
+    second: sprite reef kid_item_48
+  - first:
+      213: 5426343403855839399
+    second: sprite reef kid_item_49
+  - first:
+      213: -3048153677724212859
+    second: sprite reef kid_item_50
+  - first:
+      213: -4177322359193061037
+    second: sprite reef kid_item_51
+  - first:
+      213: -5645664675830380359
+    second: sprite reef kid_item_52
+  - first:
+      213: -6903935466956230718
+    second: sprite reef kid_item_53
+  - first:
+      213: 3106956795398706652
+    second: sprite reef kid_item_54
+  - first:
+      213: -994902094525458065
+    second: sprite reef kid_item_55
+  - first:
+      213: -4301073434850685930
+    second: sprite reef kid_item_56
+  - first:
+      213: -7342145750537990949
+    second: sprite reef kid_item_57
+  - first:
+      213: 8990255100557983464
+    second: sprite reef kid_item_58
+  - first:
+      213: 3416117423294483637
+    second: sprite reef kid_item_59
+  - first:
+      213: 5871193405351372268
+    second: sprite reef kid_item_60
+  - first:
+      213: -6768111127445721334
+    second: sprite reef kid_item_61
+  - first:
+      213: 765047384158952634
+    second: sprite reef kid_item_62
+  - first:
+      213: -2040248068878628775
+    second: sprite reef kid_item_63
+  - first:
+      213: 7643050389491801579
+    second: sprite reef kid_item_64
+  - first:
+      213: -3587390568232617019
+    second: sprite reef kid_item_65
+  - first:
+      213: 597835516675311858
+    second: sprite reef kid_item_66
+  - first:
+      213: -7240191858043113799
+    second: sprite reef kid_item_67
+  - first:
+      213: 5086947623009741409
+    second: sprite reef kid_item_68
+  - first:
+      213: 6218954444676531846
+    second: sprite reef kid_item_69
+  - first:
+      213: 1799909901469296958
+    second: sprite reef kid_item_70
+  - first:
+      213: -7830254802097699922
+    second: sprite reef kid_item_71
+  - first:
+      213: -3525112211272520049
+    second: sprite reef kid_item_72
+  - first:
+      213: 5698770690866814105
+    second: sprite reef kid_item_73
+  - first:
+      213: -5593229104152148995
+    second: sprite reef kid_item_74
+  - first:
+      213: -755781568861131555
+    second: sprite reef kid_item_75
+  - first:
+      213: -6945454291975328083
+    second: sprite reef kid_item_76
+  - first:
+      213: 209737875677936885
+    second: sprite reef kid_item_77
+  - first:
+      213: -8740017034417939447
+    second: sprite reef kid_item_78
+  - first:
+      213: -7120342128132935529
+    second: sprite reef kid_item_79
+  - first:
+      213: -3698693903474465
+    second: sprite reef kid_item_80
+  - first:
+      213: 704792514643307161
+    second: sprite reef kid_item_81
+  - first:
+      213: 8720326440797099878
+    second: sprite reef kid_item_82
+  - first:
+      213: -5517354998911978269
+    second: sprite reef kid_item_83
+  - first:
+      213: -8100193963776339182
+    second: sprite reef kid_item_84
+  - first:
+      213: 1553785589505336347
+    second: sprite reef kid_item_85
+  - first:
+      213: -4705204684848839615
+    second: sprite reef kid_item_86
+  - first:
+      213: 331597480203662130
+    second: sprite reef kid_item_87
+  - first:
+      213: -7321887288790547756
+    second: sprite reef kid_item_88
+  - first:
+      213: -6370039000395146882
+    second: sprite reef kid_item_89
+  - first:
+      213: -8178765239360489863
+    second: sprite reef kid_item_90
+  - first:
+      213: -4201682082861550780
+    second: sprite reef kid_item_91
+  - first:
+      213: -1755220504661852769
+    second: sprite reef kid_item_92
+  - first:
+      213: -4261952000653287961
+    second: sprite reef kid_item_93
+  - first:
+      213: 1201832597617455342
+    second: sprite reef kid_item_94
+  - first:
+      213: 8073221117213147427
+    second: sprite reef kid_item_95
+  - first:
+      213: -4587282436723631505
+    second: sprite reef kid_item_96
+  - first:
+      213: -5259719423259996556
+    second: sprite reef kid_item_97
+  - first:
+      213: -4696818563830788072
+    second: sprite reef kid_item_98
+  - first:
+      213: -6520921133674565064
+    second: sprite reef kid_item_99
+  - first:
+      213: -3408103846304227669
+    second: sprite reef kid_item_100
+  - first:
+      213: -9022201233267548685
+    second: sprite reef kid_item_101
+  - first:
+      213: 1789668467717578616
+    second: sprite reef kid_item_102
+  - first:
+      213: 8464118058583652700
+    second: sprite reef kid_item_103
+  - first:
+      213: 8583405396027257555
+    second: sprite reef kid_item_104
+  - first:
+      213: 8138086769895721304
+    second: sprite reef kid_item_105
+  - first:
+      213: 4384846620640995321
+    second: sprite reef kid_item_106
+  - first:
+      213: 2950875473692607667
+    second: sprite reef kid_item_107
+  - first:
+      213: 8397038066923341053
+    second: sprite reef kid_item_108
+  - first:
+      213: 7135976451518968290
+    second: sprite reef kid_item_109
+  - first:
+      213: 540540683959726413
+    second: sprite reef kid_item_110
+  - first:
+      213: -2751737173392269610
+    second: sprite reef kid_item_111
+  - first:
+      213: -6718583183855308354
+    second: sprite reef kid_item_112
+  - first:
+      213: -6119825450600378362
+    second: sprite reef kid_item_113
+  - first:
+      213: -3431299351516748161
+    second: sprite reef kid_item_114
+  - first:
+      213: 4555405009832346037
+    second: sprite reef kid_item_115
+  - first:
+      213: 2414452420637416791
+    second: sprite reef kid_item_116
+  - first:
+      213: 7777026735207265393
+    second: sprite reef kid_item_117
+  - first:
+      213: -931726007187152386
+    second: sprite reef kid_item_118
+  - first:
+      213: 7229991084954552413
+    second: sprite reef kid_item_119
+  - first:
+      213: -8762623990225115737
+    second: sprite reef kid_item_120
+  - first:
+      213: -1551967685873030943
+    second: sprite reef kid_item_121
+  - first:
+      213: 4304356910628607181
+    second: sprite reef kid_item_122
+  - first:
+      213: -3752431246421087327
+    second: sprite reef kid_item_123
+  - first:
+      213: -8416885581430103642
+    second: sprite reef kid_item_124
+  - first:
+      213: -7234785503558730828
+    second: sprite reef kid_item_125
+  - first:
+      213: -4431822700627502415
+    second: sprite reef kid_item_126
+  - first:
+      213: 4429231621071766333
+    second: sprite reef kid_item_127
+  - first:
+      213: 4358260584762617266
+    second: sprite reef kid_item_128
+  - first:
+      213: 8776076243272653508
+    second: sprite reef kid_item_129
+  - first:
+      213: -7687622303563842373
+    second: sprite reef kid_item_130
+  - first:
+      213: -1740841093513769151
+    second: sprite reef kid_item_131
+  - first:
+      213: -5218249389582547786
+    second: sprite reef kid_item_132
+  - first:
+      213: 6991368887775858026
+    second: sprite reef kid_item_133
+  - first:
+      213: 7577294941252147055
+    second: sprite reef kid_item_134
+  - first:
+      213: 2253774992775688334
+    second: sprite reef kid_item_135
+  - first:
+      213: 4855121192837653276
+    second: sprite reef kid_item_136
+  - first:
+      213: -8154849217694650468
+    second: sprite reef kid_item_137
+  - first:
+      213: -6628025456757985051
+    second: sprite reef kid_item_138
+  - first:
+      213: 3496975168380859909
+    second: sprite reef kid_item_139
+  - first:
+      213: 5115160829643354303
+    second: sprite reef kid_item_140
+  - first:
+      213: 4582897199978101367
+    second: sprite reef kid_item_141
+  - first:
+      213: -4211994780211391210
+    second: sprite reef kid_item_142
+  - first:
+      213: 6460543365956292008
+    second: sprite reef kid_item_143
+  - first:
+      213: -4591655718587159828
+    second: sprite reef kid_item_144
+  - first:
+      213: -6278901743622569523
+    second: sprite reef kid_item_145
+  - first:
+      213: -420507441518441336
+    second: sprite reef kid_item_146
+  - first:
+      213: 3498468447733818905
+    second: sprite reef kid_item_147
+  - first:
+      213: 7890136083295472957
+    second: sprite reef kid_item_148
+  - first:
+      213: 605230466367963108
+    second: sprite reef kid_item_149
+  - first:
+      213: -5217631135392919170
+    second: sprite reef kid_item_150
+  - first:
+      213: 8890807211792334547
+    second: sprite reef kid_item_151
+  - first:
+      213: -1734267554235495513
+    second: sprite reef kid_item_152
+  - first:
+      213: 9069282869543428871
+    second: sprite reef kid_item_153
+  - first:
+      213: 3601208692975051393
+    second: sprite reef kid_item_154
+  - first:
+      213: -3590054901013655748
+    second: sprite reef kid_item_155
+  - first:
+      213: -2103957489514296277
+    second: sprite reef kid_item_156
+  - first:
+      213: 6811904862854874356
+    second: sprite reef kid_item_157
+  - first:
+      213: -9047837671619961453
+    second: sprite reef kid_item_158
+  - first:
+      213: 1092390641452841096
+    second: sprite reef kid_item_159
+  - first:
+      213: -1838276020982752044
+    second: sprite reef kid_item_160
+  - first:
+      213: 6198385506583410143
+    second: sprite reef kid_item_161
+  - first:
+      213: 3161343707797729643
+    second: sprite reef kid_item_162
+  - first:
+      213: -7815140777365097560
+    second: sprite reef kid_item_163
+  - first:
+      213: -5767008030846548959
+    second: sprite reef kid_item_164
+  - first:
+      213: 2388901161161412123
+    second: sprite reef kid_item_165
+  - first:
+      213: 2519620588530277560
+    second: sprite reef kid_item_166
+  - first:
+      213: -720876593826359889
+    second: sprite reef kid_item_167
+  - first:
+      213: -7719516482909652496
+    second: sprite reef kid_item_168
+  - first:
+      213: 8160235525418424609
+    second: sprite reef kid_item_169
+  - first:
+      213: 4656044582434220824
+    second: sprite reef kid_item_170
+  - first:
+      213: -207936135950379215
+    second: sprite reef kid_item_171
+  - first:
+      213: -3099225650600563975
+    second: sprite reef kid_item_172
+  - first:
+      213: 5356168425718534377
+    second: sprite reef kid_item_173
+  - first:
+      213: -6679953132071037083
+    second: sprite reef kid_item_174
+  - first:
+      213: -5260712483839716150
+    second: sprite reef kid_item_175
+  - first:
+      213: -2280854805003470251
+    second: sprite reef kid_item_176
+  - first:
+      213: 7598039831063580426
+    second: sprite reef kid_item_177
+  - first:
+      213: 323851240389254711
+    second: sprite reef kid_item_178
+  - first:
+      213: 7241924861071840593
+    second: sprite reef kid_item_179
+  - first:
+      213: 7607533189265095660
+    second: sprite reef kid_item_180
+  - first:
+      213: 3438547543365854745
+    second: sprite reef kid_item_181
+  - first:
+      213: 2736276936444040786
+    second: sprite reef kid_item_182
+  - first:
+      213: 3968045580316736820
+    second: sprite reef kid_item_183
+  - first:
+      213: 6131132939783144615
+    second: sprite reef kid_item_184
+  - first:
+      213: 3218297813078857575
+    second: sprite reef kid_item_185
+  - first:
+      213: 6169236732478113049
+    second: sprite reef kid_item_186
+  - first:
+      213: -5228220003513041466
+    second: sprite reef kid_item_187
+  - first:
+      213: -5628264118587512306
+    second: sprite reef kid_item_188
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite reef kid_item_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 580
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf634a185c6bffe0800000000000000
+      internalID: -1154209753836851259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite reef kid_item_1
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 0
+        width: 580
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404944a31a0641270800000000000000
+      internalID: 8220301465441571844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite reef kid_item_2
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 580
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf628ae86450b1f40800000000000000
+      internalID: 5700155553966728955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite reef kid_item_3
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 0
+        width: 580
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9915452410a56fbb0800000000000000
+      internalID: -4902632182891916903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite reef kid_item_4
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 0
+        width: 580
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b6b7e069b6e32190800000000000000
+      internalID: -7988287630155991376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
