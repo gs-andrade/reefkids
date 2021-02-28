@@ -10,6 +10,7 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
     public float RecoveryTime = 3f;
 
     public BoxCollider2D[] Plataforms;
+    public SpriteRenderer[] Renderers;
     public GameObject AreaDamageGO;
 
     private float currentSpeed;
@@ -17,14 +18,18 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
     private float bossStunTimer;
     private int lifeCurrent;
 
-    private BoxCollider2D[] areaDamageColliders;
+    private CircleCollider2D[] areaDamageColliders;
 
     private DrawPoint[] points;
     private int moveIndex;
     private Vector2 nextLocation;
     private Transform cachedTf;
     private BossState state;
-    private SpriteRenderer renderer;
+
+    private bool lastRendererToogle;
+
+
+    private Animator anim;
 
     private void SetNextDestination()
     {
@@ -41,16 +46,17 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
 
     public void SetupOnStartLevel()
     {
-        renderer = GetComponent<SpriteRenderer>();
         cachedTf = transform;
         points = cachedTf.parent.GetComponentsInChildren<DrawPoint>(true);
         nextLocation = points[0].transform.position;
         lifeCurrent = LifeMax;
         state = BossState.Normal;
 
-        if(areaDamageColliders == null || areaDamageColliders.Length == 0)
+        anim = GetComponent<Animator>();
+
+        if (areaDamageColliders == null || areaDamageColliders.Length == 0)
         {
-            areaDamageColliders = AreaDamageGO.GetComponents<BoxCollider2D>();
+            areaDamageColliders = AreaDamageGO.GetComponents<CircleCollider2D>();
         }
     }
 
@@ -67,11 +73,22 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
 
         //REMOVER ISSO DPS
         if (state == BossState.Normal)
-            renderer.color = Color.green;
+        {
+            anim.SetBool("Stunned", false);
+            lastRendererToogle = true;
+        }
         else if (state == BossState.Stunned)
-            renderer.color = Color.blue;
+        {
+            anim.SetBool("Stunned", true);
+            lastRendererToogle = true;
+        }
         else if (state == BossState.Recovery)
-            renderer.color = Color.red;
+        {
+            anim.SetBool("Stunned", true);
+            lastRendererToogle = !lastRendererToogle;
+        }
+
+        ToogleRenderers(lastRendererToogle);
 
         if (bossStunTimer > 0)
         {
@@ -99,6 +116,12 @@ public class EnemyBoss : MonoBehaviour, IUpdatable, IInterctable, IDamagable
         else
         {
             cachedTf.position = Vector2.MoveTowards(cachedTf.position, nextLocation, currentSpeed * Time.deltaTime);
+        }
+
+        void ToogleRenderers(bool toogle)
+        {
+            for (int i = 0; i < Renderers.Length; i++)
+                Renderers[i].enabled = toogle;
         }
     }
 

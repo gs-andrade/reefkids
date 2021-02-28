@@ -60,7 +60,7 @@ public class GameplayController : MonoBehaviour
 
         lifeCurrent = 5;
 
-        ActiveDialogue();
+       ActiveDialogue();
 
         Time.timeScale = 1;
     }
